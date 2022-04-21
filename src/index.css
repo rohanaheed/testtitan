@@ -10,3 +10,8 @@
   box-sizing: border-box;
 }
 
+.card:hover{
+    transition: all 0.2s ease 0s;
+    box-shadow: rgb(4 17 29 / 25%) 0px 0px 8px 0px;
+    background-color: rgb(251, 253, 255);
+}
