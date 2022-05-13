@@ -10,6 +10,31 @@
   box-sizing: border-box;
 }
 
+input[type="text"], textarea{
+  border-radius: 10px;
+  border: 1px solid rgb(229, 232, 235);
+}
+
+input[type="text"]::placeholder, textarea::placeholder{
+  color: #99a0a7 !important;
+}
+
+input:focus, 
+input:focus-visible,
+textarea:focus, 
+textarea:focus-visible{
+  outline: none;
+  border-width: 0.1px !important;
+  border-color: rgb(118 118 118) !important;
+  box-shadow: rgb(78 78 78 / 30%) 0px 0px 0px 2pt !important;
+}
+
+.ReactModal__Overlay{
+  display: grid;
+  place-items: center;
+  background-color: rgb(27 27 27 / 75%) !important;
+}
+
 .card:hover{
     transition: all 0.2s ease 0s;
     box-shadow: rgb(4 17 29 / 25%) 0px 0px 8px 0px;
