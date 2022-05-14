@@ -2,7 +2,8 @@
 const Header = () => {
 
     return (
-        <section className="container relative mx-auto px-24 my-99">
+        <div id="who-we-are">
+        <section className="container relative mx-auto px-24 py-99">
             <div className="items-center flex flex-wrap">
                 <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
                     <div className="pr-12">
@@ -13,6 +14,7 @@ const Header = () => {
                 </div>
             </div>
         </section>
+        </div>
     )
 }
 

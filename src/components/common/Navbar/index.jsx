@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {Link} from 'react-scroll'
-import AuthModal from '../AuthModal'
-import ContactModal from '../ContactModal'
+import AuthModal from '../../AuthModal'
+import ContactModal from '../../ContactModal'
 import { IoClose } from "react-icons/io5";
 import { BsCartFill } from "react-icons/bs";
 import { FaUserCircle } from "react-icons/fa";
@@ -15,7 +15,7 @@ const Navbar = () => {
 
     return (
         <nav
-            className="bg-black top-0 sticky z-10 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg"
+            className="bg-black top-0 relative z-10 w-full flex flex-wrap items-center justify-between px-2 py-0 navbar-expand-lg"
         >
         
             <div
@@ -33,9 +33,9 @@ const Navbar = () => {
                     </button>
                 </div>
                 <div
-                    className={`${open ? 'flex' : 'hidden'} lg:flex flex-grow items-center justify-between bg-white py-22 px-18 lg:p12 lg:bg-transparent lg:shadow-none`}
+                    className={`${open ? 'flex' : 'hidden'} lg:flex flex-grow items-center justify-between bg-white py-16 px-18 lg:p12 lg:bg-transparent lg:shadow-none`}
                 >
-                    <h4 className="cursor-pointer font-medium text-white">Art gallery</h4>  
+                    <h4 className="cursor-pointer text-26 font-medium text-white logo">art gallery</h4>  
                     <ul className="flex flex-col lg:flex-row list-none mr-auto lg:mr-0 gap-2 lg:gap-6">
                         <li className="flex items-center">
                             <span

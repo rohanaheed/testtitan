@@ -7,7 +7,12 @@
 *::before{
   margin: 0;
   padding: 0;
+  font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
+}
+
+.logo{
+  font-family: 'Dancing Script', cursive;
 }
 
 input[type="text"], textarea{
@@ -27,6 +32,10 @@ textarea:focus-visible{
   border-width: 0.1px !important;
   border-color: rgb(118 118 118) !important;
   box-shadow: rgb(78 78 78 / 30%) 0px 0px 0px 2pt !important;
+}
+
+.white-shadow{
+  box-shadow: rgb(255 255 255 / 30%) 0px 0px 0px 2pt !important;
 }
 
 .ReactModal__Overlay{
