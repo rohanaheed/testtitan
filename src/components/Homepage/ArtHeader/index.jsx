@@ -11,11 +11,11 @@ const ArtHeader = () => {
     const [isConnectWalletModalOpen, setIsConnectWalletModalOpen] = useState(false);
 
     return (
-        <main className="bg-gray-900 mb-99">
+        <main className="bg-gray-900 mb-99 h-header">
                     <div className='flex flex-col lg:flex-row items-center'>
-                    <div className='w-full h-full bg-red-500' style={{backgroundImage: 'url(https://picsum.photos/600/500/?random)'}}>
+                    <div className='w-full h-header bg-red-500 bg-cover bg-top bg-no-repeat' style={{backgroundImage: 'url(/assets/bg-artist.jpg)'}}>
                     </div>
-                        <div className='w-full ml-auto mr-auto px-99 py-99' style={{backgroundImage: 'url(/assets/bg-header.png)'}}>
+                        <div className='w-full flex flex-col justify-center h-header ml-auto mr-auto px-99 py-99' style={{backgroundImage: 'url(/assets/bg-header.png)'}}>
                             <h3 className="text-3xl font-semibold text-white">Mona Lisa</h3>
                             <h5 className="text-md font-normal text-white pb-20 mb-12 border-b border-gray-500">Painting by Leonardo da Vinci</h5>
                             <h5 className="text-md font-light text-white">Price</h5>

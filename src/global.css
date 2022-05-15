@@ -51,6 +51,14 @@ textarea:focus-visible{
     background-color: rgb(251, 253, 255);
 }
 
+.h-header{
+  height: calc(100vh - 75px);
+}
+
+.bg-filter{
+  background-color: #565656;
+}
+
 .slider {
   position: relative;
   width: 200px;

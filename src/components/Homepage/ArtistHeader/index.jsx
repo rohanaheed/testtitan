@@ -4,11 +4,11 @@ import { AiFillInstagram } from "react-icons/ai";
 const Header = () => {
 
     return (
-        <main className="bg-gray-900 mb-99">
-                    <div className='flex flex-col lg:flex-row items-center'>
-                    <div className='w-full h-full bg-red-500' style={{backgroundImage: 'url(https://picsum.photos/600/500/?random)'}}>
+        <main className="bg-gray-900 mb-99 h-header">
+                    <div className='flex flex-col h-header lg:flex-row items-center'>
+                    <div className='w-full h-header bg-red-500 bg-cover bg-top bg-no-repeat' style={{backgroundImage: 'url(/assets/bg-artist.jpg)'}}>
                     </div>
-                        <div className='w-full ml-auto mr-auto px-99 py-99' style={{backgroundImage: 'url(/assets/bg-header.png)'}}>
+                        <div className='w-full ml-auto mr-auto h-header flex flex-col justify-center px-99 py-99' style={{backgroundImage: 'url(/assets/bg-header.png)'}}>
                             <h3 className="text-3xl font-semibold text-white">THREE MUSKETEERS</h3>
                             <h5 className="text-md font-normal text-white pb-20 mb-12 border-b border-gray-500">Sydney NSW, Australia</h5>
                             <h3 className="text-3xl font-semibold text-white">Biography</h3>
