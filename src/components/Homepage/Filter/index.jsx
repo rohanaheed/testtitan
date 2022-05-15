@@ -1,3 +1,4 @@
+import MultiRangeSlider from "../MultiRangeSlider";
 
 const Filter = () => {
 
@@ -37,6 +38,15 @@ const Filter = () => {
              <label for="css">digital creation</label> <br/>
              </div>
           </div>
+
+
+          <div className="border-t mt-20 border-gray-600">
+          <MultiRangeSlider
+            min={0}
+            max={1000}
+            onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
+          />
+            </div>
         </div>
     )
 }
