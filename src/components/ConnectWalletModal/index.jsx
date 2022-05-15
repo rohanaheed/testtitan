@@ -10,8 +10,8 @@ const ConnectWalletModal = ({isOpen, setIsOpen}) => {
             <div class="text-sm text-gray-500 px-28 border-gray-200 mb-79">
             <ul class="rounded-8 card-shadow bg-gray-50 w-full mx-auto my-60 border">
             <li class="wallet-item flex items-center justify-between px-26 py-20 border-b cursor-pointer"><div class=" flex justify-between text-gray-700 items-center gap-4 font-normal text-16 cursor-pointer transition-all"><img class="w-24" src="/assets/metamask.webp" alt="" />MetaMask</div><div class="bg-red-500 text-white px-16 py-3 rounded-20">Popular</div></li>
-            <li class="wallet-item flex items-center justify-between px-26 py-20 border-b cursor-pointer"><div class=" flex justify-between text-gray-700 items-center gap-4 font-normal text-16 cursor-pointer transition-all"><img class="w-24" src="/assets/metamask.webp" alt="" />MetaMask</div><div class="bg-red-500 text-white px-16 py-3 rounded-20">Popular</div></li>
-            <li class="wallet-item flex items-center justify-between px-26 py-20 border-b cursor-pointer"><div class=" flex justify-between text-gray-700 items-center gap-4 font-normal text-16 cursor-pointer transition-all"><img class="w-24" src="/assets/metamask.webp" alt="" />MetaMask</div><div class="bg-red-500 text-white px-16 py-3 rounded-20">Popular</div></li>
+            <li class="wallet-item flex items-center justify-between px-26 py-22 border-b cursor-pointer"><div class=" flex justify-between text-gray-700 items-center gap-4 font-normal text-16 cursor-pointer transition-all"><img class="w-24" src="/assets/metamask.webp" alt="" />Coinbase</div></li>
+            <li class="wallet-item flex items-center justify-between px-26 py-22 border-b cursor-pointer"><div class=" flex justify-between text-gray-700 items-center gap-4 font-normal text-16 cursor-pointer transition-all"><img class="w-24" src="/assets/metamask.webp" alt="" />Phantom</div></li>
             </ul>
             </div>
         <div className="bg-gray-900 py-18 px-28 mt-44 cursor-pointer">
