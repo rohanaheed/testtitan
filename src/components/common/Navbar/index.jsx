@@ -91,11 +91,9 @@ const Navbar = () => {
                                         <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Antiques</span></li>
                                         <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Mood</span></li>
                                         <div className='dropdown-img-container'>
-                                        <div className='bg-black h-28'></div>
-                                        <div className='dropdown-img'>
-
-                                        </div>
-                                        {/* <img alt="Placeholder" className="block h-auto w-full" src="https://picsum.photos/600/400/?random" /> */}
+                                            <div className='bg-black h-28'></div>
+                                            <div className='dropdown-img'>
+                                            </div>
                                         </div>
                                     </ul>
                                 </div>
