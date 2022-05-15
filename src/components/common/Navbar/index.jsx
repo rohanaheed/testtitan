@@ -42,56 +42,63 @@ const Navbar = () => {
                         <ul className="flex flex-col lg:flex-row list-none mr-auto lg:mr-0 gap-2 lg:gap-6">
                             <li className="flex items-center">
 
-                                    <div class="dropdown inline-block relative">
-                                        <span
-                                            className="lg:text-white cursor-pointer lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                                        >
-                                            Discover
-                                        </span>
-                                        <ul class="dropdown-menu absolute hidden pb-14 z-10">
-                                            <div className='bg-black h-28'></div>
-                                            <li class=""><span class="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Master arts</span></li>
-                                            <li class=""><span class="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Contemporary</span></li>
-                                            <li class=""><span class="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Antiques</span></li>
-                                            <li class=""><span class="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Precious gems</span></li>
-                                            <li class=""><span class="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Music pieces</span></li>
-                                        </ul>
-                                    </div>
+                                <div className="dropdown inline-block relative">
+                                    <span
+                                        className="lg:text-white cursor-pointer lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                                    >
+                                        Discover
+                                    </span>
+                                    <ul className="dropdown-menu absolute hidden pb-14 z-10">
+                                        <div className='bg-black h-28'></div>
+                                        <ScrollLink to="masters-art" spy={true} smooth={true}> <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Master arts</span></li> </ScrollLink>
+                                        <ScrollLink to="contemporary-art" spy={true} smooth={true}> <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Contemporary</span></li> </ScrollLink>
+                                        <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Antiques</span></li>
+                                        <ScrollLink to="precious-art" spy={true} smooth={true}> <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Precious gems</span></li> </ScrollLink>
+                                        <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Music pieces</span></li>
+                                    </ul>
+                                </div>
 
                             </li>
                             <li className="flex items-center">
-                            <div class="dropdown inline-block relative">
-                                        <span
-                                            className="lg:text-white cursor-pointer lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                                        >
-                                            Artists
-                                        </span>
-                                        <ul class="dropdown-menu absolute hidden pb-18 z-10">
-                                            <div className='bg-black h-28'></div>
-                                            <li class=""><span class="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Alex Reinhart</span></li>
-                                            <li class=""><span class="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Anne Lefève</span></li>
-                                            <li class=""><span class="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Chris Nash</span></li>
-                                            <li class=""><span class="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Lucy Esteban</span></li>
-                                            <li class=""><span class="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Pablo Alvez</span></li>
-                                        </ul>
-                                    </div>
+                                <div className="dropdown inline-block relative">
+                                    <span
+                                        className="lg:text-white cursor-pointer lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                                    >
+                                        Artists
+                                    </span>
+                                    <ul className="dropdown-menu absolute hidden pb-18 z-10">
+                                        <div className='bg-black h-28'></div>
+                                        <Link to="/artist"> <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Alex Reinhart</span></li> </Link>
+                                        <Link to="/artist"> <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Anne Lefève</span></li> </Link>
+                                        <Link to="/artist"> <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Chris Nash</span></li> </Link>
+                                        <Link to="/artist"> <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Lucy Esteban</span></li> </Link>
+                                        <Link to="/artist"> <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Pablo Alvez</span></li> </Link>
+                                    </ul>
+                                </div>
                             </li>
                             <li className="flex items-center">
-                            <div class="dropdown inline-block relative">
-                                        <span
-                                            className="lg:text-white cursor-pointer lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                                        >
-                                            Collections
-                                        </span>
-                                        <ul class="dropdown-menu absolute hidden pb-18 z-10">
-                                            <div className='bg-black h-28'></div>
-                                            <li class=""><span class="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Art movements</span></li>
-                                            <li class=""><span class="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Colors</span></li>
-                                            <li class=""><span class="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Curator's pick</span></li>
-                                            <li class=""><span class="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Antiques</span></li>
-                                            <li class=""><span class="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Mood</span></li>
-                                        </ul>
-                                    </div>
+                                <div className="dropdown inline-block relative">
+                                    <span
+                                        className="lg:text-white cursor-pointer lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                                    >
+                                        Collections
+                                    </span>
+                                    <ul className="dropdown-menu absolute hidden pb-18 z-10">
+                                        <div className='bg-black h-28'></div>
+                                        <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Art movements</span></li>
+                                        <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Colors</span></li>
+                                        <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Curator's pick</span></li>
+                                        <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Antiques</span></li>
+                                        <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Mood</span></li>
+                                        <div className='dropdown-img-container'>
+                                        <div className='bg-black h-28'></div>
+                                        <div className='dropdown-img'>
+
+                                        </div>
+                                        {/* <img alt="Placeholder" className="block h-auto w-full" src="https://picsum.photos/600/400/?random" /> */}
+                                        </div>
+                                    </ul>
+                                </div>
                             </li>
                             <li className="flex items-center">
                                 <a

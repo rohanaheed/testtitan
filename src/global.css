@@ -39,7 +39,7 @@ textarea:focus-visible{
 }
 
 .dropdown-menu{
-  background: linear-gradient(1turn,#000,rgba(93,93,93,.6) 100%,hsla(0,0%,45%,.4) 100%);
+  background: linear-gradient(360deg, rgba(84,84,84,.9) 41%, rgba(31,31,31,1) 63%, rgba(0,0,0,1) 100%);
 }
 
 .white-shadow{
@@ -170,4 +170,29 @@ textarea:focus-visible{
   margin-top: 4px;
   pointer-events: all;
   position: relative;
+}
+
+.dropdown-menu li:hover ~ .dropdown-img-container{
+  opacity: 1;
+}
+
+.dropdown-img-container{
+  transition: 0.3s ease-in;
+  opacity: 0;
+  background: red;
+  width: 200px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -199px;
+}
+
+.dropdown-img{
+  width: 100%;
+  height: calc(100% - 28px);
+  background: green;
+  background-image: url('https://picsum.photos/600/400/?random');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
