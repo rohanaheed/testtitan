@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import {Link} from 'react-scroll'
+import {Link} from 'react-router-dom'
+import {Link as ScrollLink} from 'react-scroll'
 import AuthModal from '../../AuthModal'
 import ContactModal from '../../ContactModal'
 import { IoClose } from "react-icons/io5";
@@ -8,6 +9,7 @@ import { FaUserCircle } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = () => {
+
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
     const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
@@ -25,7 +27,7 @@ const Navbar = () => {
                     className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
                 >
                     <button
-                        className="cursor-pointer text-white text-xl ml-12 leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+                        className="cursor-pointer text-white text-xl ml-12 leading-none px-3 py-12 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
                         type="button"
                         onClick={() => setOpen(!open)}
                     >
@@ -35,24 +37,25 @@ const Navbar = () => {
                 <div
                     className={`${open ? 'flex' : 'hidden'} lg:flex flex-grow items-center justify-between bg-white py-16 px-18 lg:p12 lg:bg-transparent lg:shadow-none`}
                 >
-                    <h4 className="cursor-pointer text-26 font-medium text-white logo">art gallery</h4>  
+                    <section className="flex items-center gap-16">
+                   <Link to="/"> <h4 className="cursor-pointer text-26 font-medium text-white mb-4 logo">art gallery</h4>  </Link>
                     <ul className="flex flex-col lg:flex-row list-none mr-auto lg:mr-0 gap-2 lg:gap-6">
                         <li className="flex items-center">
                             <span
                                 className="lg:text-white cursor-pointer lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                             >
-                                <Link to="masters-art" spy={true} smooth={true}>
+                                <ScrollLink to="masters-art" spy={true} smooth={true}>
                                     Masters Arts
-                                </Link>
+                                </ScrollLink>
                                     </span>
                         </li>
                         <li className="flex items-center">
                             <span
                                 className="lg:text-white cursor-pointer lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                             >
-                             <Link to="contemporary-art" spy={true} smooth={true}>
+                             <ScrollLink to="contemporary-art" spy={true} smooth={true}>
                                 Contemporary Arts
-                             </Link>
+                             </ScrollLink>
                                 </span
                             >
                         </li>
@@ -60,9 +63,9 @@ const Navbar = () => {
                             <span
                                 className="lg:text-white cursor-pointer lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
                             >
-                             <Link to="precious-art" spy={true} smooth={true}>
+                             <ScrollLink to="precious-art" spy={true} smooth={true}>
                                 Precious Antiques
-                                </Link></span
+                                </ScrollLink></span
                             >
                         </li>
                         <li className="flex items-center">
@@ -81,6 +84,7 @@ const Navbar = () => {
                             <ContactModal isOpen={isContactModalOpen} setIsOpen={setIsContactModalOpen} />
                         </li>
                     </ul>
+                    </section>
                     <div className="flex items-center gap-5">
                         <FaUserCircle onClick={() => setIsAuthModalOpen(!isAuthModalOpen)} className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
                             <AuthModal isOpen={isAuthModalOpen} setIsOpen={setIsAuthModalOpen} />

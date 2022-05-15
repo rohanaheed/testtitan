@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 
 const BusinessDetail = () => {
 
@@ -22,7 +23,7 @@ const BusinessDetail = () => {
                                 <p className="mt-4 text-lg leading-relaxed text-gray-300">
                                     The worlds’ most famous oil paintings under one roof. Timeless in their beauty and execution, these artworks have transcended time and artistic concepts to create history. These paintings are all time classics and familiar to people across generations and cultures. They represent the greatest works of art ever created by the great Masters and will continue to stay in the minds of art lovers for many centuries to come.
                                 </p>
-                                <button className='my-24 text-lg leading-relaxed text-gray-100 transition-all hover:text-gray-500'>Discover</button>
+                                <Link to="/explore"> <button className='my-24 text-lg leading-relaxed text-gray-100 transition-all hover:text-gray-500'>Discover</button> </Link>
                             </div>
                         </div>
                         <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
@@ -65,7 +66,7 @@ const BusinessDetail = () => {
                                     Feast your eyes on a wealth of sculptures and paintings filled with splendours of colours.
                                     These are contemporary art pieces that shape our diverse, global, and rapidly changing world
                                 </p>
-                                <button className='my-24 text-lg leading-relaxed text-gray-600 transition-all hover:text-gray-800'>Discover</button>
+                                <Link to="/explore"> <button className='my-24 text-lg leading-relaxed text-gray-600 transition-all hover:text-gray-800'>Discover</button> </Link>
                             </div>
                         </div>
                     </div>
@@ -92,7 +93,7 @@ const BusinessDetail = () => {
                                 <h3 className="text-3xl font-semibold">Precious Antiques</h3>
                                 <p className="mt-4 text-lg leading-relaxed text-gray-600">
                                     Lay your hands on nearly 1,000 works that span continents and epochs. These pieces were specially selected from thousands of other works. Behind every piece comes a beautiful story and a high historical value. These precious and intricate details together with the loving presentation of these antiques will capture and hold your attention.                                </p>
-                                <button className='my-24 text-lg leading-relaxed text-gray-600 transition-all hover:text-gray-800'>Discover</button>
+                               <Link to="/explore"> <button className='my-24 text-lg leading-relaxed text-gray-600 transition-all hover:text-gray-800'>Discover</button> </Link>
                             </div>
                         </div>
                         <div className="w-full md:w-4/12 ml-auto mr-auto px-4">

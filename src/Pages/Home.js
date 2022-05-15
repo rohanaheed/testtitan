@@ -1,16 +1,12 @@
 
-import Navbar from "../components/common/Navbar";
 import Header from "../components/Homepage/Header";
 import AboutUs from '../components/Homepage/AboutUs'
 import BusinessDetail from "../components/Homepage/BusinessDetail";
 import GalleryContainer from "../components/common/GalleryContainer";
-import Footer from "../components/common/Footer";
 
 function HomePage() {
   return (
     <>
-
-      <Navbar />
       <Header />
       <AboutUs />
       <BusinessDetail />
@@ -22,8 +18,6 @@ function HomePage() {
         </p>
       </div>
       </GalleryContainer>
-      <Footer />
-
     </>
   );
 }

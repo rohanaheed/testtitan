@@ -1,8 +1,10 @@
+import {Link} from 'react-router-dom'
+
 const GalleryItem = () => {
 
     return (
-
         <div className="cursor-pointer my-18 px-14 w-full md:w-1/2 lg:my-12 lg:px-14 lg:w-1/3">
+            <Link to="/art">        
             <article className="card overflow-hidden rounded-lg shadow-lg">
                 <a href="#">
                     <img alt="Placeholder" className="block h-auto w-full" src="https://picsum.photos/600/400/?random" />
@@ -12,8 +14,8 @@ const GalleryItem = () => {
                     <p className="text-lg leading-relaxed text-gray-500 pl-4 font-bold"> $ 25, 000 </p>
                 </footer>
             </article>
+        </Link>
         </div>
-
     )
 }
 

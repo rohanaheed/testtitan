@@ -15,7 +15,7 @@ const ContactModal = ({isOpen, setIsOpen}) => {
         </div>
 
         <div className="bg-gray-900 py-18 px-28 mt-24 cursor-pointer">
-            <p className="text-gray-200 font-medium text-center"> Submit </p>
+            <p className="text-gray-200 font-medium text-center"> Submit message </p>
         </div>
     </Modal>
     )
