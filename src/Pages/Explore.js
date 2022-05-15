@@ -1,17 +1,22 @@
 
 import Header from "../components/Homepage/Header";
+import Filter from "../components/Homepage/Filter";
+import Pagination from "../components/common/Pagination";
 import GalleryContainer from "../components/common/GalleryContainer";
 
 function Explore() {
   return (
     <>
-
+  <main className="flex">
+  <section className="w-384">
+    <Filter />
+  </section>
+    <section className="w-full">
       <GalleryContainer>
-      <div>
-        <h3 className="text-xl font-semibold">Explore Collections </h3>
-      </div>
       </GalleryContainer>
-
+      <Pagination />
+    </section>
+    </main> 
     </>
   );
 }
