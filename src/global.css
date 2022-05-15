@@ -34,6 +34,14 @@ textarea:focus-visible{
   box-shadow: rgb(78 78 78 / 30%) 0px 0px 0px 2pt !important;
 }
 
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu{
+  background: linear-gradient(1turn,#000,rgba(93,93,93,.6) 100%,hsla(0,0%,45%,.4) 100%);
+}
+
 .white-shadow{
   box-shadow: rgb(255 255 255 / 30%) 0px 0px 0px 2pt !important;
 }

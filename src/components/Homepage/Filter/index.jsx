@@ -30,8 +30,8 @@ const Filter = () => {
              <label for="masters">painting</label> <br/>
              <input className="mr-12" type="radio" id="photography" name="fav_languagse" value="CSS" />
              <label for="css">photography</label> <br/>
-             <input className="mr-12" type="radio" id="mixed-media" name="fav_languages" value="JavaScript" />
-             <label for="javascript">mixed-media</label> <br/>
+             <input className="mr-12" type="radio" id="mixed-media" name="fav_languagse" value="mixed-media" />
+             <label for="mixed-media">mixed-media</label> <br/>
              <input className="mr-12" type="radio" id="drawing" name="fav_languagse" value="precious-gems" />
              <label for="masters">drawing</label> <br/>
              <input className="mr-12" type="radio" id="digital-creation" name="fav_languagse" value="digital-creation" />
