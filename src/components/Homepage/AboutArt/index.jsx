@@ -15,7 +15,7 @@ const AboutArt = () => {
                             <div className="md:pr-12">
                             <div className="my-18"> 
                                 <div
-                                    className="text-pink-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-pink-300"
+                                    className="p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-primary"
                                 >
                                     <i className="fas fa-rocket text-xl"></i>
                                 </div>
@@ -26,14 +26,14 @@ const AboutArt = () => {
 
                                 <div className="my-18"> 
                                 <div
-                                    className="text-pink-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-pink-300"
+                                    className="p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-primary"
                                 >
                                     <i className="fas fa-rocket text-xl"></i>
                                 </div>
-                                <h3 className="text-3xl font-semibold">About <span className="text-blue-600">THREE MUSKETEERS</span></h3>
+                                <h3 className="text-3xl font-semibold">About <span className="text-primary">Leonardo da Vinci</span></h3>
                                 <p className="mt-4 text-lg leading-relaxed text-gray-600">
                                     Lay your hands on nearly 1,000 works that span continents and epochs. These pieces were specially selected from thousands of other works. Behind every piece comes a beautiful story and a high historical value. These precious and intricate details together with the loving presentation of these antiques will capture and hold your attention.                                </p>
-                               <Link to="/artist"> <button className='my-24 text-lg leading-relaxed text-gray-600 transition-all hover:text-gray-800'>Read more</button> </Link>
+                               <Link to="/artist"> <button className='my-24 link-btn text-lg leading-relaxed text-gray-600 transition-all hover:text-primary'>Read more</button> </Link>
                                 </div>
                             </div>
                             

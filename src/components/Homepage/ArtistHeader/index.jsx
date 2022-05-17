@@ -9,7 +9,7 @@ const Header = () => {
                     <div className='w-full h-header bg-gray-900 bg-cover bg-top bg-no-repeat' style={{backgroundImage: 'url(/assets/bg-artist.jpg)'}}>
                     </div>
                         <div className='w-full ml-auto mr-auto h-header flex flex-col justify-center px-24 py-42 lg:p-99' style={{backgroundImage: 'url(/assets/bg-header.png)'}}>
-                            <h3 className="text-3xl font-semibold text-white">THREE MUSKETEERS</h3>
+                            <h3 className="text-3xl font-semibold text-primary">THREE MUSKETEERS</h3>
                             <h5 className="text-md font-normal text-white pb-20 mb-12 border-b border-gray-500">Sydney NSW, Australia</h5>
                             <h3 className="text-3xl font-semibold text-white">Biography</h3>
                             <p className="mt-4 text-lg text-gray-300 pb-20 mb-12 border-b border-gray-500">

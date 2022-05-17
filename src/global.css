@@ -196,3 +196,35 @@ textarea:focus-visible{
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+nav .links-container > li span,
+.link-btn{
+  position: relative;
+}
+
+nav .links-container > li span::before,
+.link-btn::before{
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 100px;
+  background: #CEC875;
+  opacity: 0;
+}
+
+nav .links-container > li span:hover::before,
+.link-btn:hover::before {
+  animation: link-animation 0.4s linear;
+}
+
+@keyframes link-animation {
+  0%   {opacity: 0;  right: 10px;}
+  55%  {opacity: 0.8}
+  99% {opacity: 1;  right: -6px;}
+  100% {opacity: 1;  right: 10px;}
+
+}

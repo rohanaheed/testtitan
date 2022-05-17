@@ -17,9 +17,9 @@ const ArtHeader = () => {
                     </div>
                         <div className='w-full flex flex-col justify-center h-header ml-auto mr-auto px-24 py-42 lg:p-99' style={{backgroundImage: 'url(/assets/bg-header.png)'}}>
                             <h3 className="text-3xl font-semibold text-white">Mona Lisa</h3>
-                            <h5 className="text-md font-normal text-white pb-20 mb-12 border-b border-gray-500">Painting by Leonardo da Vinci</h5>
+                            <h5 className="text-md font-normal text-white pb-20 mb-12 border-b border-gray-500">Painting by <span className='text-primary'> Leonardo da Vinci </span></h5>
                             <h5 className="text-md font-light text-white">Price</h5>
-                            <h3 className="text-3xl font-semibold text-white pb-20 mb-12 border-b border-gray-500">$10,000</h3>
+                            <h3 className="text-3xl font-semibold text-primary pb-20 mb-12 border-b border-gray-500">$10,000</h3>
                             <h3 className="text-3xl font-semibold text-white">Description</h3>
                             <p className="mt-4 text-lg text-gray-300 pb-20 mb-12 border-b border-gray-500">
                             Leonardo was born an illegitimate son of a Florentine noble and peasant woman; he grew up in Vinci, Italy. In his formative years, he developed a love of nature and from an early age began to display his remarkable academic and artistic talents. </p>

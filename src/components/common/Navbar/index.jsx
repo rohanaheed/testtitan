@@ -39,22 +39,28 @@ const Navbar = () => {
                 >
                     <section className="flex items-center gap-16">
                         <Link to="/"> <h4 className="cursor-pointer text-26 font-medium text-white mb-4 logo">art gallery</h4>  </Link>
-                        <ul className="flex flex-col lg:flex-row list-none mr-auto lg:mr-0 gap-2 lg:gap-6">
+                        <ul className="links-container flex flex-col lg:flex-row list-none mr-auto lg:mr-0 gap-2 lg:gap-6">
                             <li className="flex items-center">
 
                                 <div className="dropdown inline-block relative">
                                     <span
-                                        className="lg:text-white cursor-pointer lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                                        className="lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
                                     >
                                         Discover
                                     </span>
-                                    <ul className="dropdown-menu absolute hidden pb-14 z-10">
+                                    <ul className="dropdown-menu absolute hidden pb-14 px-26 z-10">
                                         <div className='bg-black h-28'></div>
-                                        <ScrollLink to="masters-art" spy={true} smooth={true}> <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Master arts</span></li> </ScrollLink>
-                                        <ScrollLink to="contemporary-art" spy={true} smooth={true}> <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Contemporary</span></li> </ScrollLink>
-                                        <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Antiques</span></li>
-                                        <ScrollLink to="precious-art" spy={true} smooth={true}> <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Precious gems</span></li> </ScrollLink>
-                                        <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Music pieces</span></li>
+                                        <ScrollLink to="masters-art" spy={true} smooth={true}>
+                                            <li ><span className="py-6 inline-block px-6 whitespace-nowrap text-gray-200 hover:text-primary cursor-pointer font-light">Master arts</span></li>
+                                        </ScrollLink>
+                                        <ScrollLink to="contemporary-art" spy={true} smooth={true}>
+                                            <li ><span className="py-6 inline-block px-6 whitespace-nowrap text-gray-200 hover:text-primary cursor-pointer font-light">Contemporary</span></li>
+                                        </ScrollLink>
+                                        <li ><span className="py-6 inline-block px-6 whitespace-nowrap text-gray-200 hover:text-primary cursor-pointer font-light">Antiques</span></li>
+                                        <ScrollLink to="precious-art" spy={true} smooth={true}>
+                                            <li ><span className="py-6 inline-block px-6 whitespace-nowrap text-gray-200 hover:text-primary cursor-pointer font-light">Precious gems</span></li>
+                                        </ScrollLink>
+                                        <li ><span className="py-6 inline-block px-6 whitespace-nowrap text-gray-200 hover:text-primary cursor-pointer font-light">Music pieces</span></li>
                                     </ul>
                                 </div>
 
@@ -62,34 +68,34 @@ const Navbar = () => {
                             <li className="flex items-center">
                                 <div className="dropdown inline-block relative">
                                     <span
-                                        className="lg:text-white cursor-pointer lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                                        className="lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
                                     >
                                         Artists
                                     </span>
-                                    <ul className="dropdown-menu absolute hidden pb-18 z-10">
+                                    <ul className="dropdown-menu absolute hidden px-26 pb-18 z-10">
                                         <div className='bg-black h-28'></div>
-                                        <Link to="/artist"> <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Alex Reinhart</span></li> </Link>
-                                        <Link to="/artist"> <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Anne Lefève</span></li> </Link>
-                                        <Link to="/artist"> <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Chris Nash</span></li> </Link>
-                                        <Link to="/artist"> <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Lucy Esteban</span></li> </Link>
-                                        <Link to="/artist"> <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Pablo Alvez</span></li> </Link>
+                                        <Link to="/artist"> <li ><span className="py-6 inline-block px-6 hover:text-primary whitespace-nowrap text-gray-200 cursor-pointer font-light">Alex Reinhart</span></li> </Link>
+                                        <Link to="/artist"> <li ><span className="py-6 inline-block px-6 hover:text-primary whitespace-nowrap text-gray-200 cursor-pointer font-light">Anne Lefève</span></li> </Link>
+                                        <Link to="/artist"> <li ><span className="py-6 inline-block px-6 hover:text-primary whitespace-nowrap text-gray-200 cursor-pointer font-light">Chris Nash</span></li> </Link>
+                                        <Link to="/artist"> <li ><span className="py-6 inline-block px-6 hover:text-primary whitespace-nowrap text-gray-200 cursor-pointer font-light">Lucy Esteban</span></li> </Link>
+                                        <Link to="/artist"> <li ><span className="py-6 inline-block px-6 hover:text-primary whitespace-nowrap text-gray-200 cursor-pointer font-light">Pablo Alvez</span></li> </Link>
                                     </ul>
                                 </div>
                             </li>
                             <li className="flex items-center">
                                 <div className="dropdown inline-block relative">
                                     <span
-                                        className="lg:text-white cursor-pointer lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                                        className="lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
                                     >
                                         Collections
                                     </span>
-                                    <ul className="dropdown-menu absolute hidden pb-18 z-10">
+                                    <ul className="dropdown-menu absolute hidden px-26 pb-18 z-10">
                                         <div className='bg-black h-28'></div>
-                                        <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Art movements</span></li>
-                                        <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Colors</span></li>
-                                        <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Curator's pick</span></li>
-                                        <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Antiques</span></li>
-                                        <li ><span className="py-6 block px-26 whitespace-nowrap text-gray-200 cursor-pointer font-light">Mood</span></li>
+                                        <li ><span className="py-6 inline-block px-6 whitespace-nowrap hover:text-primary text-gray-200 cursor-pointer font-light">Art movements</span></li>
+                                        <li ><span className="py-6 inline-block px-6 whitespace-nowrap hover:text-primary text-gray-200 cursor-pointer font-light">Colors</span></li>
+                                        <li ><span className="py-6 inline-block px-6 whitespace-nowrap hover:text-primary text-gray-200 cursor-pointer font-light">Curator's pick</span></li>
+                                        <li ><span className="py-6 inline-block px-6 whitespace-nowrap hover:text-primary text-gray-200 cursor-pointer font-light">Antiques</span></li>
+                                        <li ><span className="py-6 inline-block px-6 whitespace-nowrap hover:text-primary text-gray-200 cursor-pointer font-light">Mood</span></li>
                                         <div className='dropdown-img-container'>
                                             <div className='bg-black h-28'></div>
                                             <div className='dropdown-img'>
@@ -99,24 +105,24 @@ const Navbar = () => {
                                 </div>
                             </li>
                             <li className="flex items-center">
-                                <a
-                                    className="lg:text-white cursor-pointer lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                                <span
+                                    className="lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
                                 >
-                                    NFT Project</a
-                                >
-                            </li>
-                            <li className="flex items-center">
-                                <a
-                                    className="lg:text-white cursor-pointer lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                                >
-                                    About</a
+                                    NFT Project</span
                                 >
                             </li>
                             <li className="flex items-center">
-                                <a onClick={() => setIsContactModalOpen(!isContactModalOpen)}
-                                    className="lg:text-white cursor-pointer lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                                <span
+                                    className="lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
                                 >
-                                    Contact</a
+                                    About</span
+                                >
+                            </li>
+                            <li className="flex items-center">
+                                <span onClick={() => setIsContactModalOpen(!isContactModalOpen)}
+                                    className="lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
+                                >
+                                    Contact</span
                                 >
                                 <ContactModal isOpen={isContactModalOpen} setIsOpen={setIsContactModalOpen} />
                             </li>

@@ -624,7 +624,7 @@ module.exports = {
         max: "max-content",
       },
       colors: {
-        primary: "var(--primary-color)",
+        primary: "#CEC875",
         "primary-dark": "#461584",
         "primary-light": "#F0E4FF",
         "secondary": "var(--secondary-color)",

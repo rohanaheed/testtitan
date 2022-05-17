@@ -9,7 +9,7 @@ function HomePage() {
       <ArtistHeader />
       <GalleryContainer>
       <div>
-        <h3 className="text-xl font-semibold">Explore more art from <span className="text-blue-600">THREE MUSKETEERS</span> </h3>
+        <h3 className="text-xl font-semibold">Explore more art from <span className="text-primary">Leonardo da Vinci</span> </h3>
       </div>
       </GalleryContainer>
 
