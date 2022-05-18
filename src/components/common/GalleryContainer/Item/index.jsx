@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 const GalleryItem = () => {
 
     return (
-        <div className="cursor-pointer my-18 px-14 w-full md:w-1/2 lg:my-12 lg:px-14 lg:w-1/3">
+        <div className="cursor-pointer my-18 w-full md:w-1/2 lg:my-12 lg:px-14 lg:w-1/3">
             <Link to="/art">        
             <article className="card overflow-hidden rounded-lg shadow-lg">
                 <a href="#">

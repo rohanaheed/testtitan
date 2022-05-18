@@ -16,8 +16,7 @@ const GalleryContainer = ({children}) => {
                 </div>
             </div>
 
-            <div class="flex flex-wrap -mx-1 lg:-mx-4"
-                style={{ paddingLeft: '6%', paddingRight: '6%' }}
+            <div class="flex flex-wrap -mx-1 lg:-mx-4 px--6"
             >
 
                 <GalleryItem />

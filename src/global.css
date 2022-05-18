@@ -59,14 +59,31 @@ textarea:focus-visible{
     background-color: rgb(251, 253, 255);
 }
 
+.px--6{
+  padding-left: 6%;
+  padding-right: 6%;
+}
+
+.h-header-img{
+  height: calc(100vh - 75px);
+}
+
 .h-header{
   height: calc(100vh - 75px);
 }
 
-@media(max-width: 620px){
+@media(max-width: 1024px){
   .h-header{
     height: auto;
   }
+  .h-header-img{
+    height: 500px;
+  }
+  .px--6{
+    padding-left: unset;
+    padding-right: unset;
+  }
+  
 }
 
 .bg-filter{

@@ -21,18 +21,23 @@ const Navbar = () => {
         >
 
             <div
-                className="container px-4 mx-auto flex flex-wrap items-center justify-between"
+                className="container px-24 mx-auto flex flex-wrap items-center justify-between"
             >
                 <div
-                    className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start"
+                    className="flex lg:hidden w-full relative justify-between lg:w-auto lg:static lg:justify-start"
                 >
                     <button
-                        className="cursor-pointer text-white text-xl ml-12 leading-none px-3 py-12 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+                        className="cursor-pointer text-white text-xl leading-none px-3 py-12 border border-solid border-transparent rounded bg-transparent outline-none focus:outline-none"
                         type="button"
                         onClick={() => setOpen(!open)}
                     >
                         {open ? <IoClose /> : <GiHamburgerMenu />}
                     </button>
+                    <div className="flex items-center gap-5">
+                        <FaUserCircle onClick={() => setIsAuthModalOpen(!isAuthModalOpen)} className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
+                        <AuthModal isOpen={isAuthModalOpen} setIsOpen={setIsAuthModalOpen} />
+                        <BsCartFill className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
+                    </div>
                 </div>
                 <div
                     className={`${open ? 'flex' : 'hidden'} lg:flex flex-grow items-center justify-between bg-white py-16 px-18 lg:p12 lg:bg-transparent lg:shadow-none`}
