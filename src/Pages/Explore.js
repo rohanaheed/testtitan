@@ -1,7 +1,7 @@
 
 import { useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
-import { AiTwotoneFilter } from "react-icons/ai";
+import { AiOutlineFilter } from "react-icons/ai";
 import Filter from "../components/Homepage/Filter";
 import Pagination from "../components/common/Pagination";
 import GalleryContainer from "../components/common/GalleryContainer";
@@ -20,7 +20,7 @@ function Explore() {
         </section>
         <section className="w-full">
           <section className="filter-btn lg:hidden flex items-center container mx-auto px-24 md:px-12 h-76">
-            <AiTwotoneFilter onClick={() => setToggle(!toggle)}  className="text-30 cursor-pointer text-white ml-auto" />
+            <AiOutlineFilter onClick={() => setToggle(!toggle)}  className="text-27 cursor-pointer text-white ml-auto" />
           </section>
           <GalleryContainer>
           </GalleryContainer>

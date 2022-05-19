@@ -4,9 +4,10 @@ import { Link as ScrollLink } from 'react-scroll'
 import AuthModal from '../../AuthModal'
 import ContactModal from '../../ContactModal'
 import { IoClose } from "react-icons/io5";
-import { BsCartFill } from "react-icons/bs";
+import { BsCartFill, BsCart } from "react-icons/bs";
+import { BiUserCircle } from "react-icons/bi";
 import { FaUserCircle } from "react-icons/fa";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { AiOutlineAlignRight } from "react-icons/ai";
 
 const Navbar = () => {
 
@@ -29,15 +30,15 @@ const Navbar = () => {
                     <Link to="/"> <h4 className="cursor-pointer text-26 font-medium text-white mb-4 logo block lg:hidden">art gallery</h4>  </Link>
 
                 <section className='flex items-center gap-2'>
-                        <FaUserCircle onClick={() => setIsAuthModalOpen(!isAuthModalOpen)} className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
+                        <BiUserCircle onClick={() => setIsAuthModalOpen(!isAuthModalOpen)} className="cursor-pointer ml-2 transition-all text-white hover:text-gray-300 text-28" />
                         <AuthModal isOpen={isAuthModalOpen} setIsOpen={setIsAuthModalOpen} />
-                        <BsCartFill className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
+                        <BsCart className="cursor-pointer transition-all text-white hover:text-gray-300 text-24 ml-2" />
                     <button
-                        className="cursor-pointer text-white text-xl leading-none px-3 py-12 border border-solid border-transparent rounded bg-transparent outline-none focus:outline-none"
+                        className="cursor-pointer text-white text-xl leading-none py-12 border border-solid border-transparent rounded bg-transparent outline-none focus:outline-none"
                         type="button"
                         onClick={() => setOpen(!open)}
                     >
-                        {open ? <IoClose /> : <GiHamburgerMenu className='text-25' />}
+                        {open ? <IoClose className='text-26' /> : <AiOutlineAlignRight className='text-25' />}
                     </button>
                 </section>
                 </div>
