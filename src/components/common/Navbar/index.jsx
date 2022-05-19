@@ -26,18 +26,20 @@ const Navbar = () => {
                 <div
                     className="flex lg:hidden w-full justify-between lg:w-auto lg:static lg:justify-start"
                 >
+                    <Link to="/"> <h4 className="cursor-pointer text-26 font-medium text-white mb-4 logo block lg:hidden">art gallery</h4>  </Link>
+
+                <section className='flex items-center gap-2'>
+                        <FaUserCircle onClick={() => setIsAuthModalOpen(!isAuthModalOpen)} className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
+                        <AuthModal isOpen={isAuthModalOpen} setIsOpen={setIsAuthModalOpen} />
+                        <BsCartFill className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
                     <button
                         className="cursor-pointer text-white text-xl leading-none px-3 py-12 border border-solid border-transparent rounded bg-transparent outline-none focus:outline-none"
                         type="button"
                         onClick={() => setOpen(!open)}
                     >
-                        {open ? <IoClose /> : <GiHamburgerMenu />}
+                        {open ? <IoClose /> : <GiHamburgerMenu className='text-25' />}
                     </button>
-                    <div className="flex items-center gap-5">
-                        <FaUserCircle onClick={() => setIsAuthModalOpen(!isAuthModalOpen)} className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
-                        <AuthModal isOpen={isAuthModalOpen} setIsOpen={setIsAuthModalOpen} />
-                        <BsCartFill className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
-                    </div>
+                </section>
                 </div>
                 <div
                     className={`${open ? 'flex' : 'hidden'} absolute top-75 left-0 bg-gray-200 right-0 lg:relative lg:top-unset lg:flex flex-grow items-center justify-between py-16 px-18 lg:p12 lg:bg-transparent lg:shadow-none`}

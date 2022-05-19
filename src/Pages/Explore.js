@@ -13,7 +13,7 @@ function Explore() {
   return (
     <>
       <main className="flex">
-        <section className="absolute lg:static w-384">
+        <section className="absolute lg:static w-full md:w-384">
           {
             toggle && <Filter />
           }
