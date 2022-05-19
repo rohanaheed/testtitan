@@ -60,14 +60,16 @@ textarea:focus-visible{
 }
 
 .filter-btn{
+  pointer-events: none;
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 11111;
+  z-index: 21;
 }
 
 .filter-btn svg{
+  pointer-events: all;
   margin-right: 98px;
 }
 
