@@ -24,10 +24,10 @@ const ArtHeader = () => {
                             <p className="mt-4 text-lg text-gray-300 pb-20 mb-12 border-b border-gray-500">
                             Leonardo was born an illegitimate son of a Florentine noble and peasant woman; he grew up in Vinci, Italy. In his formative years, he developed a love of nature and from an early age began to display his remarkable academic and artistic talents. </p>
                             <div className="flex items-center gap-3 md:gap-6">
-                                <button onClick={() => setIsPlaceBidModalOpen(!isPlaceBidModalOpen)} className="white-shadow bg-white transition-all hover:bg-gray-900 hover:text-white rounded-8 py-8 px-18 md:px-26 mt-24">Place Bid</button> 
+                                <button onClick={() => setIsPlaceBidModalOpen(!isPlaceBidModalOpen)} className="white-shadow text-12 md:text-16 bg-white transition-all hover:bg-gray-900 hover:text-white rounded-8 py-8 px-16 md:px-26 mt-24">Place Bid</button> 
                                 <PlaceBidModal isOpen={isPlaceBidModalOpen} setIsOpen={setIsPlaceBidModalOpen} />
                                 
-                                <button onClick={() => setIsConnectWalletModalOpen(!isConnectWalletModalOpen)} className="white-shadow bg-white transition-all hover:bg-gray-900 hover:text-white rounded-8 py-8 px-18 md:px-26 mt-24">Connect Wallet</button> 
+                                <button onClick={() => setIsConnectWalletModalOpen(!isConnectWalletModalOpen)} className="white-shadow  text-12 md:text-16 bg-white transition-all hover:bg-gray-900 hover:text-white rounded-8 py-8 px-16 md:px-26 mt-24">Connect Wallet</button> 
                                 <ConnectWalletModal isOpen={isConnectWalletModalOpen} setIsOpen={setIsConnectWalletModalOpen} />
                             </div>
                             <section className="flex items-center justify-end gap-3 mt-28">
