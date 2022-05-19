@@ -59,6 +59,18 @@ textarea:focus-visible{
     background-color: rgb(251, 253, 255);
 }
 
+.filter-btn{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 11111;
+}
+
+.filter-btn svg{
+  margin-right: 98px;
+}
+
 .px--6{
   padding-left: 6%;
   padding-right: 6%;
