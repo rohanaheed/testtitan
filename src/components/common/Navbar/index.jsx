@@ -40,7 +40,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div
-                    className={`${open ? 'flex' : 'hidden'} absolute top-75 left-0 right-0 lg:relative lg:top-unset lg:flex flex-grow items-center justify-between bg-white py-16 px-18 lg:p12 lg:bg-transparent lg:shadow-none`}
+                    className={`${open ? 'flex' : 'hidden'} absolute top-75 left-0 bg-gray-200 right-0 lg:relative lg:top-unset lg:flex flex-grow items-center justify-between py-16 px-18 lg:p12 lg:bg-transparent lg:shadow-none`}
                 >
                     <section className="flex items-center gap-16">
                         <Link to="/"> <h4 className="cursor-pointer text-26 font-medium text-white mb-4 logo hidden lg:block">art gallery</h4>  </Link>
@@ -54,7 +54,7 @@ const Navbar = () => {
                                         Discover
                                     </span>
                                     <ul className="dropdown-menu absolute hidden pb-14 px-26 z-10">
-                                        <div className='bg-black h-28'></div>
+                                        <div className='bg-black h-28 hidden lg:block'></div>
                                         <ScrollLink to="masters-art" spy={true} smooth={true}>
                                             <li ><span className="py-6 inline-block px-6 whitespace-nowrap text-gray-200 hover:text-primary cursor-pointer font-light">Master arts</span></li>
                                         </ScrollLink>
@@ -78,7 +78,7 @@ const Navbar = () => {
                                         Artists
                                     </span>
                                     <ul className="dropdown-menu absolute hidden px-26 pb-18 z-10">
-                                        <div className='bg-black h-28'></div>
+                                        <div className='bg-black h-28  hidden lg:block'></div>
                                         <Link to="/artist"> <li ><span className="py-6 inline-block px-6 hover:text-primary whitespace-nowrap text-gray-200 cursor-pointer font-light">Alex Reinhart</span></li> </Link>
                                         <Link to="/artist"> <li ><span className="py-6 inline-block px-6 hover:text-primary whitespace-nowrap text-gray-200 cursor-pointer font-light">Anne Lefève</span></li> </Link>
                                         <Link to="/artist"> <li ><span className="py-6 inline-block px-6 hover:text-primary whitespace-nowrap text-gray-200 cursor-pointer font-light">Chris Nash</span></li> </Link>
@@ -95,7 +95,7 @@ const Navbar = () => {
                                         Collections
                                     </span>
                                     <ul className="dropdown-menu absolute hidden px-26 pb-18 z-10">
-                                        <div className='bg-black h-28'></div>
+                                        <div className='bg-black h-28 hidden lg:block'></div>
                                         <li ><span className="py-6 inline-block px-6 whitespace-nowrap hover:text-primary text-gray-200 cursor-pointer font-light">Art movements</span></li>
                                         <li ><span className="py-6 inline-block px-6 whitespace-nowrap hover:text-primary text-gray-200 cursor-pointer font-light">Colors</span></li>
                                         <li ><span className="py-6 inline-block px-6 whitespace-nowrap hover:text-primary text-gray-200 cursor-pointer font-light">Curator's pick</span></li>
