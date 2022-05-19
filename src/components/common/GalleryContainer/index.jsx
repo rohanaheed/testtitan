@@ -3,7 +3,7 @@ import GalleryItem from './Item'
 const GalleryContainer = ({children}) => {
 
     return (
-        <section class="container mx-auto px-24 md:px-12 my-58">
+        <section class="container mx-auto px-24 md:px-12 mt-42 mb-58">
             <div className='items-center flex flex-wrap mb-24'>
 
                 <div className='w-full md:w-5/12 ml-auto mr-auto px-4'>
