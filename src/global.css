@@ -47,7 +47,7 @@ textarea:focus-visible{
 }
 
 .ReactModal__Overlay{
-  z-index: 20;
+  z-index: 20; 
   display: grid;
   place-items: center;
   background-color: rgb(27 27 27 / 75%) !important;
