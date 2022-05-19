@@ -97,7 +97,9 @@ textarea:focus-visible{
     padding-left: unset;
     padding-right: unset;
   }
-  
+  .top-75{
+    top: 75px;
+  }
 }
 
 .bg-filter{

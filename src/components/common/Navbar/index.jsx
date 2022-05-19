@@ -40,7 +40,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div
-                    className={`${open ? 'flex' : 'hidden'} absolute top-20 left-0 right-0 lg:relative lg:top-unset lg:flex flex-grow items-center justify-between bg-white py-16 px-18 lg:p12 lg:bg-transparent lg:shadow-none`}
+                    className={`${open ? 'flex' : 'hidden'} absolute top-75 left-0 right-0 lg:relative lg:top-unset lg:flex flex-grow items-center justify-between bg-white py-16 px-18 lg:p12 lg:bg-transparent lg:shadow-none`}
                 >
                     <section className="flex items-center gap-16">
                         <Link to="/"> <h4 className="cursor-pointer text-26 font-medium text-white mb-4 logo hidden lg:block">art gallery</h4>  </Link>
