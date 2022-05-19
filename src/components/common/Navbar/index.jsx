@@ -24,7 +24,7 @@ const Navbar = () => {
                 className="container px-24 mx-auto flex flex-wrap items-center justify-between"
             >
                 <div
-                    className="flex lg:hidden w-full relative justify-between lg:w-auto lg:static lg:justify-start"
+                    className="flex lg:hidden w-full justify-between lg:w-auto lg:static lg:justify-start"
                 >
                     <button
                         className="cursor-pointer text-white text-xl leading-none px-3 py-12 border border-solid border-transparent rounded bg-transparent outline-none focus:outline-none"
@@ -40,10 +40,10 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div
-                    className={`${open ? 'flex' : 'hidden'} lg:flex flex-grow items-center justify-between bg-white py-16 px-18 lg:p12 lg:bg-transparent lg:shadow-none`}
+                    className={`${open ? 'flex' : 'hidden'} absolute top-20 left-0 right-0 lg:relative lg:top-unset lg:flex flex-grow items-center justify-between bg-white py-16 px-18 lg:p12 lg:bg-transparent lg:shadow-none`}
                 >
                     <section className="flex items-center gap-16">
-                        <Link to="/"> <h4 className="cursor-pointer text-26 font-medium text-white mb-4 logo">art gallery</h4>  </Link>
+                        <Link to="/"> <h4 className="cursor-pointer text-26 font-medium text-white mb-4 logo hidden lg:block">art gallery</h4>  </Link>
                         <ul className="links-container flex flex-col lg:flex-row list-none mr-auto lg:mr-0 gap-2 lg:gap-6">
                             <li className="flex items-center">
 
@@ -133,7 +133,7 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </section>
-                    <div className="flex items-center gap-5">
+                    <div className=" items-center gap-5 hidden lg:flex">
                         <FaUserCircle onClick={() => setIsAuthModalOpen(!isAuthModalOpen)} className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
                         <AuthModal isOpen={isAuthModalOpen} setIsOpen={setIsAuthModalOpen} />
                         <BsCartFill className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
