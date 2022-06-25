@@ -18,7 +18,7 @@ const Navbar = () => {
 
     return (
         <nav
-            className="bg-black top-0 relative h-28 z-20 w-full flex flex-wrap items-center justify-between px-2 py-0 navbar-expand-lg"
+            className="bg-black top-0 relative h-18 py-12 z-20 w-full flex flex-wrap items-center justify-between px-2 navbar-expand-lg"
         >
 
             <div
@@ -34,7 +34,7 @@ const Navbar = () => {
                         <AuthModal isOpen={isAuthModalOpen} setIsOpen={setIsAuthModalOpen} />
                         <BsCart className="cursor-pointer transition-all text-white hover:text-gray-300 text-24 ml-2" />
                     <button
-                        className="cursor-pointer text-white text-xl leading-none py-12 border border-solid border-transparent rounded bg-transparent outline-none focus:outline-none"
+                        className="cursor-pointer text-white text-xl leading-none border border-solid border-transparent rounded bg-transparent outline-none focus:outline-none"
                         type="button"
                         onClick={() => setOpen(!open)}
                     >

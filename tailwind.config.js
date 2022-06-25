@@ -707,9 +707,6 @@ module.exports = {
         "btn-company-profile": "0px 11px 21px rgba(121, 57, 203, 0.13)",
         "regular-card": "2px 1px 5px rgba(18, 34, 97, 0.1)",
       },
-      backgroundImage: {
-        "page-background": "url('/assets/images/BACKGROUND.png')",
-      },
       minHeight: {
         800: "800px",
       },
