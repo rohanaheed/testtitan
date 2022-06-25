@@ -3,7 +3,7 @@ import { FaTwitter, FaMedium, FaInstagram, FaDiscord } from "react-icons/fa";
 const Footer = ({ imageUrl }) => {
   return (
     <footer>
-      <div className="container-fluid px-5 py-4 footer-field">
+      <div className="container-fluid px-5 py-16 footer-field">
         <div className="d-flex justify-content-between align-items-start newsletter-section">
           <div className="d-flex newsletter-content">
             <div>
