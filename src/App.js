@@ -15,6 +15,8 @@ import CreateEvent from "./Pages/Admin/CreateEvent";
 import EventList from "./Pages/Admin/EventList";
 import CreateMission from "./Pages/Admin/CreateMission";
 import MissionList from "./Pages/Admin/MissionList";
+import CreateNFTs from "./Pages/Admin/NFTs/CreateNFTs";
+import NftsList from "./Pages/Admin/NFTs/NftsList";
 
 function getLibrary(provider) {
   return new Web3(provider)
@@ -50,6 +52,8 @@ function App() {
             <Route path="/admin/events" component={EventList} />
             <Route path="/admin/create-mission" component={CreateMission} />
             <Route path="/admin/missions" component={MissionList} />
+            <Route path="/admin/create-nft" component={CreateNFTs} />
+            <Route path="/admin/nfts" component={NftsList} />
           </AdminLayout> :
           <Layout>
             <Route path="/art" component={Art} />

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { HiLogout } from "react-icons/hi";
 
 const Sidebar = () => {
-    const Navigation = [{ placeholder: 'Events', path: '/admin/events' }, { placeholder: 'Missions', path: '/admin/missions' },]
+    const Navigation = [{ placeholder: 'NFTs', path: '/admin/nfts' }, { placeholder: 'Events', path: '/admin/events' }, { placeholder: 'Missions', path: '/admin/missions' },]
     const handleLogout = () => {
         localStorage.removeItem('token');
         window.location.reload();

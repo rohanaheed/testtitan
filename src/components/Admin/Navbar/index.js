@@ -1,9 +1,14 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import WalletModel from '../../../components/common/WalletModel'
 const Navbar = () => {
-
+    const [open, setOpen] = useState(false);
+    const handleClose = () => {
+        setOpen(false)
+    }
     return (
         <>
+            <WalletModel open={open} handleClose={handleClose}/>
             <nav className="sticky top-0 bg-white shadow-xl z-50 py-18">
                     <section className='w-full px-24 flex items-center justify-between'>
                         <Link to="/admin/dashboard">
