@@ -91,7 +91,7 @@ const CreateEvent = () => {
             <Navbar />
             <main className="flex gap-3">
                 <section className="w-420">
-                    {/* <Sidebar /> */}
+                    <Sidebar />
                 </section>
                 <section className="flex flex-col flex-1 items-center justify-center">
                     <section className="w-full createItemContainer container mx-auto px-24 lg:px-99 mt-28 mb-100">
