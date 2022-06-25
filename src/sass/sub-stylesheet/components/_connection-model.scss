@@ -1,0 +1,28 @@
+// Modal Dialog Starts Here
+.welcome-modal {
+  .modal-dialog {
+    width: 375px;
+    position: fixed;
+    top: 75px;
+    right: 30px;
+    background: #1f1f1f;
+    border-radius: 5px;
+    // box-shadow: 0 3px 6px -4px rgb(0 0 0 / 48%), 0 6px 16px 0 rgb(0 0 0 / 32%), 0 9px 28px 8px rgb(0 0 0 / 20%);
+    font-size: 14px;
+    color: #fff;
+    .modal-content {
+      background-color: #1f1f1f !important;
+        border: unset !important;
+      .modal-header {
+        background-color: #1f1f1f !important;
+        border: unset !important;
+        .modal-body {
+          background-color: #1f1f1f;
+          border-radius: 5px;
+        }
+      }
+    }
+  } 
+}
+
+// Modal Dialog Ends Here

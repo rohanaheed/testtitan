@@ -2,9 +2,9 @@
 import { useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { AiOutlineFilter } from "react-icons/ai";
-import Filter from "../components/Homepage/Filter";
-import Pagination from "../components/common/Pagination";
-import GalleryContainer from "../components/common/GalleryContainer";
+import Filter from "../../components/Homepage/Filter";
+import Pagination from "../../components/common/Pagination";
+import GalleryContainer from "../../components/common/GalleryContainer";
 
 function Explore() {
   const islg = useMediaQuery({ query: '(min-width: 1024px)' })

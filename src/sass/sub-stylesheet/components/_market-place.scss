@@ -1,0 +1,97 @@
+.marketplace {
+  .marketplace-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h3 {
+      font-family: cond;
+      font-size: 55px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      @media screen and (max-width:767px) {
+        font-size: 25px;
+      }
+    }
+    .currency-icons {
+      width: 85px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  @media screen and (max-width:767px) {
+    width: 100% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    margin-top: 24px !important;
+  }
+  @media screen and (max-width:576px) {
+    width: 100% !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}
+.marketplace-result {
+  @media screen and (max-width:576px) {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+}
+.hr-opacity-07 {
+  opacity: 0.7;
+}
+.filter-field {
+  display: none;
+  width: 25rem;
+  padding: 1rem 2rem 2rem 0;
+}
+.default-select {
+  background: transparent;
+  color: white;
+  &:focus {
+    box-shadow: none !important;
+    outline: none !important;
+  }
+}
+.default-option {
+  background-color: #0b0b0b;
+  &:focus {
+    background-color: #2b2b2b;
+  }
+}
+.default-input-number {
+  background: transparent;
+  color: white;
+  &:focus {
+    background: transparent;
+    color: white;
+    box-shadow: none !important;
+  }
+}
+.apply-btn {
+  border: 1px solid white;
+  color: white;
+  background: transparent;
+  width: 100%;
+  &:hover {
+    background-color: white;
+    color: black;
+  }
+}
+.item-field {
+  padding: 0;
+  border-left: unset;
+  @media screen and (min-width:576) {
+    padding: 0;
+    border-left: unset;
+    padding: 1rem 0 2rem 2rem;
+    width: 100%;
+    border-left: 1px solid white;
+  }
+}
+
+@include breakpoint(md) {
+  .filter-field {
+    display: block;
+  }
+}

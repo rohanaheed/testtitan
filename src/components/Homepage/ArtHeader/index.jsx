@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { FaFacebookF, FaTwitter } from "react-icons/fa";
-import { AiFillInstagram } from "react-icons/ai";
 import PlaceBidModal from '../../PlaceBidModal'
 import ConnectWalletModal from '../../ConnectWalletModal'
 import ContactModal from '../../ContactModal'

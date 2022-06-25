@@ -18,7 +18,7 @@ const Navbar = () => {
 
     return (
         <nav
-            className="bg-black top-0 relative h-76 z-20 w-full flex flex-wrap items-center justify-between px-2 py-0 navbar-expand-lg"
+            className="bg-black top-0 relative h-28 z-20 w-full flex flex-wrap items-center justify-between px-2 py-0 navbar-expand-lg"
         >
 
             <div

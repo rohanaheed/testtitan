@@ -1,8 +1,9 @@
 
-import Header from "../components/Homepage/Header";
-import AboutUs from '../components/Homepage/AboutUs'
-import BusinessDetail from "../components/Homepage/BusinessDetail";
-import GalleryContainer from "../components/common/GalleryContainer";
+import React from "react";
+import Header from "../../components/Homepage/Header";
+import AboutUs from '../../components/Homepage/AboutUs'
+import BusinessDetail from "../../components/Homepage/BusinessDetail";
+import GalleryContainer from "../../components/common/GalleryContainer";
 
 function HomePage() {
   return (

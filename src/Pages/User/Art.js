@@ -1,12 +1,11 @@
 
-import ArtHeader from "../components/Homepage/ArtHeader";
-import AboutArt from "../components/Homepage/AboutArt";
-import GalleryContainer from "../components/common/GalleryContainer";
+import ArtHeader from "../../components/Homepage/ArtHeader";
+import AboutArt from "../../components/Homepage/AboutArt";
+import GalleryContainer from "../../components/common/GalleryContainer";
 
 function Art() {
   return (
     <>
-
       <ArtHeader />
       <AboutArt />
       <GalleryContainer>

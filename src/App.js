@@ -1,24 +1,32 @@
-import { Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout";
-import Home from "./Pages/Home";
-import Explore from "./Pages/Explore";
-import Artist from "./Pages/Artist";
-import Art from "./Pages/Art";
-import Dashboard from "./Pages/Admin/Dashboard";
+import "./App.css";
+import { Route, Switch, useHistory } from "react-router-dom";
+import Layout from "./components/layout/Layout";
+import Web3 from "web3";
+import { Web3ReactProvider } from '@web3-react/core'
+import Dashboard from "./pages/Admin/Dashboard";
+import Home from "./pages/User/Home";
+import Art from "./pages/User/Art";
+import Explore from "./pages/User/Explore";
+import Artist from "./pages/User/Artist";
+
+function getLibrary(provider) {
+  return new Web3(provider)
+}
 
 function App() {
+  const history = useHistory();
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="art" element={<Art />} />
-          <Route path="explore" element={<Explore />} />
-          <Route path="artist" element={<Artist />} />
-        </Route>
-        <Route path="/admin" element={<Dashboard />} />
-      </Routes>
-    </>
+    <Layout>
+      <Switch>
+        <Web3ReactProvider getLibrary={getLibrary}>
+          <Route exact path="/admin" component={Dashboard} />
+          <Route path="/art" component={Art} />
+          <Route path="/explore" component={Explore} />
+          <Route path="/artist" component={Artist} />
+          <Route exact path="/" component={Home} />
+        </Web3ReactProvider>
+      </Switch>
+    </Layout>
   );
 }
 

@@ -5,7 +5,6 @@ module.exports = {
   purge: {
     content: [
       "./src/**/*.{js,jsx,ts,tsx}",
-      "./node_modules/flowbite/**/*.js"
     ],
   },
   // mode: 'jit',
@@ -730,6 +729,5 @@ module.exports = {
       cursor: ["disabled"],
     },
   },
-  plugins: [
-    require('flowbite/plugin')
-]}
+  plugins: []
+}

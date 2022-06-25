@@ -1,11 +1,12 @@
 import React from "react";
 
 const Dashboard = () => {
-    return(
+    return (
         <>
-        <button>meta</button>
-        <button>wallet connection</button>
+            <button>Metamask</button>
+            <button>Wallet Connect</button>
         </>
     )
 }
+
 export default Dashboard

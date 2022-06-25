@@ -1,0 +1,91 @@
+// Bottle Image Section Starts Here
+.bottle-section {
+  min-height: 100vh;
+  display: flex;
+  background-color: black !important;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  &.dark-dotted {
+    background-color: #111;
+    background-image: radial-gradient(#000 0.6px,transparent 0);
+    background-size: 5px 5px;
+    color: #ece1d9;
+  }
+  .brand-bottle {
+    img {
+      filter: brightness(50%);
+      max-height: 100vh;
+      height: 100%;
+      width: 100vw;
+      object-fit: cover;
+    }
+  }
+  .botle-text {
+    position: absolute;
+    h1 {
+      font-size: 40px;
+      max-width: 550px;
+      margin: auto;
+      text-align: center;
+    }
+    p {
+      font-size: 18px;
+      color: #9b9b9b;
+      text-align: center;
+    }
+  }
+}
+// Bottle Image Section Ends Here
+// Dictador Section Starts Here
+.dictador-section {
+  position: relative;
+  .drum-pic {
+    img {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+    }
+  }
+  .dictador-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    p {
+      color: #9b9b9b;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: 40px;
+      text-align: center;
+    }
+    h3 {
+      color: rgb(155, 155, 155);
+      font-size: 24px;
+      text-align: center;
+      max-width: 560px;
+      font-weight: 500;
+      margin-top: 12px;
+    }
+    button {
+      background: transparent;
+      border-color: #fff;
+      color: #fff;
+      font-weight: 400;
+    text-align: center;
+    border: 1px solid #f5f5f5;
+    cursor: pointer;
+    transition: all .3s cubic-bezier(.645,.045,.355,1);
+    padding: 6px 30px;
+    font-size: 14px;
+    border-radius: 2px;
+    color: rgba(0,0,0,.8509803921568627);
+    background: #f5f5f5;
+    min-width: 200px;
+    }
+  }
+}
+// Dictador Section Ends Here
