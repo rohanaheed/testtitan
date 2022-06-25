@@ -358,7 +358,7 @@ tr:nth-child(even) {
 .loader {
   border: 2px solid #f3f3f3;
   border-radius: 50%;
-  border-top: 2px solid rgb(222, 39, 39);
+  border-top: 2px solid rgb(8, 6, 6);
   width: 20px;
   height: 20px;
   -webkit-animation: spin 2s linear infinite; /* Safari */

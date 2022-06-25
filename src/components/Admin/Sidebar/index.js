@@ -16,7 +16,7 @@ const Sidebar = () => {
                     Navigation?.map(item => (
                         <li className='mb-12'>
                             <Link to={item?.path}>
-                                <span className='relative text-xl border-b-2 border-transparent cursor-pointer transition-all text-gray-500 hover:text-red-600'>
+                                <span className='relative text-xl border-b-2 border-transparent cursor-pointer transition-all text-gray-500 hover:text-black-600'>
                                     {item?.placeholder}
                                 </span>
                             </Link>
@@ -28,7 +28,7 @@ const Sidebar = () => {
                 style={{ height: '100px' }}
             >
                 <button 
-                className="bg-red-500 text-white px-32 mb-22 w-full py-10 rounded-5 transition-all flex items-center justify-center gap-3 hover:bg-red-600 relative top-0 hover:top-px"
+                className="bg-black text-white px-32 mb-22 w-full py-10 rounded-5 transition-all flex items-center justify-center gap-3 hover:bg-black-600 relative top-0 hover:top-px"
                 onClick={() => handleLogout()}> Sign out  <HiLogout className='text-18' /></button>
             </section>
         </aside>

@@ -54,9 +54,8 @@ const AdminSignIn = () => {
         <>
             <main className='grid place-content-center' style={{ height: '100vh' }}>
                 <main className='auth-container w-full sm:w-384 mx-auto'>
-                    <span className="self-center logo text-xl text-red-500 mb-26 w-full font-semibold whitespace-nowrap flex items-center justify-center gap-2">
-                        <img className="w-36" src="/assets/image/beglobal.svg" alt="" />
-                        Admin Titan
+                    <span className="self-center logo text-xl text-black-500 mb-26 w-full font-semibold whitespace-nowrap flex items-center justify-center gap-2">
+                        Admin Art Marketplace
                     </span>
                     {errors?.err && <p className="text-red-700 text-10 mt-4 ml-2 mb-15 w-full flex items-center justify-center "> {errors?.err} </p>}
                     <div className='w-full'>
@@ -80,10 +79,10 @@ const AdminSignIn = () => {
                         />
                     </div>
                     {loader ?
-                        <button type='button' className="bg-red-500 text-white w-full mb-18 px-32 h-38 rounded-5 transition-all hover:bg-red-600 relative top-0 hover:top-px" >
+                        <button type='button' className="bg-black text-white w-full mb-18 px-32 h-38 rounded-5 transition-all hover:bg-black	 relative top-0 hover:top-px" >
                             <div className="loader"></div>
                         </button>
-                        : <button type='button' onClick={() => _login()} className="bg-red-500 text-white w-full mb-18 px-32 h-38 rounded-5 transition-all hover:bg-red-600 relative top-0 hover:top-px" >Sign In</button>
+                        : <button type='button' onClick={() => _login()} className="bg-black text-white w-full mb-18 px-32 h-38 rounded-5 transition-all hover:bg-black	 relative top-0 hover:top-px" >Sign In</button>
                     }
                 </main>
             </main>
