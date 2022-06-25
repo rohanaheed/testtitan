@@ -35,7 +35,7 @@ const BusinessDetail = () => {
                         </div>
                     </div>
                 </div>
-                <img className='w-205 absolute -bottom-28 -right-20 z-10 hidden lg:block' src="/assets/arrow-graphic.png" alt="" />
+                {/* <img className='w-205 absolute -bottom-28 -right-20 z-10 hidden lg:block' src="/assets/arrow-graphic.png" alt="" /> */}
             </section>
 
             <section id="contemporary-art" className="relative py-20 bg-gray-50">
@@ -71,7 +71,7 @@ const BusinessDetail = () => {
                         </div>
                     </div>
                 </div>
-                <img className='w-205 absolute -bottom-28 -right-20 z-10 hidden lg:block' src="/assets/arrow-graphic.png" alt="" />
+                {/* <img className='w-205 absolute -bottom-28 -right-20 z-10 hidden lg:block' src="/assets/arrow-graphic.png" alt="" /> */}
             </section>
 
 
@@ -105,7 +105,7 @@ const BusinessDetail = () => {
                         </div>
                     </div>
                 </div>
-                <img className='w-205 absolute -bottom-28 -right-20 z-10 hidden lg:block' src="/assets/arrow-graphic.png" alt="" />
+                {/* <img className='w-205 absolute -bottom-28 -right-20 z-10 hidden lg:block' src="/assets/arrow-graphic.png" alt="" /> */}
             </section>
         </>
 
