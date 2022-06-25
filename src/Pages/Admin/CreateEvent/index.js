@@ -31,7 +31,7 @@ const CreateEvent = () => {
     }
 
     const validate = () => {
-        const imageURL = URL.createObjectURL(imageUrl && imageUrl)
+        const imageURL = imageUrl && URL.createObjectURL(imageUrl && imageUrl)
         const _errors = {};
         if (isEmpty(name)) {
             _errors.name = 'Please enter name.';
@@ -85,12 +85,13 @@ const CreateEvent = () => {
         setErrors(errors || {});
     }
 
+    console.log(errors)
     return (
         <>
             <Navbar />
             <main className="flex gap-3">
                 <section className="w-420">
-                    <Sidebar />
+                    {/* <Sidebar /> */}
                 </section>
                 <section className="flex flex-col flex-1 items-center justify-center">
                     <section className="w-full createItemContainer container mx-auto px-24 lg:px-99 mt-28 mb-100">
@@ -183,10 +184,10 @@ const CreateEvent = () => {
                         </div>
                         <hr />
                         {loader ?
-                            <button className="bg-red-500 text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-red-600 relative top-0 hover:top-px">
+                            <button className="bg-black text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-black-600 relative top-0 hover:top-px">
                                 <div className='loader'></div>
                             </button> :
-                            <button onClick={() => _createEvent()} className="bg-red-500 text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-red-600 relative top-0 hover:top-px"> Create Event </button>
+                            <button onClick={() => _createEvent()} className="bg-black text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-black-600 relative top-0 hover:top-px"> Create Event </button>
                         }
                     </section>
                 </section>

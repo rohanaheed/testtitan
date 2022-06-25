@@ -31,7 +31,7 @@ const CreateMission = () => {
     }
 
     const validate = () => {
-        const imageURL = URL.createObjectURL(imageUrl && imageUrl)
+        const imageURL = imageUrl && URL.createObjectURL(imageUrl && imageUrl)
         const _errors = {};
         if (isEmpty(name)) {
             _errors.name = 'Please enter name.';
@@ -86,7 +86,6 @@ const CreateMission = () => {
         setErrors(errors || {});
     }
 
-    console.log(history?.location?.state?.row)
     return (
         <>
             <Navbar />
@@ -195,10 +194,10 @@ const CreateMission = () => {
                         </div>
                         <hr />
                         {loader ?
-                            <button className="bg-red-500 text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-red-600 relative top-0 hover:top-px">
+                            <button className="bg-black text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-black relative top-0 hover:top-px">
                                 <div className='loader'></div>
                             </button>
-                            : <button onClick={() => _createMission()} className="bg-red-500 text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-red-600 relative top-0 hover:top-px"> Create Mission </button>
+                            : <button onClick={() => _createMission()} className="bg-black text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-black relative top-0 hover:top-px"> Create Mission </button>
                         }
                     </section>
                 </section>
