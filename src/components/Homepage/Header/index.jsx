@@ -22,7 +22,7 @@ const Header = () => {
                             <p className="mt-4 text-lg text-gray-200">
                                 An exquisite out of the world grandeur NFT marketplace for Fine Arts. Bringing to you fine art curated by a team of elite curators.
                             </p>
-                            <Link to="who-we-are" spy={true} smooth={true}> <button className="white-shadow bg-white transition-all hover:bg-gray-900 hover:text-white px-26 header-btn">Discover</button> </Link>
+                            <Link to="who-we-are" spy={true} smooth={true}> <button className="white-shadow py-8 mt-18 rounded-5 bg-white transition-all hover:bg-gray-900 hover:text-white px-26 header-btn">Discover</button> </Link>
                         </div>
                         <div className='w-full md:w-4/12 ml-auto mr-auto px-4'>
 
