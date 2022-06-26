@@ -20,7 +20,7 @@ const NftsList = () => {
         const headers = {
             Authorization: `Bearer ${adminToken}`,
         };
-        axios.get(API_URL_ADMIN + 'admin/events', { headers: headers })
+        axios.get(API_URL_ADMIN + 'admin/nfts', { headers: headers })
             .then(res => {
                 setLoader(false);
                 setRes(res?.data)

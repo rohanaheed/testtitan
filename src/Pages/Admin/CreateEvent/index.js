@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BsFileImage, BsAsterisk } from "react-icons/bs";
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
@@ -9,13 +9,46 @@ import isEmpty from '../../../utils/isEmpty';
 import { API_URL_ADMIN } from '../../../utils/contant';
 
 const CreateEvent = () => {
-    const [userData, setUserData] = useState({ name: '', description: '', imageUrl: '', startDate: '', endDate: '', startTime: '', endTime: '' });
-    const { name, description, imageUrl, startDate, endDate, startTime, endTime } = userData;
+    const [userData, setUserData] = useState({ name: '', description: '', imageUrl: '', startDate: '', endDate: '', startTime: '', endTime: '', artist: '', price: '' });
+    const { name, description, imageUrl, startDate, endDate, startTime, endTime, artist, price } = userData;
     const [errors, setErrors] = useState({});
     const [loader, setLoader] = useState(false);
+    const [artis, setArtist] = useState('');
     const history = useHistory();
     const adminToken = localStorage.getItem('token');
 
+    useEffect(() => {
+        _getNFTsList();
+    }, [])
+
+    function getUnique(array) {
+        var uniqueArray = [];
+
+        for (let i = 0; i < array.length; i++) {
+            if (uniqueArray.indexOf(array[i]) === -1) {
+                uniqueArray.push(array[i]);
+            }
+        }
+        return uniqueArray;
+    }
+    const _getNFTsList = () => {
+        const headers = {
+            Authorization: `Bearer ${adminToken}`,
+        };
+        axios.get(API_URL_ADMIN + 'admin/nfts', { headers: headers })
+            .then(res => {
+                const tempArr = []
+                for (let i = 0; i < res?.data?.length; i++) {
+                    tempArr.push(res?.data?.[i]?.artistName)
+                }
+                const artistNames = getUnique(tempArr);
+                setArtist(artistNames)
+                setLoader(false);
+            })
+            .catch(err => {
+                setLoader(false);
+            })
+    }
     const handleChange = event => {
         const { name, value } = event.target;
         if (event.target.files && event.target.files[0]) {
@@ -50,6 +83,9 @@ const CreateEvent = () => {
         }
         if (isEmpty(imageURL)) {
             _errors.imageUrl = 'Please upload image.';
+        }
+        if (isEmpty(price)) {
+            _errors.price = 'Please upload price.';
         }
         if (isEmpty(description)) {
             _errors.description = 'Please enter description.';
@@ -106,6 +142,16 @@ const CreateEvent = () => {
                             handleChange={handleChange}
                             errorMessage={errors?.name}
                         />
+                        <div className='mb-18 w-4/4'>
+                            <label className="text-gray-800 font-medium" htmlFor="#">Select Artist</label> <br />
+                            <select name="artist" id="artist" onChange={(e) => handleChange(e)} className='w-full py-18 pl-18 text-14 pr-16 mt-8'>
+                                {console.log(artis, userData)}
+                                {artis?.length > 0 && artis?.map(item => (
+                                    <option name="artist" value={item}>{item}</option>
+
+                                ))}
+                            </select>
+                        </div>
                         <div className='mb-22'>
                             <label className="text-gray-800 font-medium" htmlFor="#">Event description</label> <br />
                             <p className='caption-text mt-6 mb-10'>The description will be included on the item's detail page underneath its image. Markdown syntax is supported.</p>
@@ -120,6 +166,16 @@ const CreateEvent = () => {
                             </textarea>
                             {errors?.description && <p className="text-red-700 text-10 mt-4 ml-2"> {errors?.description} </p>}
                         </div>
+                        <Input
+                            className="mb-22"
+                            label="Price"
+                            type='text'
+                            placeholder="Price"
+                            name="name"
+                            value={name}
+                            handleChange={handleChange}
+                            errorMessage={errors?.name}
+                        />
                         <div className='mb-32'>
                             <label className="text-gray-800 font-medium mb-6 flex items-start gap-1" htmlFor="#">Event Cover Image <BsAsterisk className="text-8 text-red-600 relative top-1" /></label>
                             <p className='caption-text mt-6 mb-10'>File types supported: JPG, PNG, GIF, SVG, MP4, WEBM, MP3, WAV, OGG, GLB, GLTF. Max size: 100 MB </p>
