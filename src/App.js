@@ -13,7 +13,6 @@ function getLibrary(provider) {
 function App() {
   const history = useHistory();
   const url = history?.location?.pathname?.split('/')?.includes('admin');
-  const urlCheck = history?.location?.pathname?.split('/');
   return (
     <Switch>
       <Web3ReactProvider getLibrary={getLibrary}>

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Redirect, Route, Switch, useHistory } from 'react-router-dom';
+import { Redirect, Route, Switch, useHistory, withRouter } from 'react-router-dom';
 import AdminLayout from '../components/common/AdminLayout';
 import AdminSignIn from '../Pages/Admin/Auth/Login';
 import CreateEvent from '../Pages/Admin/CreateEvent';
@@ -25,6 +25,7 @@ const ClientRoutes = () => {
         <Route path="/admin/signin" component={AdminSignIn} />
         <ClientPrivateRoute path="/admin/dashboard" component={Dashboard} />
         <ClientPrivateRoute path="/admin/create-event" component={CreateEvent} />
+        <ClientPrivateRoute path="/admin/edit-event" component={CreateEvent} />
         <ClientPrivateRoute path="/admin/events" component={EventList} />
         <ClientPrivateRoute path="/admin/create-nft" component={CreateNFTs} />
         <ClientPrivateRoute path="/admin/edit-nft" component={CreateNFTs} />
@@ -35,4 +36,4 @@ const ClientRoutes = () => {
   )
 }
 
-export default ClientRoutes;
+export default withRouter(ClientRoutes);

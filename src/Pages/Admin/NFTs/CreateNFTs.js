@@ -28,7 +28,7 @@ const CreateNFTs = () => {
             })
             setImage(editNFT?.image);
         }
-    }, [history])
+    }, [history, editNFT])
 
     const handleChange = event => {
         const { name, value } = event.target;
@@ -75,7 +75,7 @@ const CreateNFTs = () => {
                 Authorization: `Bearer ${adminToken}`,
             };
             if (editNFT?.name) {
-                axios.patch(API_URL_ADMIN + `admin/nft/${editNFT?._id}`, formData, { headers: headers })
+                axios.patch(API_URL_ADMIN + `admin/nft/edit/${editNFT?._id}`, formData, { headers: headers })
                     .then(res => {
                         setLoader(false);
                         history.push('/admin/nfts')
@@ -112,7 +112,7 @@ const CreateNFTs = () => {
                 </section>
                 <section className="flex flex-col flex-1 items-center justify-center">
                     <section className="createItemContainer container mx-auto px-24 lg:px-99 mt-28 mb-100  w-full">
-                        <h3 className="text-40 font-semibold text-left my-42">Add New NFT</h3>
+                        <h3 className="text-40 font-semibold text-left my-42">{editNFT?.name ? "Edit" : "Add"} New NFT</h3>
                         <p className="caption-text mb-16 flex items-start gap-1"><BsAsterisk className="text-8 text-red-600 relative top-1" /> Required fields</p>
                         <Input
                             className="mb-22"

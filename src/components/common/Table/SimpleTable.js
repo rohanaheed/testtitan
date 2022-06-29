@@ -286,7 +286,7 @@ export default function EnhancedTable({ rows, loader }) {
                                                     <TableCell padding="2px">{moment.utc(row.endDate).format('MM/DD/YYYY HH:mm:ss')}</TableCell>
                                                 </>
                                             }
-                                            {searchURL?.includes('events') ?
+                                            {/* {searchURL?.includes('events') &&
                                                 <TableCell padding="2px">
                                                     {((new Date(moment.utc(row.startDate).format('YYYY-MM-DD')).getTime() >= new Date().getTime())
                                                         || (new Date(moment.utc(row.startDate).format('MM/DD/YYYY')).setHours(0, 0, 0, 0) == (new Date().setHours(0, 0, 0, 0)))) &&
@@ -302,21 +302,20 @@ export default function EnhancedTable({ rows, loader }) {
                                                         </button>
                                                     }
                                                 </TableCell>
-                                                :
-                                                searchURL?.includes('nfts') &&
-                                                <TableCell padding="2px">
-                                                    <button
-                                                        onClick={() => history.push({
-                                                            pathname: '/admin/edit-nft',
-                                                            state: {
-                                                                'row': row
-                                                            }
-                                                        })}
-                                                        className="bg-black text-white px-22 py-6 rounded-5 transition-all flex items-center justify-center gap-3 hover:bg-black relative top-0 hover:top-px" >
-                                                        Edit
-                                                    </button>
-                                                </TableCell>
-                                            }
+                                            } */}
+                                            <TableCell padding="2px">
+                                                {console.log("row", row)}
+                                                <button
+                                                    onClick={() => history.push({
+                                                        pathname: searchURL?.includes('nfts') ? '/admin/edit-nft' : '/admin/edit-event',
+                                                        state: {
+                                                            'row': row
+                                                        }
+                                                    })}
+                                                    className="bg-black text-white px-22 py-6 rounded-5 transition-all flex items-center justify-center gap-3 hover:bg-black relative top-0 hover:top-px" >
+                                                    Edit
+                                                </button>
+                                            </TableCell>
                                         </TableRow>
                                     );
                                 })}

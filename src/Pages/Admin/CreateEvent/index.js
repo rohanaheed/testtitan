@@ -7,23 +7,59 @@ import Navbar from '../../../components/Admin/Navbar';
 import Sidebar from '../../../components/Admin/Sidebar';
 import isEmpty from '../../../utils/isEmpty';
 import { API_URL_ADMIN } from '../../../utils/contant';
+import Multiselect from 'multiselect-react-dropdown';
+import moment from 'moment';
 
 const CreateEvent = () => {
     const [userData, setUserData] = useState({ name: '', description: '', imageUrl: '', startDate: '', endDate: '', startTime: '', endTime: '', artist: '', price: '' });
     const { name, description, imageUrl, startDate, endDate, startTime, endTime, artist, price } = userData;
     const [errors, setErrors] = useState({});
     const [loader, setLoader] = useState(false);
-    const [artis, setArtist] = useState('');
+    const [art, setArtist] = useState('');
+    const [image, setImage] = useState('');
     const history = useHistory();
     const adminToken = localStorage.getItem('token');
+    const editNFT = history?.location?.state?.row;
+    const [options, setOpetions] = useState([]);
+    const [selected, setSelected] = useState([]);
+    const [nfts, setNFTs] = useState([]);
 
+    useEffect(() => {
+        if (editNFT?.name) {
+            setUserData({
+                name: editNFT?.name,
+                description: editNFT?.description,
+                imageUrl: editNFT?.coverImage,
+                artistName: editNFT?.artistName,
+                price: editNFT?.minimumBid,
+                startTime: moment.utc(editNFT.startDate).format('HH:mm:ss'),
+                endTime: moment.utc(editNFT.endDate).format('HH:mm:ss'),
+                startDate: moment.utc(editNFT.startDate).format('DD/MM/YYYY'),
+                endDate: moment.utc(editNFT.endDate).format('DD/MM/YYYY'),
+            })
+            setImage(editNFT?.coverImage);
+        }
+    }, [history, editNFT])
+
+    console.log(userData)
     useEffect(() => {
         _getNFTsList();
     }, [])
 
+    useEffect(() => {
+        const tempArr = []
+        for (let j = 0; j < nfts?.length; j++) {
+            for (let i = 0; i < editNFT?.NFTIds?.length; i++) {
+                if (nfts[j]?._id === editNFT?.NFTIds[i]) {
+                    tempArr.push(nfts[j])
+                }
+            }
+        }
+        setSelected(tempArr);
+    }, [nfts, editNFT])
+
     function getUnique(array) {
         var uniqueArray = [];
-
         for (let i = 0; i < array.length; i++) {
             if (uniqueArray.indexOf(array[i]) === -1) {
                 uniqueArray.push(array[i]);
@@ -31,6 +67,15 @@ const CreateEvent = () => {
         }
         return uniqueArray;
     }
+
+    const onSelect = (e) => {
+        setSelected(e)
+    }
+
+    const onRemove = (e) => {
+        setSelected(e)
+    }
+
     const _getNFTsList = () => {
         const headers = {
             Authorization: `Bearer ${adminToken}`,
@@ -42,29 +87,45 @@ const CreateEvent = () => {
                     tempArr.push(res?.data?.[i]?.artistName)
                 }
                 const artistNames = getUnique(tempArr);
-                setArtist(artistNames)
+                const uniqueArtist = []
+                for (let i = 0; i < artistNames?.length; i++) {
+                    uniqueArtist.push({
+                        "name": artistNames[i],
+                        "id": i
+                    })
+                }
+                
+                setNFTs(res?.data);
+                setArtist(uniqueArtist);
+                setOpetions(res?.data.filter(item => item?.artistName === uniqueArtist[0]?.name))
                 setLoader(false);
             })
             .catch(err => {
                 setLoader(false);
             })
     }
+
     const handleChange = event => {
         const { name, value } = event.target;
         if (event.target.files && event.target.files[0]) {
             let img = event.target.files[0];
             setUserData({
                 ...userData,
-                [name]: img,
+                [name]: URL.createObjectURL(img),
             });
+            setImage(img);
         } else {
+            if (name === "artist") {
+                const tempArr = nfts?.filter(item => item?.artistName === value);
+                setOpetions(tempArr)
+            }
             setUserData({ ...userData, [name]: value });
         }
-        setErrors({...errors, [event.target.name]: ''})
+        setErrors({ ...errors, [event.target.name]: '' })
     }
 
     const validate = () => {
-        const imageURL = imageUrl && URL.createObjectURL(imageUrl && imageUrl)
+        // const imageURL = imageUrl && URL.createObjectURL(imageUrl && imageUrl)
         const _errors = {};
         if (isEmpty(name)) {
             _errors.name = 'Please enter name.';
@@ -81,11 +142,14 @@ const CreateEvent = () => {
         if (isEmpty(endDate)) {
             _errors.endDate = 'Please enter end date.';
         }
-        if (isEmpty(imageURL)) {
+        if (isEmpty(imageUrl)) {
             _errors.imageUrl = 'Please upload image.';
         }
+        if (isEmpty(selected)) {
+            _errors.selected = 'Please select list of nfts';
+        }
         if (isEmpty(price)) {
-            _errors.price = 'Please upload price.';
+            _errors.price = 'Please enter price.';
         }
         if (isEmpty(description)) {
             _errors.description = 'Please enter description.';
@@ -100,23 +164,41 @@ const CreateEvent = () => {
             var formData = new FormData();
             formData.append("name", name);
             formData.append("description", description);
-            formData.append("coverImage", imageUrl);
+            formData.append("coverImage", image);
             formData.append("startDate", startDate + ` ${startTime}`);
             formData.append("endDate", endDate + ` ${endTime}`);
+            formData.append("minimumBid", price);
+            for (let i = 0; i < selected?.length; i++) {
+                formData.append(`NFTIds${i}`, selected[i]?._id)
+            }
             const headers = {
                 Authorization: `Bearer ${adminToken}`,
             };
-            axios.post(API_URL_ADMIN + 'admin/event/add', formData, { headers: headers })
-                .then(res => {
-                    setLoader(false);
-                    history.push('/admin/events')
-                })
-                .catch(err => {
-                    setErrors({
-                        'err': err?.data?.message
+            if (editNFT?.name) {
+                axios.patch(API_URL_ADMIN + `admin/event/edit/${editNFT?._id}`, formData, { headers: headers })
+                    .then(res => {
+                        setLoader(false);
+                        history.push('/admin/events')
                     })
-                    setLoader(false);
-                })
+                    .catch(err => {
+                        setErrors({
+                            'err': err?.data?.message
+                        })
+                        setLoader(false);
+                    })
+            } else {
+                axios.post(API_URL_ADMIN + 'admin/event/add', formData, { headers: headers })
+                    .then(res => {
+                        setLoader(false);
+                        history.push('/admin/events')
+                    })
+                    .catch(err => {
+                        setErrors({
+                            'err': err?.data?.message
+                        })
+                        setLoader(false);
+                    })
+            }
         }
         setErrors(errors || {});
     }
@@ -130,7 +212,7 @@ const CreateEvent = () => {
                 </section>
                 <section className="flex flex-col flex-1 items-center justify-center">
                     <section className="w-full createItemContainer container mx-auto px-24 lg:px-99 mt-28 mb-100">
-                        <h3 className="text-40 font-semibold text-left my-42">Add New Event</h3>
+                        <h3 className="text-40 font-semibold text-left my-42">{editNFT?.name ? "Edit" : "Add"} New Event</h3>
                         <p className="caption-text mb-16 flex items-start gap-1"><BsAsterisk className="text-8 text-red-600 relative top-1" /> Required fields</p>
                         <Input
                             className="mb-22"
@@ -144,13 +226,33 @@ const CreateEvent = () => {
                         />
                         <div className='mb-18 w-4/4'>
                             <label className="text-gray-800 font-medium" htmlFor="#">Select Artist</label> <br />
+                            {/* <Multiselect
+                                options={art ? art : []} // Options to display in the dropdown
+                                // selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
+                                // onSelect={this.onSelect} // Function will trigger on select event
+                                // onRemove={this.onRemove} // Function will trigger on remove event
+                                displayValue="name" // Property name to display in the dropdown options
+                            /> */}
                             <select name="artist" id="artist" onChange={(e) => handleChange(e)} className='w-full py-18 pl-18 text-14 pr-16 mt-8'>
-                                {console.log(artis, userData)}
-                                {artis?.length > 0 && artis?.map(item => (
-                                    <option name="artist" value={item}>{item}</option>
-
+                                {art?.length > 0 && art?.map(item => (
+                                    <>
+                                        <option name="artist" value={item?.name}>{item?.name}</option>
+                                    </>
                                 ))}
                             </select>
+                        </div>
+                        <div className='mb-18 w-4/4'>
+                            <label className="text-gray-800 font-medium" htmlFor="#">Select NFTs</label> <br />
+                            <Multiselect
+                                onSelect={onSelect}
+                                selectedValues={selected}
+                                onRemove={onRemove}
+                                options={options} // Options to display in the dropdown
+                                // selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
+                                // onSelect={this.onSelect} // Function will trigger on select event
+                                // onRemove={this.onRemove} // Function will trigger on remove event
+                                displayValue="name" // Property name to display in the dropdown options
+                            />
                         </div>
                         <div className='mb-22'>
                             <label className="text-gray-800 font-medium" htmlFor="#">Event description</label> <br />
@@ -171,10 +273,10 @@ const CreateEvent = () => {
                             label="Price"
                             type='text'
                             placeholder="Price"
-                            name="name"
-                            value={name}
+                            name="price"
+                            value={price}
                             handleChange={handleChange}
-                            errorMessage={errors?.name}
+                            errorMessage={errors?.price}
                         />
                         <div className='mb-32'>
                             <label className="text-gray-800 font-medium mb-6 flex items-start gap-1" htmlFor="#">Event Cover Image <BsAsterisk className="text-8 text-red-600 relative top-1" /></label>
@@ -190,7 +292,7 @@ const CreateEvent = () => {
                                 />
                                 {imageUrl ?
                                     <>
-                                        <img src={URL.createObjectURL(imageUrl && imageUrl)} alt="" />
+                                        <img src={imageUrl && imageUrl} alt="" />
                                     </>
                                     : <BsFileImage className="text-56" style={{ color: 'rgb(179, 179, 179)' }} />
                                 }
@@ -242,7 +344,7 @@ const CreateEvent = () => {
                             <button className="bg-black text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-black-600 relative top-0 hover:top-px">
                                 <div className='loader'></div>
                             </button> :
-                            <button onClick={() => _createEvent()} className="bg-black text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-black-600 relative top-0 hover:top-px"> Create Event </button>
+                            <button onClick={() => _createEvent()} className="bg-black text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-black-600 relative top-0 hover:top-px">{editNFT ? "Edit Event" : "Create Event"}</button>
                         }
                     </section>
                 </section>
