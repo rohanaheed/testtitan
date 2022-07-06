@@ -14,7 +14,7 @@ const UserRoutes = () => {
         <Route path="/explore" component={Explore} />
         <Route path="/artist" component={Artist} />
         <Route exact path="/" component={Home} />
-        <Redirect from='/' to='/' />
+        {/* <Redirect from='/' to='/' /> */}
       </Layout>
     </Switch>
   )

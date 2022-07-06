@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { Link as ScrollLink } from 'react-scroll'
 import AuthModal from '../../AuthModal'
 import ContactModal from '../../ContactModal'
@@ -12,6 +12,7 @@ import { AiOutlineAlignRight } from "react-icons/ai";
 const Navbar = () => {
 
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+    const history = useHistory();
     const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
     const [open, setOpen] = useState(false)
@@ -53,6 +54,7 @@ const Navbar = () => {
                                 <div className="dropdown inline-block relative">
                                     <span
                                         className="lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
+                                        onClick={() => history.push('/explore')}
                                     >
                                         Discover
                                     </span>
@@ -77,6 +79,7 @@ const Navbar = () => {
                                 <div className="dropdown inline-block relative">
                                     <span
                                         className="lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
+                                        onClick={() => history.push('/artist')}
                                     >
                                         Artists
                                     </span>
@@ -116,22 +119,22 @@ const Navbar = () => {
                                 <span
                                     className="lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
                                 >
-                                    NFT Project</span
-                                >
+                                    NFT Project
+                                </span>
                             </li>
                             <li className="flex items-center">
                                 <span
                                     className="lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
                                 >
-                                    About</span
-                                >
+                                    About
+                                </span>
                             </li>
                             <li className="flex items-center">
                                 <span onClick={() => setIsContactModalOpen(!isContactModalOpen)}
                                     className="lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
                                 >
-                                    Contact</span
-                                >
+                                    Contact
+                                </span>
                                 <ContactModal isOpen={isContactModalOpen} setIsOpen={setIsContactModalOpen} />
                             </li>
                         </ul>

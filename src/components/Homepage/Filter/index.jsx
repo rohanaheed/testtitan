@@ -8,8 +8,8 @@ const Filter = () => {
             <h3 className="text-md font-medium text-white text-center py-28 border-b border-gray-500">FILTERS </h3>
           </div>
           <div>
-            <h3 className="text-md font-medium text-white pt-24 pb-18">CATEGORY </h3>
-            <div className="text-white ">
+            <h3 className="text-md font-medium text-white pt-24 pb-18" style={{ color: 'black' }} >CATEGORY </h3>
+            <div className="text-white" style={{ color: 'black' }}>
              <input className="mr-12" type="radio" id="masters" name="fav_language" value="HTML" />
              <label for="masters">masters</label> <br/>
              <input className="mr-12" type="radio" id="contemporary" name="fav_language" value="CSS" />
@@ -24,8 +24,8 @@ const Filter = () => {
           </div>
 
           <div className="border-t mt-28 border-gray-500">
-            <h3 className="text-md font-medium text-white pt-24 pb-18">MEDIUM </h3>
-            <div className="text-white ">
+            <h3 className="text-md font-medium text-white pt-24 pb-18"  style={{ color: 'black' }}>MEDIUM </h3>
+            <div className="text-white"  style={{ color: 'black' }}>
              <input className="mr-12" type="radio" id="painting" name="fav_languagse" value="HTML" />
              <label for="masters">painting</label> <br/>
              <input className="mr-12" type="radio" id="photography" name="fav_languagse" value="CSS" />
@@ -40,14 +40,14 @@ const Filter = () => {
           </div>
 
 
-          <div className="border-t mt-20 border-gray-500">
+        <div className="border-t mt-20 border-gray-500">
           <MultiRangeSlider
             min={0}
             max={1000}
             onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
           />
-            </div>
         </div>
+      </div>
     )
 }
 

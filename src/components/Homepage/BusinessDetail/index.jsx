@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const BusinessDetail = () => {
 
@@ -19,9 +19,9 @@ const BusinessDetail = () => {
                                 >
                                     <i className="fas fa-rocket text-xl"></i>
                                 </div>
-                                <h3 className="text-3xl font-semibold text-white">Masters Arts</h3>
+                                <h3 className="text-3xl font-semibold text-white">Fine Arts</h3>
                                 <p className="mt-4 text-lg leading-relaxed text-gray-300">
-                                    The worlds’ most famous oil paintings under one roof. Timeless in their beauty and execution, these artworks have transcended time and artistic concepts to create history. These paintings are all time classics and familiar to people across generations and cultures. They represent the greatest works of art ever created by the great Masters and will continue to stay in the minds of art lovers for many centuries to come.
+                                    The most renowned oil paintings in the world all under one roof. These works of art have transcended time and aesthetic ideas to make history and are timeless in their beauty and execution. These works of art are timeless classics that are well-known to individuals of all ages and backgrounds. For many decades to come, they will continue to occupy the thoughts of art enthusiasts as the finest pieces of art ever produced by the great Masters.
                                 </p>
                                 <Link to="/explore"> <button className='link-btn my-8 text-lg leading-relaxed text-gray-100 transition-all hover:text-primary'>Discover</button> </Link>
                             </div>
@@ -62,9 +62,8 @@ const BusinessDetail = () => {
                                 </div>
                                 <h3 className="text-3xl font-semibold">Contemporary Arts</h3>
                                 <p className="mt-4 text-lg leading-relaxed text-gray-600">
-                                    These are artworks that every art lover should know about, from the masterpieces of iconic artists to rising talents. <br />
-                                    Feast your eyes on a wealth of sculptures and paintings filled with splendours of colours.
-                                    These are contemporary art pieces that shape our diverse, global, and rapidly changing world
+                                    From the classics of renowned artists of the late 20th and early 21st centuries, to the work of up-and-coming artists, these are works that every art enthusiast should be aware of.Feast your eyes on a wealth of sculptures and paintings filled with splendours of colours. These are contemporary art pieces that shape our diverse, global, and rapidly changing world
+
                                 </p>
                                 <Link to="/explore"> <button className='link-btn my-8 text-lg leading-relaxed text-gray-600 transition-all hover:text-primary'>Discover</button> </Link>
                             </div>
@@ -92,8 +91,8 @@ const BusinessDetail = () => {
                                 </div>
                                 <h3 className="text-3xl font-semibold">Precious Antiques</h3>
                                 <p className="mt-4 text-lg leading-relaxed text-gray-600">
-                                    Lay your hands on nearly 1,000 works that span continents and epochs. These pieces were specially selected from thousands of other works. Behind every piece comes a beautiful story and a high historical value. These precious and intricate details together with the loving presentation of these antiques will capture and hold your attention.                                </p>
-                               <Link to="/explore"> <button className='link-btn my-8 text-lg leading-relaxed text-gray-600 transition-all hover:text-primary'>Discover</button> </Link>
+                                Lay your hands on nearly 1,000 works that span continents and epochs. Every artwork has a lovely history and great historical importance and is handpicked by our master curators. Your interest will be captured and held by these priceless and complex features as well as the careful presentation of these antiques.</p>
+                                <Link to="/explore"> <button className='link-btn my-8 text-lg leading-relaxed text-gray-600 transition-all hover:text-primary'>Discover</button> </Link>
                             </div>
                         </div>
                         <div className="w-full md:w-4/12 ml-auto mr-auto px-4">
