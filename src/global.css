@@ -355,6 +355,10 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
+.top-69{
+  top: 69px;
+}
+
 .loader {
   border: 2px solid #f3f3f3;
   border-radius: 50%;
