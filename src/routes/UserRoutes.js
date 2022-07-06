@@ -3,6 +3,7 @@ import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
 import Art from '../Pages/User/Art';
 import Explore from '../Pages/User/Explore';
 import Artist from '../Pages/User/Artist';
+import AboutUs from '../Pages/User/AboutUs';
 import Home from '../Pages/User/Home';
 import Layout from '../components/layout/Layout';
 
@@ -14,6 +15,7 @@ const UserRoutes = () => {
         <Route path="/explore" component={Explore} />
         <Route path="/artist" component={Artist} />
         <Route exact path="/" component={Home} />
+        <Route exact path="/about-us" component={AboutUs} />
         {/* <Redirect from='/' to='/' /> */}
       </Layout>
     </Switch>
