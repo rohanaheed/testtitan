@@ -1,10 +1,10 @@
 import React from 'react';
 import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
-import Art from '../pages/User/Art';
-import Explore from '../pages/User/Explore';
-import Artist from '../pages/User/Artist';
-import Home from '../pages/User/Home';
-import AboutUs from '../pages/User/AboutUs';
+import Art from '../Pages/User/Art';
+import Explore from '../Pages/User/Explore';
+import Artist from '../Pages/User/Artist';
+import Home from '../Pages/User/Home';
+import AboutUs from '../Pages/User/AboutUs';
 import Layout from '../components/layout/Layout';
 
 const UserRoutes = () => {

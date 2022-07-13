@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { Redirect, Route, Switch, useHistory, withRouter } from 'react-router-dom';
 import AdminLayout from '../components/common/AdminLayout';
-import AdminSignIn from '../pages/Admin/Auth/Login';
-import CreateEvent from '../pages/Admin/CreateEvent';
-import Dashboard from '../pages/Admin/Dashboard/Dashboard';
-import EventList from '../pages/Admin/EventList';
-import CreateNFTs from '../pages/Admin/NFTs/CreateNFTs';
-import NftsList from '../pages/Admin/NFTs/NftsList';
+import AdminSignIn from '../Pages/Admin/Auth/Login';
+import CreateEvent from '../Pages/Admin/CreateEvent';
+import Dashboard from '../Pages/Admin/Dashboard/Dashboard';
+import EventList from '../Pages/Admin/EventList';
+import CreateNFTs from '../Pages/Admin/NFTs/CreateNFTs';
+import NftsList from '../Pages/Admin/NFTs/NftsList';
 import isEmpty from '../utils/isEmpty';
 import ClientPrivateRoute from './ClientPrivateRoute';
 
