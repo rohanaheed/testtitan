@@ -29,15 +29,8 @@ function AboutUs() {
 
       <section className="container relative mx-auto px-24 py-99">
         <p className="mt-4 text-lg leading-relaxed text-gray-600">
-          In 2017 the world witnessed the birth of CryptoKitties. For the first time, the world experienced a decentralized application built on blockchains but targetted towards a mainstream audience.
-          <br />
-          While CryptoKitties felt like a toy to many, it represented a dramatic shift in how we interact with items in the digital world. While previous digital items lived on company servers, blockchain-native items lived on shared, public blockchains owned by no single party. They could be viewed anywhere, exchanged openly, and truly owned in a way that was never before possible in the digital world.
-          <br />
-          Fascinated by the movement that was forming, Devin Finzer and Alex Atallah joined early adopter communities in Discord and started talking to users. With the artgallery beta launch in December 2017, the first open marketplace for any non-fungible token on the Ethereum blockchain was born.
-          <br />
-          Today, we’re proud to remain the largest general marketplace for user-owned digital items, supporting multiple blockchains, with the broadest set of categories and the best prices for new emerging digital item classes.
-          <br />
-          As a company, we’re thrilled to be at the center of this growing industry, and will continue to invest in our core infrastructure as we build the most accessible marketplace for buyers, sellers, and creators.                        </p>
+          QAIA.IO showcased the most prestigious collection of fine art NFT collectibles.  Enjoy a visual feast of several precious antiques, artworks, and the magnificent flair of specifically curated NFTs. 
+        </p>
       </section>
 
 
@@ -65,13 +58,10 @@ function AboutUs() {
                 >
                   <i className="fas fa-rocket text-xl"></i>
                 </div>
-                <h3 className="text-3xl font-semibold">Building an open digital economy</h3>
+                <h3 className="text-3xl font-semibold">Building a prestigious digital art space.</h3>
                 <p className="mt-4 text-lg leading-relaxed text-gray-600">
-                  At artgallery, we're excited about a brand new type of digital good called a non-fungible token, or NFT. NFTs have exciting new properties: they’re unique, provably scarce, tradeable, and usable across multiple applications. Just like physical goods, you can do whatever you want with them! You could throw them in the trash, gift them to a friend across the world, or go sell them on an open marketplace. But unlike physical goods, they're armed with all the programmability of digital goods.
-                  <br />
-                  A core part of our vision is that open protocols like Ethereum and interoperable standards like ERC-721 and ERC-1155 will enable vibrant new economies. We're building tools that allow consumers to trade their items freely, creators to launch new digital works, and developers to build rich, integrated marketplaces for their digital items.
-                  <br />
-                  We’re proud to be the first and largest marketplace for NFTs.
+                  At QAIA.IO, we're excited to integrate fine arts with NFTs. They are unique, and tradable within collectors.
+
                 </p>
               </div>
             </div>
@@ -84,7 +74,7 @@ function AboutUs() {
       <section className="container relative mx-auto px-24 pb-99">
         <h3 className="font-semibold text-28 text-center mb-24">Security Reports</h3>
         <p className="mt-4 text-lg leading-relaxed text-gray-600">
-          artgallery strives to be the most trustworthy and secure marketplace for NFTs. Finding and eliminating current vulnerabilities is a top priority. artgallery highly values our partnership with the vulnerability hunting community and as such we ensure all reports are reviewed by security experts and acted upon appropriately.
+          QAIA.IO strives to be the most reliable and secure NFT marketplace for fine arts. We ensure all reports are reviewed by security experts and acted upon appropriately.
         </p>
       </section>
 
