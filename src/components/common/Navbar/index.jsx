@@ -14,6 +14,13 @@ const Navbar = () => {
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
     const history = useHistory();
     const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+    const artist = [
+        {name: 'Mr. Fan Shaohua', id: '1'},
+        {name: 'Mr. Cephas Wong', id: '2'},
+        {name: 'Liang zhenkang', id: '3'},
+        {name: 'Tan Ruirong', id: '4'},
+        {name: 'Yang Changtai', id: '5'}
+    ]
 
     const [open, setOpen] = useState(false)
 
@@ -79,17 +86,15 @@ const Navbar = () => {
                                 <div className="dropdown inline-block relative">
                                     <span
                                         className="lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
-                                        onClick={() => history.push('/artist')}
+                                        // onClick={() => history.push('/artist')}
                                     >
                                         Artists
                                     </span>
                                     <ul className="dropdown-menu absolute hidden px-26 pb-18 z-10">
                                         <div className='bg-black h-28  hidden lg:block'></div>
-                                        <Link to="/artist"> <li ><span className="py-6 inline-block px-6 hover:text-primary whitespace-nowrap text-gray-200 cursor-pointer font-light">Alex Reinhart</span></li> </Link>
-                                        <Link to="/artist"> <li ><span className="py-6 inline-block px-6 hover:text-primary whitespace-nowrap text-gray-200 cursor-pointer font-light">Anne Lefève</span></li> </Link>
-                                        <Link to="/artist"> <li ><span className="py-6 inline-block px-6 hover:text-primary whitespace-nowrap text-gray-200 cursor-pointer font-light">Chris Nash</span></li> </Link>
-                                        <Link to="/artist"> <li ><span className="py-6 inline-block px-6 hover:text-primary whitespace-nowrap text-gray-200 cursor-pointer font-light">Lucy Esteban</span></li> </Link>
-                                        <Link to="/artist"> <li ><span className="py-6 inline-block px-6 hover:text-primary whitespace-nowrap text-gray-200 cursor-pointer font-light">Pablo Alvez</span></li> </Link>
+                                        {artist.map(item => (
+                                            <Link to={`/artist?id=${item?.id}`}> <li ><span className="py-6 inline-block px-6 hover:text-primary whitespace-nowrap text-gray-200 cursor-pointer font-light">{item?.name}</span></li> </Link>
+                                        ))}
                                     </ul>
                                 </div>
                             </li>
