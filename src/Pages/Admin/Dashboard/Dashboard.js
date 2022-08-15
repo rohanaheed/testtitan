@@ -6,12 +6,12 @@ const Dashboard = () => {
     return (
         <>
             <Navbar />
-            <main className="flex gap-3">
-                <section className="w-420">
+            <main>
+                <section className="admin-sidebar">
                     <Sidebar />
                 </section>
-                <section className="flex flex-col flex-1 items-center justify-center">
-                    <h1 className="font-bold text-56 my-99">Dashboard</h1>
+                <section className="page-content">
+                    <h1 className="font-bold text-24">Dashboard</h1>
                 </section>
 
             </main>

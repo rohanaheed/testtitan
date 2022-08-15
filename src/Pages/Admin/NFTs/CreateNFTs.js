@@ -106,13 +106,13 @@ const CreateNFTs = () => {
     return (
         <>
             <Navbar />
-            <main className="flex gap-3">
-                <section className="w-420">
+            <main>
+                <section className="admin-sidebar">
                     <Sidebar />
                 </section>
-                <section className="flex flex-col flex-1 items-center justify-center">
-                    <section className="createItemContainer container mx-auto px-24 lg:px-99 mt-28 mb-100  w-full">
-                        <h3 className="text-40 font-semibold text-left my-42">{editNFT?.name ? "Edit" : "Add"} New NFT</h3>
+                <section className="page-content">
+                    <section className="createItemContainer container mx-auto mb-100 my-16 w-full">
+                        <h3 className="text-40 font-semibold text-left">{editNFT?.name ? "Edit" : "Add"} New NFT</h3>
                         <p className="caption-text mb-16 flex items-start gap-1"><BsAsterisk className="text-8 text-red-600 relative top-1" /> Required fields</p>
                         <Input
                             className="mb-22"

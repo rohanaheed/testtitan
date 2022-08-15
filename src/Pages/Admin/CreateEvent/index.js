@@ -94,7 +94,7 @@ const CreateEvent = () => {
                         "id": i
                     })
                 }
-                
+
                 setNFTs(res?.data);
                 setArtist(uniqueArtist);
                 setOpetions(res?.data.filter(item => item?.artistName === uniqueArtist[0]?.name))
@@ -206,13 +206,13 @@ const CreateEvent = () => {
     return (
         <>
             <Navbar />
-            <main className="flex gap-3">
-                <section className="w-420">
+            <main>
+                <section className="admin-sidebar">
                     <Sidebar />
                 </section>
-                <section className="flex flex-col flex-1 items-center justify-center">
-                    <section className="w-full createItemContainer container mx-auto px-24 lg:px-99 mt-28 mb-100">
-                        <h3 className="text-40 font-semibold text-left my-42">{editNFT?.name ? "Edit" : "Add"} New Event</h3>
+                <section className="page-content">
+                    <section className="w-full createItemContainer container mb-100 my-16">
+                        <h3 className="text-40 font-semibold text-left">{editNFT?.name ? "Edit" : "Add"} New Event</h3>
                         <p className="caption-text mb-16 flex items-start gap-1"><BsAsterisk className="text-8 text-red-600 relative top-1" /> Required fields</p>
                         <Input
                             className="mb-22"

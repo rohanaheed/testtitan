@@ -25,8 +25,13 @@ const Navbar = () => {
                             <button className="bg-black text-white px-32 py-8 rounded-5 transition-all hover:bg-black relative top-0 hover:top-px" >{account?.slice(0, 6)}...</button>
                             {/* <button className="bg-black text-white px-32 py-8 rounded-5 transition-all hover:bg-black relative top-0 hover:top-px" >{account?.slice(0, 6)}...</button> */}
                         </>
-                        : <button onClick={() => setOpen(true)} className="bg-black text-white px-32 py-8 rounded-5 transition-all hover:bg-black relative top-0 hover:top-px" >Connect</button>
+                        : <button onClick={() => setOpen(true)} className="connect-btn bg-black text-white px-32 py-8 rounded-5 transition-all hover:bg-black relative top-0 hover:top-px" >Connect</button>
                     }
+                    <div className="humburger-menu">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
                 </section>
             </nav>
         </>

@@ -36,3 +36,60 @@
     transform: rotate(360deg);
   }
 } */
+.admin-sidebar {
+  position: fixed;
+  left: 0;
+  width: 270px;
+  height: 100%;
+  background-color: #fff;
+  z-index: 3;
+  box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
+}
+
+.page-content {
+  width: calc(100% - 272px);
+  margin-left: auto;
+  padding: 18px 20px;
+}
+
+.humburger-menu {
+  display: none;
+}
+
+.humburger-menu div {
+  width: 27px;
+  height: 4px;
+  background-color: #000;
+  border-radius: 50px;
+}
+
+.humburger-menu div:nth-child(2) {
+  margin: 4px 0;
+}
+
+.side-connect-btn {
+  display: none;
+}
+
+/* Media Queries (998px) Starts Here */
+@media (max-width:991px) {
+  .connect-btn {
+    display: none;
+  }
+
+  .side-connect-btn {
+    display: block;
+  }
+
+  .humburger-menu {
+    display: block;
+    cursor: pointer;
+  }
+
+  .page-content {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* Media Queries (998px) Ends Here */

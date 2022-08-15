@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import { HiLogout } from "react-icons/hi";
+import { useState } from 'react';
 
 const Sidebar = () => {
+    const [open, setOpen] = useState(false);
     const Navigation = [{ placeholder: 'NFTs', path: '/admin/nfts' }, { placeholder: 'Events', path: '/admin/events' }]
     const handleLogout = () => {
         localStorage.removeItem('token');
@@ -9,7 +11,6 @@ const Sidebar = () => {
     }
     return (
         <aside className='sidebar-open right-unset left-0 flex justify-between flex-col'
-            style={{ zIndex: '10' }}
         >
             <ul className="flex pt-40 flex-col ml-20 mt-4 ">
                 {
@@ -27,9 +28,10 @@ const Sidebar = () => {
             <section className='gGngoX'
                 style={{ height: '100px' }}
             >
-                <button 
-                className="bg-black text-white px-32 mb-22 w-full py-10 rounded-5 transition-all flex items-center justify-center gap-3 hover:bg-black-600 relative top-0 hover:top-px"
-                onClick={() => handleLogout()}> Sign out  <HiLogout className='text-18' /></button>
+                <button onClick={() => setOpen(true)} className="side-connect-btn bg-black text-white px-32 py-10 mb-4 w-full rounded-5 transition-all hover:bg-black relative top-0 hover:top-px" >Connect</button>
+                <button
+                    className="bg-black text-white px-32 mb-22 w-full py-10 rounded-5 transition-all flex items-center justify-center gap-3 hover:bg-black-600 relative top-0 hover:top-px"
+                    onClick={() => handleLogout()}> Sign out  <HiLogout className='text-18' /></button>
             </section>
         </aside>
     )
