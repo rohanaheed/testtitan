@@ -15,18 +15,18 @@ const Navbar = () => {
     const history = useHistory();
     const [isContactModalOpen, setIsContactModalOpen] = useState(false);
     const artist = [
-        {name: 'Mr. Fan Shaohua', id: '1'},
-        {name: 'Mr. Cephas Wong', id: '2'},
-        {name: 'Liang zhenkang', id: '3'},
-        {name: 'Tan Ruirong', id: '4'},
-        {name: 'Yang Changtai', id: '5'}
+        { name: 'Mr. Fan Shaohua', id: '1' },
+        { name: 'Mr. Cephas Wong', id: '2' },
+        { name: 'Liang zhenkang', id: '3' },
+        { name: 'Tan Ruirong', id: '4' },
+        { name: 'Yang Changtai', id: '5' }
     ]
 
     const [open, setOpen] = useState(false)
 
     return (
         <nav
-            className="bg-black top-0 relative h-71 py-12 z-20 w-full flex flex-wrap items-center justify-between px-2 navbar-expand-lg"
+            className="bg-black top-0 sticky h-71 py-12 z-20 w-full flex flex-wrap items-center justify-between px-2 navbar-expand-lg"
         >
 
             <div
@@ -37,22 +37,22 @@ const Navbar = () => {
                 >
                     <Link to="/"> <h4 className="cursor-pointer text-26 font-medium text-white mb-4 logo block lg:hidden">art gallery</h4>  </Link>
 
-                <section className='flex items-center gap-2'>
+                    <section className='flex items-center gap-2'>
                         <BiUserCircle onClick={() => setIsAuthModalOpen(!isAuthModalOpen)} className="cursor-pointer ml-2 transition-all text-white hover:text-gray-300 text-28" />
                         <AuthModal isOpen={isAuthModalOpen} setIsOpen={setIsAuthModalOpen} />
                         <BsCart className="cursor-pointer transition-all text-white hover:text-gray-300 text-24 ml-2" />
-                    <button
-                        className="cursor-pointer text-white text-xl leading-none border border-solid border-transparent rounded bg-transparent outline-none focus:outline-none"
-                        type="button"
-                        onClick={() => setOpen(!open)}
-                    >
-                        {open ? <IoClose className='text-26' /> : <AiOutlineAlignRight className='text-25' />}
-                    </button>
-                </section>
+                        <button
+                            className="cursor-pointer text-white text-xl leading-none border border-solid border-transparent rounded bg-transparent outline-none focus:outline-none"
+                            type="button"
+                            onClick={() => setOpen(!open)}
+                        >
+                            {open ? <IoClose className='text-26' /> : <AiOutlineAlignRight className='text-25' />}
+                        </button>
+                    </section>
                 </div>
                 <div
                     className={`${open ? 'flex' : 'hidden'} absolute top-69 top-20 left-0 bg-gray-200 right-0 lg:relative lg:top-unset lg:flex flex-grow items-center justify-between px-18 lg:p12 lg:bg-transparent lg:shadow-none`}
-                    >
+                >
                     <section className="flex items-center gap-16">
                         <Link to="/"> <h4 className="cursor-pointer text-26 font-medium text-white mb-4 logo hidden lg:block">art gallery</h4>  </Link>
                         <ul className="links-container flex flex-col lg:flex-row list-none mr-auto lg:mr-0 gap-2 lg:gap-6">
@@ -86,7 +86,7 @@ const Navbar = () => {
                                 <div className="dropdown inline-block relative">
                                     <span
                                         className="lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
-                                        // onClick={() => history.push('/artist')}
+                                    // onClick={() => history.push('/artist')}
                                     >
                                         Artists
                                     </span>
@@ -127,14 +127,14 @@ const Navbar = () => {
                                     NFT Project
                                 </span>
                             </li>
-                            <Link to="/about-us"> 
-                            <li className="flex items-center">
-                                <span
-                                    className="lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
-                                >
-                                    About
-                                </span>
-                            </li>
+                            <Link to="/about-us">
+                                <li className="flex items-center">
+                                    <span
+                                        className="lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
+                                    >
+                                        About
+                                    </span>
+                                </li>
                             </Link>
                             <li className="flex items-center">
                                 <span onClick={() => setIsContactModalOpen(!isContactModalOpen)}
