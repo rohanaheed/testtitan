@@ -8,6 +8,9 @@ import { BsCartFill, BsCart } from "react-icons/bs";
 import { BiUserCircle } from "react-icons/bi";
 import { FaUserCircle } from "react-icons/fa";
 import { AiOutlineAlignRight } from "react-icons/ai";
+import { useWeb3React } from '@web3-react/core';
+import ConnectionModel from '../ConnectionModel';
+import isEmpty from '../../../utils/isEmpty';
 
 const Navbar = () => {
 
@@ -24,11 +27,24 @@ const Navbar = () => {
 
     const [open, setOpen] = useState(false)
 
+    const { account, deactivate } = useWeb3React();
+    const type = localStorage?.getItem('type')
+    const [show, setShow] = useState(isEmpty(type) ? true : false);
+    const logout = () => {
+        localStorage.removeItem('type');
+        deactivate();
+    }
+
+    const handleClose = () => {
+        setShow(false)
+    }
+
     return (
         <nav
             className="bg-black top-0 sticky h-71 py-12 z-20 w-full flex flex-wrap items-center justify-between px-2 navbar-expand-lg"
         >
 
+            <ConnectionModel popup={show} onClose={handleClose} />
             <div
                 className="container px-24 mx-auto flex flex-wrap items-center justify-between"
             >
@@ -150,6 +166,26 @@ const Navbar = () => {
                         <FaUserCircle onClick={() => setIsAuthModalOpen(!isAuthModalOpen)} className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
                         <AuthModal isOpen={isAuthModalOpen} setIsOpen={setIsAuthModalOpen} />
                         <BsCartFill className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
+                        {isEmpty(account) ?
+                            <button
+                                onClick={() => setShow(true)}
+                                className="white-shadow py-8  rounded-5 bg-white transition-all hover:bg-gray-900 hover:text-white px-26 header-btn">
+                                Connect wallet
+                            </button>
+
+                            :
+                            <>
+                                <button
+                                    className="white-shadow py-8 rounded-5 bg-white transition-all hover:bg-gray-900 hover:text-white px-26 header-btn">
+                                    {account.slice(0, 10) + '...'}
+                                </button>
+                                <button
+                                    onClick={() => logout()}
+                                    className="white-shadow py-8 rounded-5 bg-white transition-all hover:bg-gray-900 hover:text-white px-26 header-btn">
+                                    Disconnect
+                                </button>
+                            </>
+                        }
                     </div>
                 </div>
             </div>

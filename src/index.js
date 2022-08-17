@@ -3,13 +3,25 @@ import ReactDOM from "react-dom";
 import "./global.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter } from "react-router-dom";
+import Web3 from "web3";
+import { Web3ReactProvider } from "@web3-react/core";
+
+function getLibrary(provider) {
+  const library = new Web3(provider)
+  library.pollingInterval = 12000
+  return library
+}
 
 const renderReactDom = () => {
   ReactDOM.render(
-    <Router>
-      <App />
-    </Router>
+    <React.StrictMode>
+      <BrowserRouter>
+        <Web3ReactProvider getLibrary={getLibrary}>
+          <App />
+        </Web3ReactProvider>
+      </BrowserRouter>
+    </React.StrictMode >
     , document.getElementById('root'));
 };
 

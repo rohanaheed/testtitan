@@ -261,3 +261,28 @@ nav .links-container > li span:hover::before,
   100% {opacity: 1;  right: 10px;}
 
 }
+.welcome-modal .modal-dialog {
+  width: 375px;
+  position: fixed;
+  top: 75px;
+  right: 30px;
+  background: #1f1f1f;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.welcome-modal .modal-dialog .modal-content {
+  background-color: #1f1f1f !important;
+  border: unset !important;
+}
+
+.welcome-modal .modal-dialog .modal-content .modal-header {
+  background-color: #1f1f1f !important;
+  border: unset !important;
+}
+
+.welcome-modal .modal-dialog .modal-content .modal-header .modal-body {
+  background-color: #1f1f1f;
+  border-radius: 5px;
+}
