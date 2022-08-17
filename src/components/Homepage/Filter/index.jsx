@@ -3,7 +3,7 @@ import MultiRangeSlider from "../MultiRangeSlider";
 const Filter = () => {
 
   return (
-    <div className="w-full px-24 bg-filter pb-42">
+    <div className="w-full h-full px-24 bg-filter filter-section overflow-y-auto">
       <div>
         <h3 className="text-md font-medium  text-center py-28 border-b border-gray-500">FILTERS </h3>
       </div>

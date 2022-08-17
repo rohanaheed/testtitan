@@ -13,14 +13,16 @@ function Explore() {
   return (
     <>
       <main className="flex">
-        <section className="absolute lg:static w-full md:w-384">
+        {/* <section className="absolute lg:static w-full md:w-384"> */}
+        <section className="admin-sidebar">
           {
             toggle && <Filter />
           }
         </section>
-        <section className="w-full">
+        {/* <section className="w-full"> */}
+        <section className="page-content">
           <section className="filter-btn lg:hidden flex items-center container mx-auto px-24 md:px-12 h-76">
-            <AiOutlineFilter onClick={() => setToggle(!toggle)}  className="text-27 cursor-pointer text-white ml-auto" />
+            <AiOutlineFilter onClick={() => setToggle(!toggle)} className="text-27 cursor-pointer text-white ml-auto" />
           </section>
           <GalleryContainer>
           </GalleryContainer>

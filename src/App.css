@@ -36,6 +36,21 @@
     transform: rotate(360deg);
   }
 } */
+.filter-section::-webkit-scrollbar-track {
+  border-radius: 0;
+  background-color: #4d4d4d;
+}
+
+.filter-section::-webkit-scrollbar {
+  width: 5px;
+  background-color: #F5F5F5;
+}
+
+.filter-section::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background-color: #7c7c7c;
+}
+
 .admin-sidebar {
   position: fixed;
   left: 0;
@@ -69,6 +84,10 @@
 
 .side-connect-btn {
   display: none;
+}
+
+.filter-section {
+  padding-bottom: 100px;
 }
 
 /* Media Queries (998px) Starts Here */
