@@ -32,7 +32,7 @@ const ConnectionModel = ({ popup, onClose }) => {
   const isxs = useMediaQuery({ query: '(min-width: 486px)' })
 
   const customStyles = {
-    content: { position: 'relative', inset: '0', backgroundColor: '#FFFFFF', border: 'none', borderRadius: '8px', width: isxs ? '28rem' : '92%', margin: '0 auto', padding: '0', height: '10rem', overflow: 'hidden' }
+    content: { position: 'relative', inset: '0', backgroundColor: '#FFFFFF', border: 'none', borderRadius: '5px', overflow: 'none', padding: '0' }
   }
   return (
     <ReactModal
@@ -40,19 +40,25 @@ const ConnectionModel = ({ popup, onClose }) => {
       style={customStyles}
       onRequestClose={() => handleClose()}
     >
-      <div>
-        <div style={{ display: 'flex' }}>
+      <div className="wallet-modal">
+        <div style={{ display: 'none' }}>
           {/* <img src="/assets/images/favicon.png" width={40} /> */}
           <h6 style={{ marginLeft: '5px', marginTop: '10px' }}>Connect Your Wallet!</h6>
         </div>
-        <button style={{ background: 'transparent', color: 'white', border: 'unset' }} onClick={handleClose}>X</button>
-        <div style={{ marginLeft: '15px', display: 'flex', cursor: 'pointer' }} onClick={() => connect('meta')}>
-          <img src="https://ik.imagekit.io/xanalia/Images/metmask-icon.svg" width={30} />
-          <h6 style={{ marginLeft: '30px', marginTop: '5px' }}>MetaMask Wallet</h6>
-        </div>
-        <div style={{ marginLeft: '15px', display: 'flex', cursor: 'pointer', marginTop: '20px', marginBottom: '20px' }} onClick={() => connect('')}>
-          <img src="https://ik.imagekit.io/xanalia/Images/WalletConnect.svg" width={30} />
-          <h6 style={{ marginLeft: '30px', marginTop: '5px' }}>Wallet Connect</h6>
+        <button className="close-wallet" onClick={handleClose}>X</button>
+        <div className="top_row connection-modal">
+          <div className="left" onClick={() => connect('meta')}>
+            <div className="mt-none">
+              <img src="https://ik.imagekit.io/xanalia/Images/metmask-icon.svg" />
+            </div>
+            <div className="whitespace-nowrap">MetaMask Wallet</div>
+          </div>
+          <div className="right" onClick={() => connect('')}>
+            <div className="mt-none">
+              <img src="https://ik.imagekit.io/xanalia/Images/WalletConnect.svg" />
+            </div>
+            <div className="wallet-title">Wallet Connect</div>
+          </div>
         </div>
       </div>
     </ReactModal>

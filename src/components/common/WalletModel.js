@@ -51,26 +51,24 @@ const WalletModel = ({ open, handleClose }) => {
   return (
     <>
       <Dialog open={open} onClose={handleClose}>
-        <div style={{ borderRadius: "5px", display: 'flex', padding: '35px' }}>
-          <div className="top_row" style={{ borderRadius: "5px", display: 'flex' }}>
+        <div className="wallet-modal">
+          <div className="top_row">
             <div className="left"
-              style={{ padding: '25px', textAlign: 'center' }}
               onClick={() => connect('meta')}
             >
-              <div style={{ marginTop: "20px", marginLeft: '60px', cursor: 'pointer' }}>
+              <div>
                 <img src="https://ik.imagekit.io/xanalia/Images/metmask-icon.svg" />
               </div>
-              <div style={{ fontSize: "18px" }}>Metamask</div>
+              <div>Metamask</div>
               Connect to your MetaMask Wallet
             </div>
             <div className="right"
-              style={{ padding: '25px', textAlign: 'center', cursor: 'pointer' }}
               onClick={() => connect('wallet')}
             >
-              <div style={{ marginTop: "25px", marginLeft: '50px' }}>
+              <div>
                 <img src="https://ik.imagekit.io/xanalia/Images/WalletConnect.svg" />
               </div>
-              <div style={{ fontSize: "18px", marginTop: "23px" }}>Wallet Connect</div>
+              <div>Wallet Connect</div>
               Connect to your favorite Wallet
             </div>
           </div>

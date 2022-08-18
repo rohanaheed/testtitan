@@ -87,7 +87,7 @@ const SignIn = ({ setVisibleComponent }) => {
                     name="email"
                     type={'email'}
                     value={email}
-                    className='mb-16'
+                    className='mb-16 input-border'
                     handleChange={handleChange}
                     errorMessage={errors.email}
                 />
@@ -96,7 +96,7 @@ const SignIn = ({ setVisibleComponent }) => {
                     name="password"
                     type={'password'}
                     value={password}
-                    className='mb-16'
+                    className='mb-16 input-border'
                     handleChange={handleChange}
                     errorMessage={errors.password}
                 />
@@ -104,7 +104,7 @@ const SignIn = ({ setVisibleComponent }) => {
                 <p onClick={() => setVisibleComponent('Forgot')} className="text-gray-600 text-14 text-center cursor-pointer"> forgot password? </p>
             </div>
 
-            <div className="bg-gray-900 py-32 px-28 mt-28">
+            <div className="bg-gray-900 py-36 px-28 mt-28">
                 <p className="text-gray-200 font-light text-center"> Don't have an account? </p>
                 <p onClick={() => setVisibleComponent('SignUp')} className="text-gray-200 font-medium text-center cursor-pointer"> Register </p>
             </div>

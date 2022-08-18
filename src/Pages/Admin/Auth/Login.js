@@ -15,7 +15,7 @@ const AdminSignIn = () => {
 
     const handleChange = e => {
         setUserData({ ...userData, [e.target.name]: e.target.value });
-        setErrors({...errors, [e.target.name]: ''});
+        setErrors({ ...errors, [e.target.name]: '' });
     }
 
     const validate = () => {
@@ -37,15 +37,15 @@ const AdminSignIn = () => {
         if (isEmpty(errors)) {
             setLoader(true);
             axios.post(API_URL_ADMIN + 'signin/admin', userData)
-            .then(res => {
-                localStorage.setItem('token', res?.data?.token);
-                setLoader(false);
-                history.push('/admin/dashboard')
-            })
-            .catch(err => {
-                setErrors({ "err": err?.response?.data?.message })
-                setLoader(false);
-            })
+                .then(res => {
+                    localStorage.setItem('token', res?.data?.token);
+                    setLoader(false);
+                    history.push('/admin/dashboard')
+                })
+                .catch(err => {
+                    setErrors({ "err": err?.response?.data?.message })
+                    setLoader(false);
+                })
         }
         setErrors(errors || {});
     }
@@ -75,7 +75,7 @@ const AdminSignIn = () => {
                             type="password"
                             handleChange={handleChange}
                             errorMessage={errors?.password}
-                            className='mb-16'
+                            className='mb-16 input-border'
                         />
                     </div>
                     {loader ?

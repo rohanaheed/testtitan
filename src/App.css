@@ -90,6 +90,126 @@
   padding-bottom: 100px;
 }
 
+/* Wallet Modal Starts Here */
+.wallet-modal {
+  border-radius: 5px;
+  display: flex;
+}
+
+.wallet-modal .top_row {
+  display: flex;
+  border-radius: 5px;
+}
+
+.wallet-modal .top_row .left {
+  padding: 25px;
+  text-align: center;
+  border-right: 2px solid #000;
+}
+
+.wallet-modal .top_row .left:hover {
+  background-color: #4d4d4d;
+}
+
+.wallet-modal .top_row .left div:first-child {
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.wallet-modal .top_row .left div:first-child img {
+  margin: 0 auto;
+}
+
+.wallet-modal .top_row .left div:last-child {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.wallet-modal .top_row .right {
+  padding: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.wallet-modal .top_row .right:hover {
+  background-color: #4d4d4d;
+}
+
+.wallet-modal .top_row .right div:first-child {
+  margin-top: 25px;
+}
+
+.wallet-modal .top_row .right div:first-child img {
+  margin: 0 auto;
+}
+
+.wallet-modal .top_row .right div:last-child {
+  font-size: 18px;
+  margin-top: 23px;
+  font-weight: 700;
+}
+
+.mt-none {
+  margin-top: 0 !important;
+}
+
+.wallet-title {
+  margin-top: 27px !important;
+}
+
+.close-wallet {
+  background: #ffffff;
+  color: #000000;
+  position: absolute;
+  top: -10px;
+  right: 0;
+  border-radius: 50%;
+  padding: 6px;
+  height: 25px;
+  width: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  border: 2px solid darkgrey;
+}
+
+.connection-modal {
+  display: grid !important;
+  grid-template-columns: 50% 50%;
+}
+
+/* Wallet Modal Ends Here */
+.input-border input {
+  border-radius: 10px;
+  border: 1px solid rgb(229, 232, 235);
+}
+
+
+
+.input-border:focus,
+.input-border:focus-visible,
+textarea:focus,
+textarea:focus-visible {
+  outline: none;
+  border-width: 0.1px !important;
+  border-color: rgb(118 118 118) !important;
+  box-shadow: rgb(78 78 78 / 30%) 0px 0px 0px 2pt !important;
+}
+
+.input-border input::placeholder {
+  color: #899096;
+}
+
+:-ms-input-placeholder {
+  color: #899096;
+}
+
+::-ms-input-placeholder {
+  color: #899096;
+}
+
 /* Media Queries (998px) Starts Here */
 @media (max-width:991px) {
   .connect-btn {
@@ -112,3 +232,30 @@
 }
 
 /* Media Queries (998px) Ends Here */
+
+/* Media Queries (640px) Starts Here */
+@media (max-width:640px) {
+  .wallet-modal .top_row {
+    display: block;
+  }
+
+  .wallet-modal .top_row .left {
+    border-bottom: 2px solid #000;
+    border-right: 0;
+  }
+
+  .wallet-modal .top_row .left div:first-child {
+    margin-top: 0;
+  }
+
+  .wallet-modal .top_row .right div:first-child {
+    margin-top: 0;
+  }
+
+  .connection-modal {
+    display: grid !important;
+    grid-template-columns: 100%;
+  }
+}
+
+/* Media Queries (640px) Ends Here */
