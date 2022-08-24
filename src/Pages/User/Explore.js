@@ -1,14 +1,26 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { AiOutlineFilter } from "react-icons/ai";
 import Filter from "../../components/Homepage/Filter";
 import Pagination from "../../components/common/Pagination";
 import GalleryContainer from "../../components/common/GalleryContainer";
+import axios from 'axios';
+import { API_URL } from '../../utils/contant';
 
 function Explore() {
   const islg = useMediaQuery({ query: '(min-width: 1024px)' })
+  const [data, setData] = useState();
+  useEffect(() => {
+    _getNFTs();
+  }, [])
 
+  const _getNFTs = () => {
+    axios.get(API_URL + 'user/nfts')
+      .then(res => {
+        setData(res?.data)
+      })
+  }
   const [toggle, setToggle] = useState(islg ? true : false);
   return (
     <>
@@ -24,9 +36,10 @@ function Explore() {
           <section className="filter-btn lg:hidden flex items-center container mx-auto px-24 md:px-12 h-76">
             <AiOutlineFilter onClick={() => setToggle(!toggle)} className="text-27 cursor-pointer text-white ml-auto" />
           </section>
-          <GalleryContainer>
+          {/* {console.log(data)} */}
+          <GalleryContainer data={data}>
           </GalleryContainer>
-          <Pagination />
+          {/* <Pagination /> */}
         </section>
       </main>
     </>
