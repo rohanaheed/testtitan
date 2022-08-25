@@ -4,30 +4,32 @@
 
 *,
 *::after,
-*::before{
+*::before {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
 }
 
-.logo{
+.logo {
   font-family: 'Dancing Script', cursive;
 }
 
-input[type="text"], textarea{
+input[type="text"],
+textarea {
   border-radius: 10px;
   border: 1px solid rgb(229, 232, 235);
 }
 
-input[type="text"]::placeholder, textarea::placeholder{
+input[type="text"]::placeholder,
+textarea::placeholder {
   color: #99a0a7 !important;
 }
 
-input:focus, 
+input:focus,
 input:focus-visible,
-textarea:focus, 
-textarea:focus-visible{
+textarea:focus,
+textarea:focus-visible {
   outline: none;
   border-width: 0.1px !important;
   border-color: rgb(118 118 118) !important;
@@ -38,28 +40,28 @@ textarea:focus-visible{
   display: block !important;
 }
 
-.dropdown-menu{
-  background: linear-gradient(360deg, rgba(84,84,84,.9) 41%, rgba(31,31,31,1) 63%, rgba(0,0,0,1) 100%);
+.dropdown-menu {
+  background: linear-gradient(360deg, rgba(84, 84, 84, .9) 41%, rgba(31, 31, 31, 1) 63%, rgba(0, 0, 0, 1) 100%);
 }
 
-.white-shadow{
+.white-shadow {
   box-shadow: rgb(255 255 255 / 30%) 0px 0px 0px 2pt !important;
 }
 
-.ReactModal__Overlay{
-  z-index: 20; 
+.ReactModal__Overlay {
+  z-index: 20;
   display: grid;
   place-items: center;
   background-color: rgb(27 27 27 / 75%) !important;
 }
 
-.card:hover{
-    transition: all 0.2s ease 0s;
-    box-shadow: rgb(4 17 29 / 25%) 0px 0px 8px 0px;
-    background-color: rgb(251, 253, 255);
+.card:hover {
+  transition: all 0.2s ease 0s;
+  box-shadow: rgb(4 17 29 / 25%) 0px 0px 8px 0px;
+  background-color: rgb(251, 253, 255);
 }
 
-.filter-btn{
+.filter-btn {
   pointer-events: none;
   position: absolute;
   top: 0;
@@ -68,42 +70,54 @@ textarea:focus-visible{
   z-index: 21;
 }
 
-.filter-btn svg{
+.filter-btn svg {
   pointer-events: all;
   margin-right: 108px;
 }
 
-.px--6{
+.px--6 {
   padding-left: 6%;
   padding-right: 6%;
 }
 
-.h-header-img{
+.h-header-img {
   height: calc(100vh - 75px);
 }
 
-.h-header{
+.h-header {
   height: calc(100vh - 75px);
 }
 
-@media(max-width: 1024px){
-  .h-header{
+@media(max-width: 1024px) {
+  .h-header {
     height: auto;
   }
-  .h-header-img{
+
+  .h-header-img {
     height: 500px;
   }
-  .px--6{
+
+  .px--6 {
     padding-left: unset;
     padding-right: unset;
   }
-  .top-75{
+
+  .top-75 {
     top: 75px;
   }
 }
 
-.bg-filter{
-  background-color: #565656;
+.bg-filter {
+  background-color: #2a2a2a;
+}
+
+.slider::-webkit-slider-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  -webkit-appearance: none;
+  cursor: ew-resize;
+  background: rgb(0, 96, 239);
 }
 
 .slider {
@@ -137,7 +151,7 @@ textarea:focus-visible{
 
 .slider__left-value,
 .slider__right-value {
-  color: #dee2e6;
+  color: #fff;
   font-size: 12px;
   margin-top: 20px;
 }
@@ -205,11 +219,11 @@ textarea:focus-visible{
   position: relative;
 }
 
-.dropdown-menu li:hover ~ .dropdown-img-container{
+.dropdown-menu li:hover~.dropdown-img-container {
   opacity: 1;
 }
 
-.dropdown-img-container{
+.dropdown-img-container {
   transition: 0.3s ease-in;
   opacity: 0;
   background: red;
@@ -220,7 +234,7 @@ textarea:focus-visible{
   right: -199px;
 }
 
-.dropdown-img{
+.dropdown-img {
   width: 100%;
   height: calc(100% - 28px);
   background: green;
@@ -230,13 +244,13 @@ textarea:focus-visible{
   background-size: cover;
 }
 
-nav .links-container > li span,
-.link-btn{
+nav .links-container>li span,
+.link-btn {
   position: relative;
 }
 
-nav .links-container > li span::before,
-.link-btn::before{
+nav .links-container>li span::before,
+.link-btn::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -249,18 +263,33 @@ nav .links-container > li span::before,
   opacity: 0;
 }
 
-nav .links-container > li span:hover::before,
+nav .links-container>li span:hover::before,
 .link-btn:hover::before {
   animation: link-animation 0.4s linear;
 }
 
 @keyframes link-animation {
-  0%   {opacity: 0;  right: 10px;}
-  55%  {opacity: 0.8}
-  99% {opacity: 1;  right: -6px;}
-  100% {opacity: 1;  right: 10px;}
+  0% {
+    opacity: 0;
+    right: 10px;
+  }
+
+  55% {
+    opacity: 0.8
+  }
+
+  99% {
+    opacity: 1;
+    right: -6px;
+  }
+
+  100% {
+    opacity: 1;
+    right: 10px;
+  }
 
 }
+
 .welcome-modal .modal-dialog {
   width: 375px;
   position: fixed;

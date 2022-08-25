@@ -5,10 +5,10 @@ const Filter = () => {
   return (
     <div className="w-full h-full px-24 bg-filter filter-section overflow-y-auto">
       <div>
-        <h3 className="text-md font-medium  text-center py-28 border-b border-gray-500">FILTERS </h3>
+        <h3 className="text-md font-medium text-white text-center py-28 border-b border-gray-500">FILTERS </h3>
       </div>
-      <div>
-        <h3 className="text-md font-medium pt-24 pb-18" >CATEGORY</h3>
+      <div className="text-white">
+        <h3 className="text-md font-medium text-white pt-24 pb-18" >CATEGORY</h3>
         <div className="">
           <input className="mr-12" type="radio" id="masters" name="fav_language" value="HTML" />
           <label for="masters">Fine Art</label> <br />
@@ -21,7 +21,7 @@ const Filter = () => {
         </div>
       </div>
 
-      <div className="border-t mt-28 border-gray-500">
+      <div className="border-t mt-28 border-gray-500 text-white">
         <h3 className="text-md font-medium  pt-24 pb-18">MEDIUM </h3>
         <div className="">
           <input className="mr-12" type="radio" id="painting" name="fav_languagse" value="HTML" />

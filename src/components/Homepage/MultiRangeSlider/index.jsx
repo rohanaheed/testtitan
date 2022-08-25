@@ -48,7 +48,7 @@ const MultiRangeSlider = ({ min, max, onChange }) => {
   return (
     <div className="mt-32 mb-42">
       <div className="flex items-center justify-between pt-24 pb-18 mb-18">
-        <h3 className="text-md font-medium text-white" style={{ color: 'black' }}>PRICE RANGE </h3>
+        <h3 className="text-md font-medium text-white">PRICE RANGE </h3>
         <p className="text-white"> ${minVal} - ${maxVal} + </p>
       </div>
       <input
