@@ -61,6 +61,15 @@
   box-shadow: rgb(99 99 99 / 20%) 0px 2px 8px 0px;
 }
 
+.img-container {
+  min-height: 340px;
+}
+
+.img-container a img {
+  min-height: 340px;
+  object-fit: cover;
+}
+
 .page-content {
   width: calc(100% - 272px);
   margin-left: auto;
@@ -209,6 +218,20 @@ textarea:focus-visible {
 ::-ms-input-placeholder {
   color: #899096;
 }
+
+/* Media Queries (min-width: 1500px) Starts Here */
+@media (min-width: 1500px) {
+  .img-container {
+    min-height: 430px;
+  }
+
+  .img-container a img {
+    min-height: 430px;
+  }
+}
+
+/* Media Queries (min-width: 1500px) Ends Here */
+
 
 /* Media Queries (998px) Starts Here */
 @media (max-width:991px) {
