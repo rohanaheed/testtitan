@@ -11,6 +11,7 @@ import { API_URL } from '../../utils/contant';
 function Explore() {
   const islg = useMediaQuery({ query: '(min-width: 1024px)' })
   const [data, setData] = useState();
+  const [loading, setLoading] = useState(true)
   useEffect(() => {
     _getNFTs();
   }, [])
@@ -18,26 +19,27 @@ function Explore() {
   const _getNFTs = () => {
     axios.get(API_URL + 'user/nfts')
       .then(res => {
-        setData(res?.data)
+        setLoading(false);
+        setData(res?.data);
       })
   }
-  const [toggle, setToggle] = useState(islg ? true : false);
+  const [toggle, setToggle] = useState(window?.innerWidth > 1000 ? true : false);
   return (
     <>
       <main className="flex">
         {/* <section className="absolute lg:static w-full md:w-384"> */}
-        <section className="admin-sidebar">
-          {
-            toggle && <Filter />
-          }
-        </section>
+        {toggle &&
+          <section className="admin-sidebar">
+            <Filter />
+          </section>
+        }
         {/* <section className="w-full"> */}
         <section className="page-content">
           <section className="filter-btn lg:hidden flex items-center container mx-auto px-24 md:px-12 h-76">
             <AiOutlineFilter onClick={() => setToggle(!toggle)} className="text-27 cursor-pointer text-white ml-auto" />
           </section>
           {/* {console.log(data)} */}
-          <GalleryContainer data={data}>
+          <GalleryContainer data={data} loading={loading}>
           </GalleryContainer>
           {/* <Pagination /> */}
         </section>

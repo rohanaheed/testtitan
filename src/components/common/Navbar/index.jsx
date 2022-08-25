@@ -51,7 +51,7 @@ const Navbar = () => {
                 <div
                     className="flex lg:hidden w-full justify-between lg:w-auto lg:static lg:justify-start"
                 >
-                    <Link to="/"> <h4 className="cursor-pointer text-26 font-medium text-white mb-4 logo block lg:hidden">art gallery</h4>  </Link>
+                    <Link to="/"> <h4 className="cursor-pointer text-26 font-medium text-white mb-4 logo block lg:hidden">  <img src='/assets/logo.png' width={"50px"}/></h4>  </Link>
 
                     <section className='flex items-center gap-2'>
                         <BiUserCircle onClick={() => setIsAuthModalOpen(!isAuthModalOpen)} className="cursor-pointer ml-2 transition-all text-white hover:text-gray-300 text-28" />
@@ -70,7 +70,11 @@ const Navbar = () => {
                     className={`${open ? 'flex' : 'hidden'} absolute top-69 top-20 left-0 bg-gray-200 right-0 lg:relative lg:top-unset lg:flex flex-grow items-center justify-between px-18 lg:p12 lg:bg-transparent lg:shadow-none`}
                 >
                     <section className="flex items-center gap-16">
-                        <Link to="/"> <h4 className="whitespace-nowrap cursor-pointer text-26 font-medium text-white mb-4 logo hidden lg:block">art gallery</h4>  </Link>
+                        <Link to="/">
+                            <h4 className="whitespace-nowrap cursor-pointer text-26 font-medium text-white mb-4 logo hidden lg:block">
+                                <img src='/assets/logo.png' width={"50px"}/>
+                            </h4>
+                        </Link>
                         <ul className="links-container flex flex-col lg:flex-row list-none mr-auto lg:mr-0 gap-2 lg:gap-6">
                             <li className="flex items-center">
 
