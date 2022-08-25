@@ -29,7 +29,7 @@ function AboutUs() {
 
       <section className="container relative mx-auto px-24 py-99">
         <p className="mt-4 text-lg leading-relaxed text-gray-600">
-          QAIA.IO showcased the most prestigious collection of fine art NFT collectibles.  Enjoy a visual feast of several precious antiques, artworks, and the magnificent flair of specifically curated NFTs. 
+          QAIA.IO showcased the most prestigious collection of fine art NFT collectibles.  Enjoy a visual feast of several precious antiques, artworks, and the magnificent flair of specifically curated NFTs.
         </p>
       </section>
 
@@ -67,7 +67,7 @@ function AboutUs() {
             </div>
           </div>
         </div>
-        <img className='w-205 absolute -bottom-28 -right-20 z-10 hidden lg:block' src="/assets/arrow-graphic.png" alt="" />
+        {/* <img className='w-205 absolute -bottom-28 -right-20 z-10 hidden lg:block' src="/assets/arrow-graphic.png" alt="" /> */}
       </section>
 
 

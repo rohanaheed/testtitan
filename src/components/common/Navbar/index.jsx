@@ -70,13 +70,13 @@ const Navbar = () => {
                     className={`${open ? 'flex' : 'hidden'} absolute top-69 top-20 left-0 bg-gray-200 right-0 lg:relative lg:top-unset lg:flex flex-grow items-center justify-between px-18 lg:p12 lg:bg-transparent lg:shadow-none`}
                 >
                     <section className="flex items-center gap-16">
-                        <Link to="/"> <h4 className="cursor-pointer text-26 font-medium text-white mb-4 logo hidden lg:block">art gallery</h4>  </Link>
+                        <Link to="/"> <h4 className="whitespace-nowrap cursor-pointer text-26 font-medium text-white mb-4 logo hidden lg:block">art gallery</h4>  </Link>
                         <ul className="links-container flex flex-col lg:flex-row list-none mr-auto lg:mr-0 gap-2 lg:gap-6">
                             <li className="flex items-center">
 
                                 <div className="dropdown inline-block relative">
                                     <span
-                                        className="lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
+                                        className="whitespace-nowrap lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
                                         onClick={() => history.push('/explore')}
                                     >
                                         Discover
@@ -101,7 +101,7 @@ const Navbar = () => {
                             <li className="flex items-center">
                                 <div className="dropdown inline-block relative">
                                     <span
-                                        className="lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
+                                        className="whitespace-nowrap lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
                                     // onClick={() => history.push('/artist')}
                                     >
                                         Artists
@@ -117,7 +117,7 @@ const Navbar = () => {
                             <li className="flex items-center">
                                 <div className="dropdown inline-block relative">
                                     <span
-                                        className="lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
+                                        className="whitespace-nowrap lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
                                     >
                                         Collections
                                     </span>
@@ -138,7 +138,7 @@ const Navbar = () => {
                             </li>
                             <li className="flex items-center">
                                 <span
-                                    className="lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
+                                    className="whitespace-nowrap lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
                                 >
                                     NFT Project
                                 </span>
@@ -146,7 +146,7 @@ const Navbar = () => {
                             <Link to="/about-us">
                                 <li className="flex items-center">
                                     <span
-                                        className="lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
+                                        className="whitespace-nowrap lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
                                     >
                                         About
                                     </span>
@@ -154,7 +154,7 @@ const Navbar = () => {
                             </Link>
                             <li className="flex items-center">
                                 <span onClick={() => setIsContactModalOpen(!isContactModalOpen)}
-                                    className="lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
+                                    className="whitespace-nowrap lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
                                 >
                                     Contact
                                 </span>
@@ -169,7 +169,7 @@ const Navbar = () => {
                         {isEmpty(account) ?
                             <button
                                 onClick={() => setShow(true)}
-                                className="white-shadow py-8  rounded-5 bg-white transition-all hover:bg-gray-900 hover:text-white px-26 header-btn">
+                                className="whitespace-nowrap white-shadow py-8 rounded-5 bg-white transition-all hover:bg-gray-900 hover:text-white px-26 header-btn">
                                 Connect wallet
                             </button>
 

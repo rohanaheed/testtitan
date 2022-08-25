@@ -15,7 +15,7 @@ const GalleryContainer = ({ children, data }) => {
                 </div>
             </div>
 
-            <div class="flex flex-wrap -mx-1 lg:-mx-4 px--6"
+            <div class="flex flex-wrap px--6"
             >
                 {data?.map(item => (
                     <GalleryItem item={item} />
