@@ -6,6 +6,7 @@ import Artist from '../Pages/User/Artist';
 import Home from '../Pages/User/Home';
 import AboutUs from '../Pages/User/AboutUs';
 import Events from '../Pages/User/Events';
+import EventDeatils from '../Pages/User/EventDetails';
 import Layout from '../components/layout/Layout';
 
 const UserRoutes = () => {
@@ -18,6 +19,7 @@ const UserRoutes = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/about-us" component={AboutUs} />
         <Route exact path="/events" component={Events} />
+        <Route exact path="/event-details" component={EventDeatils} />
         {/* <Redirect from='/' to='/' /> */}
       </Layout>
     </Switch>

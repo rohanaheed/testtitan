@@ -219,6 +219,57 @@ textarea:focus-visible {
   color: #899096;
 }
 
+/* Events Page Starts Here */
+.event-container {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.event-section {
+  margin: 60px 0;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 40px;
+}
+
+.event-card {
+  border-radius: 12px;
+  width: 100%;
+  margin: 30px 0;
+  box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+}
+
+.event-card a img {
+  width: 100%;
+  border-radius: 12px 12px 0 0;
+}
+
+.event-card-details {
+  padding: 10px;
+}
+
+.description-section .card-img img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.description-section {
+  display: grid;
+  grid-template-columns: 48% 48%;
+  grid-gap: 32px;
+  margin-top: 30px;
+  background: #e5e5e5;
+  border-radius: 12px;
+}
+
+.list-nft {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 15px;
+}
+
+/* Events Page Ends Here */
+
 /* Media Queries (min-width: 1500px) Starts Here */
 @media (min-width: 1500px) {
   .img-container {
@@ -278,6 +329,28 @@ textarea:focus-visible {
   .connection-modal {
     display: grid !important;
     grid-template-columns: 100%;
+  }
+
+  .event-container {
+    max-width: 98%;
+    margin: 0 auto;
+  }
+
+  .event-card {
+    margin: 15px 0;
+  }
+
+  .event-section {
+    grid-template-columns: auto;
+    margin: 0 0 50px 0;
+    grid-gap: 0px;
+  }
+
+  .description-section {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-gap: 32px;
+    margin-top: 30px;
   }
 }
 
