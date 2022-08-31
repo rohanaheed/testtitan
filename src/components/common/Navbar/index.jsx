@@ -51,7 +51,7 @@ const Navbar = () => {
                 <div
                     className="flex lg:hidden w-full justify-between lg:w-auto lg:static lg:justify-start"
                 >
-                    <Link to="/"> <h4 className="cursor-pointer text-26 font-medium text-white mb-4 logo block lg:hidden">  <img src='/assets/logo.png' width={"50px"}/></h4>  </Link>
+                    <Link to="/"> <h4 className="cursor-pointer text-26 font-medium text-white mb-4 logo block lg:hidden">  <img src='/assets/logo.png' width={"50px"} /></h4>  </Link>
 
                     <section className='flex items-center gap-2'>
                         <BiUserCircle onClick={() => setIsAuthModalOpen(!isAuthModalOpen)} className="cursor-pointer ml-2 transition-all text-white hover:text-gray-300 text-28" />
@@ -72,7 +72,7 @@ const Navbar = () => {
                     <section className="flex items-center gap-16">
                         <Link to="/">
                             <h4 className="whitespace-nowrap cursor-pointer text-26 font-medium text-white mb-4 logo hidden lg:block">
-                                <img src='/assets/logo.png' width={"50px"}/>
+                                <img src='/assets/logo.png' width={"50px"} />
                             </h4>
                         </Link>
                         <ul className="links-container flex flex-col lg:flex-row list-none mr-auto lg:mr-0 gap-2 lg:gap-6">
@@ -102,6 +102,15 @@ const Navbar = () => {
                                 </div>
 
                             </li>
+                            <Link to="/events">
+                                <li className="flex items-center">
+                                    <span
+                                        className="whitespace-nowrap lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
+                                    >
+                                        Events
+                                    </span>
+                                </li>
+                            </Link>
                             <li className="flex items-center">
                                 <div className="dropdown inline-block relative">
                                     <span

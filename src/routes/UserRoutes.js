@@ -5,6 +5,7 @@ import Explore from '../Pages/User/Explore';
 import Artist from '../Pages/User/Artist';
 import Home from '../Pages/User/Home';
 import AboutUs from '../Pages/User/AboutUs';
+import Events from '../Pages/User/Events';
 import Layout from '../components/layout/Layout';
 
 const UserRoutes = () => {
@@ -16,6 +17,7 @@ const UserRoutes = () => {
         <Route path="/artist" component={Artist} />
         <Route exact path="/" component={Home} />
         <Route exact path="/about-us" component={AboutUs} />
+        <Route exact path="/events" component={Events} />
         {/* <Redirect from='/' to='/' /> */}
       </Layout>
     </Switch>
