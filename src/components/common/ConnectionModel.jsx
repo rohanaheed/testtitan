@@ -24,6 +24,7 @@ const ConnectionModel = ({ popup, onClose }) => {
         localStorage.setItem('type', 'wallet');
         handleClose();
       }
+      localStorage.setItem('user', true);
     } catch (ex) {
       console.log(ex)
     }

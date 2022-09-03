@@ -32,6 +32,7 @@ const Navbar = () => {
     const [show, setShow] = useState(isEmpty(type) ? true : false);
     const logout = () => {
         localStorage.removeItem('type');
+        localStorage.removeItem('user');
         deactivate();
     }
 
@@ -179,14 +180,8 @@ const Navbar = () => {
                         <FaUserCircle onClick={() => setIsAuthModalOpen(!isAuthModalOpen)} className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
                         <AuthModal isOpen={isAuthModalOpen} setIsOpen={setIsAuthModalOpen} />
                         <BsCartFill className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
-                        {isEmpty(account) ?
-                            <button
-                                onClick={() => setShow(true)}
-                                className="whitespace-nowrap white-shadow py-8 rounded-5 bg-white transition-all hover:bg-gray-900 hover:text-white px-26 header-btn">
-                                Connect wallet
-                            </button>
+                        {account && localStorage?.getItem('user') ?
 
-                            :
                             <>
                                 <button
                                     className="white-shadow py-8 rounded-5 bg-white transition-all hover:bg-gray-900 hover:text-white px-26 header-btn">
@@ -198,6 +193,13 @@ const Navbar = () => {
                                     Disconnect
                                 </button>
                             </>
+                            :
+                            <button
+                                onClick={() => setShow(true)}
+                                className="whitespace-nowrap white-shadow py-8 rounded-5 bg-white transition-all hover:bg-gray-900 hover:text-white px-26 header-btn">
+                                Connect wallet
+                            </button>
+
                         }
                     </div>
                 </div>

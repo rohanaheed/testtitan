@@ -27,7 +27,7 @@ function App() {
     }
   }
   useEffect(() => {
-    const walletType = localStorage?.getItem('type')
+    const walletType = localStorage?.getItem('type');
     if (walletType === "meta") {
       connect("meta")
     } else if (walletType === "wallet") {

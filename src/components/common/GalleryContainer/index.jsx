@@ -12,13 +12,19 @@ const GalleryContainer = ({ children, data, loading }) => {
             </div>
             <div class="flex flex-wrap px--6"
             >
-                {!loading ? data?.map(item => (
+                {!loading && data?.length > 0 ? data?.map(item => (
                     <GalleryItem item={item} />
                 )) :
-                    <div className='centered'>
-                        <div class="loaderMarket"></div>
-                    </div>
+                    loading ?
+                        <div className='centered'>
+                            <div class="loaderMarket"></div>
+                        </div>
+                        :
+                        <div className='centered'>
+                            No Record Found
+                        </div>
                 }
+
             </div>
         </section>
     )
