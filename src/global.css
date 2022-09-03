@@ -325,7 +325,7 @@ nav .links-container>li span:hover::before,
   transform: -ms-translate(-50%, -50%);
   color:darkred;
 }
-.loader {
+.loaderMarket {
   border: 16px solid #f3f3f3;
   border-radius: 50%;
   border-top: 16px solid #1f1f1f;
@@ -335,6 +335,28 @@ nav .links-container>li span:hover::before,
   animation: spin 2s linear infinite;
 }
 
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.loader {
+  border: 2px solid #f3f3f3; /* Light grey */
+  border-top: 2px solid #1f1f1f; /* Blue */
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  top: calc(50% - 13px);
+  left: calc(50% - 13px);
+  animation: spin 2s linear infinite;
+}
 /* Safari */
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }

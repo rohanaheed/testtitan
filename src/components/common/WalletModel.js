@@ -4,9 +4,8 @@ import { useWeb3React } from "@web3-react/core";
 import { injected, walletconnect } from "../../components/wallet/connector";
 import { Dialog } from "@mui/material";
 
-const WalletModel = ({ open, handleClose }) => {
+const WalletModel = ({ open, handleClose, admin }) => {
   const { active, account, library, connector, activate, deactivate } = useWeb3React();
-  const data = useWeb3React();
   const [modalShow, setModalShow] = useState(true);
   const [should, setShould] = useState(false)
   const [n, setN] = useState(1);
@@ -27,8 +26,13 @@ const WalletModel = ({ open, handleClose }) => {
     try {
       if (name === 'meta') {
         await activate(injected)
+        localStorage.setItem('type', 'meta');
       } else {
         await activate(walletconnect);
+        localStorage.setItem('type', 'wallet');
+      }
+      if(admin === "admin"){
+        localStorage.setItem('admin', true);
       }
       handleClose();
       setModalShow(false);

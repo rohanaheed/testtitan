@@ -37,10 +37,10 @@ function App() {
   return (
     <Switch>
       {/* <Web3ReactProvider getLibrary={getLibrary}> */}
-        {url ?
-          <Route path="/admin/:page?" component={ClientRoutes} /> :
-          <Route path="/:page?" component={UserRoutes} />
-        }
+      {url ?
+        <Route path="/admin/:page?" component={ClientRoutes} /> :
+        <Route path="/:page?" component={UserRoutes} />
+      }
       {/* </Web3ReactProvider> */}
     </Switch>
   );

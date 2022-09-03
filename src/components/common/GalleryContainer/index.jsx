@@ -16,7 +16,7 @@ const GalleryContainer = ({ children, data, loading }) => {
                     <GalleryItem item={item} />
                 )) :
                     <div className='centered'>
-                        <div class="loader"></div>
+                        <div class="loaderMarket"></div>
                     </div>
                 }
             </div>

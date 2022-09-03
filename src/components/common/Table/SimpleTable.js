@@ -303,8 +303,7 @@ export default function EnhancedTable({ rows, loader }) {
                                                     }
                                                 </TableCell>
                                             } */}
-                                            <TableCell padding="2px">
-                                                {console.log("row", row)}
+                                            <TableCell padding="2px" style={{ display: 'flex' }}>
                                                 <button
                                                     onClick={() => history.push({
                                                         pathname: searchURL?.includes('nfts') ? '/admin/edit-nft' : '/admin/edit-event',
@@ -315,6 +314,13 @@ export default function EnhancedTable({ rows, loader }) {
                                                     className="bg-black text-white px-22 py-6 rounded-5 transition-all flex items-center justify-center gap-3 hover:bg-black relative top-0 hover:top-px" >
                                                     Edit
                                                 </button>
+                                                {searchURL?.includes('nfts') &&
+                                                    <button
+                                                        // onClick={}
+                                                        className="bg-black text-white px-22 py-6 rounded-5 transition-all flex items-center justify-center gap-3 hover:bg-black relative top-0 hover:top-px" >
+                                                        {/* Mint */}
+                                                    </button>
+                                                }
                                             </TableCell>
                                         </TableRow>
                                     );

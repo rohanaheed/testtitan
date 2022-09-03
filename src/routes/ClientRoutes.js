@@ -15,8 +15,10 @@ const ClientRoutes = () => {
   const location = history?.location?.pathname;
   const auth = localStorage.getItem('token');
   useEffect(() => {
-    if (!isEmpty(auth) && location === '/admin/signin') {
+    if (!isEmpty(auth) && location.includes('admin')) {
       history.push('/admin/dashboard')
+    } else if (location.includes('admin')) {
+      history.push('/admin/signin')
     }
   }, [])
   return (
