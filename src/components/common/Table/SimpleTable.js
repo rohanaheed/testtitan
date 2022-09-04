@@ -178,7 +178,8 @@ SimpleTable.propTypes = {
     rowCount: PropTypes.number.isRequired,
 };
 
-export default function EnhancedTable({ rows, loader }) {
+export default function EnhancedTable({ rows, loader, handelMint }) {
+    console.log(rows)
     const [order, setOrder] = React.useState('asc');
     const [orderBy, setOrderBy] = React.useState('name');
     const [selected, setSelected] = React.useState([]);
@@ -311,14 +312,14 @@ export default function EnhancedTable({ rows, loader }) {
                                                             'row': row
                                                         }
                                                     })}
-                                                    className="bg-black text-white px-22 py-6 rounded-5 transition-all flex items-center justify-center gap-3 hover:bg-black relative top-0 hover:top-px" >
+                                                    className="bg-black text-white px-22 py-6 rounded-5 transition-all mr-2 flex items-center justify-center gap-3 hover:bg-black relative top-0 hover:top-px" >
                                                     Edit
                                                 </button>
-                                                {searchURL?.includes('nfts') &&
+                                                {searchURL?.includes('nfts') && row?.nftStatus === 'Newly Created' &&
                                                     <button
-                                                        // onClick={}
+                                                        onClick={() => handelMint(row)}
                                                         className="bg-black text-white px-22 py-6 rounded-5 transition-all flex items-center justify-center gap-3 hover:bg-black relative top-0 hover:top-px" >
-                                                        {/* Mint */}
+                                                        Mint
                                                     </button>
                                                 }
                                             </TableCell>

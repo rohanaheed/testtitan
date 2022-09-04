@@ -152,13 +152,12 @@ const CreateNFTs = () => {
                             <section className={`upload-modal-container cursor-pointer`}>
                                 <input
                                     id="file-input"
-                                    className={`absolute inset-0 opacity-0 cursor-pointer`}
+                                    // className={`inset-0 opacity-0 cursor-pointer`}
                                     type="file"
                                     name='imageUrl'
                                     onChange={handleChange}
                                     accept=" .jpg , .jpeg , .png , .gif, .mp4, .mp3, .mpeg, .mov, video/quicktime"
                                 />
-                                {console.log("isEmpty(imageUrl)", isEmpty(imageUrl), image)}
                                 {!isEmpty(imageUrl) ?
                                     <>
                                         {imageUrl?.type?.split('/')?.includes('video') ?

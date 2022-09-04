@@ -9,9 +9,11 @@ import isEmpty from '../../../utils/isEmpty';
 import { API_URL_ADMIN } from '../../../utils/contant';
 import Multiselect from 'multiselect-react-dropdown';
 import moment from 'moment';
+import Datetime from 'react-datetime';
+import "react-datetime/css/react-datetime.css";
 
 const CreateEvent = () => {
-    const [userData, setUserData] = useState({ name: '', description: '', imageUrl: '', startDate: '', endDate: '', startTime: '', endTime: '', artist: '', price: '' });
+    const [userData, setUserData] = useState({ name: '', description: '', imageUrl: '', startDate: null, endDate: null, startTime: '', endTime: '', artist: '', price: '' });
     const { name, description, imageUrl, startDate, endDate, startTime, endTime, artist, price } = userData;
     const [errors, setErrors] = useState({});
     const [loader, setLoader] = useState(false);
@@ -32,10 +34,8 @@ const CreateEvent = () => {
                 imageUrl: editNFT?.coverImage,
                 artistName: editNFT?.artistName,
                 price: editNFT?.minimumBid,
-                startTime: moment.utc(editNFT.startDate).format('HH:mm:ss'),
-                endTime: moment.utc(editNFT.endDate).format('HH:mm:ss'),
-                startDate: moment.utc(editNFT.startDate).format('DD/MM/YYYY'),
-                endDate: moment.utc(editNFT.endDate).format('DD/MM/YYYY'),
+                startDate: moment.utc(editNFT.startDate).format('DD/MM/YYYY hh:mm:ss'),
+                endDate: moment.utc(editNFT.endDate).format('DD/MM/YYYY hh:mm:ss'),
             })
             setImage(editNFT?.coverImage);
         }
@@ -131,16 +131,16 @@ const CreateEvent = () => {
             _errors.name = 'Please enter name.';
         }
         if (isEmpty(startDate)) {
-            _errors.startDate = 'Please enter start date.';
+            _errors.startDate = 'Please enter start date and time.';
         }
-        if (isEmpty(startTime)) {
-            _errors.startTime = 'Please enter start time.';
-        }
-        if (isEmpty(endTime)) {
-            _errors.endTime = 'Please enter end time.';
-        }
+        // if (isEmpty(startTime)) {
+        //     _errors.startTime = 'Please enter start time.';
+        // }
+        // if (isEmpty(endTime)) {
+        //     _errors.endTime = 'Please enter end time.';
+        // }
         if (isEmpty(endDate)) {
-            _errors.endDate = 'Please enter end date.';
+            _errors.endDate = 'Please enter end date and time.';
         }
         if (isEmpty(imageUrl)) {
             _errors.imageUrl = 'Please upload image.';
@@ -148,9 +148,9 @@ const CreateEvent = () => {
         if (isEmpty(selected)) {
             _errors.selected = 'Please select list of nfts';
         }
-        if (isEmpty(price)) {
-            _errors.price = 'Please enter price.';
-        }
+        // if (isEmpty(price)) {
+        //     _errors.price = 'Please enter price.';
+        // }
         if (isEmpty(description)) {
             _errors.description = 'Please enter description.';
         }
@@ -165,15 +165,16 @@ const CreateEvent = () => {
             formData.append("name", name);
             formData.append("description", description);
             formData.append("coverImage", image);
-            formData.append("startDate", startDate + ` ${startTime}`);
-            formData.append("endDate", endDate + ` ${endTime}`);
-            formData.append("minimumBid", price);
+            formData.append("startDate", startDate?.split(' ')[0] + " " + startDate?.split(' ')[1]);
+            formData.append("endDate", endDate?.split(' ')[0] + " " + endDate?.split(' ')[1]);
+            // formData.append("minimumBid", price);
             for (let i = 0; i < selected?.length; i++) {
                 formData.append(`NFTIds${i}`, selected[i]?._id)
             }
             const headers = {
                 Authorization: `Bearer ${adminToken}`,
             };
+            // debugger
             if (editNFT?.name) {
                 axios.patch(API_URL_ADMIN + `admin/event/edit/${editNFT?._id}`, formData, { headers: headers })
                     .then(res => {
@@ -268,7 +269,7 @@ const CreateEvent = () => {
                             </textarea>
                             {errors?.description && <p className="text-red-700 text-10 mt-4 ml-2"> {errors?.description} </p>}
                         </div>
-                        <Input
+                        {/* <Input
                             className="mb-22"
                             label="Price"
                             type='text'
@@ -277,14 +278,14 @@ const CreateEvent = () => {
                             value={price}
                             handleChange={handleChange}
                             errorMessage={errors?.price}
-                        />
+                        /> */}
                         <div className='mb-32'>
                             <label className="text-gray-800 font-medium mb-6 flex items-start gap-1" htmlFor="#">Event Cover Image <BsAsterisk className="text-8 text-red-600 relative top-1" /></label>
                             <p className='caption-text mt-6 mb-10'>File types supported: JPG, PNG, GIF, SVG, MP4, WEBM, MP3, WAV, OGG, GLB, GLTF. Max size: 100 MB </p>
                             <section className={`upload-modal-container cursor-pointer`}>
                                 <input
                                     id="file-input"
-                                    className={`absolute inset-0 opacity-0 cursor-pointer`}
+                                    // className={`inset-0 opacity-0 cursor-pointer`}
                                     type="file"
                                     name='imageUrl'
                                     onChange={handleChange}
@@ -300,7 +301,14 @@ const CreateEvent = () => {
                             {errors?.imageUrl && <p className="text-red-700 text-10 mt-4 ml-2"> {errors?.imageUrl} </p>}
                         </div>
                         <div className='flex items-center gap-3 mb-18'>
-                            <Input
+                            <label className="text-gray-800 font-medium mb-6 flex items-start gap-1" htmlFor="#">Start Date and Time</label>
+                            <Datetime 
+                                timeFormat={'HH:mm:ss'}
+                                // className={` ${errors?.startDate && 'input-error'}`}
+                                onChange={(e) => setUserData({...userData, 'startDate': moment.utc(e?._d).format('DD/MM/YYYY hh:mm:ss')})}
+                            />
+
+                            {/* <Input
                                 className="mb-22"
                                 label="Event start date"
                                 type='date'
@@ -317,10 +325,17 @@ const CreateEvent = () => {
                                 value={startTime}
                                 handleChange={handleChange}
                                 errorMessage={errors?.startTime}
-                            />
+                            /> */}
                         </div>
+                        {errors?.startDate && <p className="text-red-700  mb-22 text-10 ml-2"> {errors?.startDate} </p>}
+
                         <div className='flex items-center gap-3 mb-18'>
-                            <Input
+                            <label className="text-gray-800 font-medium mb-6 flex items-start gap-1" htmlFor="#">End Date and Time</label>
+                            <Datetime
+                                timeFormat={'HH:mm:ss'}
+                                onChange={(e) => setUserData({ ...userData, 'endDate': moment.utc(e?._d).format('DD/MM/YYYY hh:mm:ss') })}
+                            />
+                            {/* <Input
                                 className="mb-22"
                                 label="Event end date"
                                 type='date'
@@ -337,8 +352,10 @@ const CreateEvent = () => {
                                 value={endTime}
                                 handleChange={handleChange}
                                 errorMessage={errors?.endTime}
-                            />
+                            /> */}
                         </div>
+                        {errors?.endDate && <p className="text-red-700  mb-22 text-10 ml-2"> {errors?.endDate} </p>}
+
                         <hr />
                         {loader ?
                             <button className="bg-black text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-black-600 relative top-0 hover:top-px">

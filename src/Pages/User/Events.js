@@ -1,10 +1,25 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
+import axios from 'axios';
+import { API_URL } from '../../utils/contant';
 
 function Events() {
-  const islg = useMediaQuery({ query: '(min-width: 1024px)' })
+  const islg = useMediaQuery({ query: '(min-width: 1024px)' });
 
+  const [data, setData] = useState();
+  const [loading, setLoading] = useState(true)
+  useEffect(() => {
+    _getNFTs();
+  }, [])
+
+  const _getNFTs = () => {
+    axios.get(API_URL + 'users/events')
+      .then(res => {
+        setLoading(false);
+        setData(res?.data);
+      })
+  }
   const [toggle, setToggle] = useState(islg ? true : false);
   return (
     <>

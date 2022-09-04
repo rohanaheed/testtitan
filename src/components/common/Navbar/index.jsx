@@ -176,12 +176,11 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </section>
-                    <div className=" items-center gap-5 hidden lg:flex">
+                    <div className="items-center gap-5 hidden lg:flex">
                         <FaUserCircle onClick={() => setIsAuthModalOpen(!isAuthModalOpen)} className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
                         <AuthModal isOpen={isAuthModalOpen} setIsOpen={setIsAuthModalOpen} />
                         <BsCartFill className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
                         {account && localStorage?.getItem('user') ?
-
                             <>
                                 <button
                                     className="white-shadow py-8 rounded-5 bg-white transition-all hover:bg-gray-900 hover:text-white px-26 header-btn">
@@ -199,7 +198,6 @@ const Navbar = () => {
                                 className="whitespace-nowrap white-shadow py-8 rounded-5 bg-white transition-all hover:bg-gray-900 hover:text-white px-26 header-btn">
                                 Connect wallet
                             </button>
-
                         }
                     </div>
                 </div>

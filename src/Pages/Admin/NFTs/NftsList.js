@@ -6,11 +6,16 @@ import Navbar from '../../../components/Admin/Navbar';
 import Sidebar from '../../../components/Admin/Sidebar';
 import SimpleTable from '../../../components/common/Table/SimpleTable';
 import { API_URL_ADMIN } from '../../../utils/contant';
+import Web3 from 'web3';
+import { useWeb3React } from '@web3-react/core';
+import { nftAbi } from '../../../contract/abis/nftAbi';
+import { nftAddress } from '../../../contract/addesses/nftAddress';
 
 const NftsList = () => {
     const [loader, setLoader] = useState(true);
     const adminToken = localStorage.getItem('token');
     const [res, setRes] = useState([]);
+    const { account, library, activate, deactivate, useProvider } = useWeb3React();
 
     useEffect(() => {
         _getList()
@@ -22,12 +27,36 @@ const NftsList = () => {
         };
         axios.get(API_URL_ADMIN + 'admin/nfts', { headers: headers })
             .then(res => {
-                setLoader(false);
                 setRes(res?.data)
+                setLoader(false)
             })
             .catch(err => {
-                setLoader(false);
             })
+    }
+
+    const handelMint = (row) => {
+        const headers = {
+            Authorization: `Bearer ${adminToken}`,
+        };
+        var formData = new FormData();
+        formData.append("nftStatus", 'Minted');
+        let web3 = new Web3(library?.provider ? library?.provider : library?.currentProvider);
+        let contract = new web3.eth.Contract(
+            nftAbi,
+            nftAddress
+        )
+        contract.methods.safeMint().send({ to: account, tokenId: row.nftId })
+            .then((res) => {
+                axios.patch(API_URL_ADMIN + `admin/nft/edit/${row?._id}`, formData, { headers: headers })
+                    .then(res => {
+                    })
+                    .catch(err => {
+                    })
+            })
+            .catch((err) => {
+                console.log("err buy", err);
+            })
+
     }
     return (
         <>
@@ -44,7 +73,7 @@ const NftsList = () => {
                         </div>
                         <hr />
                     </section>
-                    <SimpleTable rows={res} loader={loader} />
+                    <SimpleTable rows={res} loader={loader} handelMint={handelMint} />
                 </section>
             </main>
         </>
