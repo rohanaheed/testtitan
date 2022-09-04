@@ -179,7 +179,6 @@ SimpleTable.propTypes = {
 };
 
 export default function EnhancedTable({ rows, loader, handelMint }) {
-    console.log(rows)
     const [order, setOrder] = React.useState('asc');
     const [orderBy, setOrderBy] = React.useState('name');
     const [selected, setSelected] = React.useState([]);

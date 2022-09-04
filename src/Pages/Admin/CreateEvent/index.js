@@ -95,7 +95,7 @@ const CreateEvent = () => {
                     })
                 }
 
-                setNFTs(res?.data);
+                setNFTs(res?.data?.filter(item => item?.nftStatus === "Minted"));
                 setArtist(uniqueArtist);
                 setOpetions(res?.data.filter(item => item?.artistName === uniqueArtist[0]?.name))
                 setLoader(false);
