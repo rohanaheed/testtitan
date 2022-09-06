@@ -20,7 +20,7 @@ function Events() {
                 <p className='text-lg leading-relaxed text-gray-700'>
                   Event Details
                 </p>
-                <p className='text-lg leading-relaxed text-gray-500 mb-6 font-bold'>
+                <p className='text-lg leading-relaxed text-gray-500 mb-6 font-bold nft-desc'>
                   Event Description
                 </p>
               </div>
@@ -37,7 +37,7 @@ function Events() {
                 <p className='text-lg leading-relaxed text-gray-700'>
                   Event Details
                 </p>
-                <p className='text-lg leading-relaxed text-gray-500 mb-6 font-bold'>
+                <p className='text-lg leading-relaxed text-gray-500 mb-6 font-bold nft-desc'>
                   Event Description
                 </p>
               </div>

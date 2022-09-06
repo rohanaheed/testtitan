@@ -219,6 +219,17 @@ textarea:focus-visible {
   color: #899096;
 }
 
+.nft-desc {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.nft-desc:hover {
+  overflow: visible;
+  white-space: normal;
+}
+
 /* Events Page Starts Here */
 .event-container {
   max-width: 90%;

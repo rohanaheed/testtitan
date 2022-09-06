@@ -20,7 +20,7 @@ const GalleryContainer = ({ children, data, loading }) => {
                             <div class="loaderMarket"></div>
                         </div>
                         :
-                        <div className='centered'>
+                        <div className='centered hidden'>
                             No Record Found
                         </div>
                 }
