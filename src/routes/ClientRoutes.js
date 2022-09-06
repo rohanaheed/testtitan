@@ -5,6 +5,7 @@ import AdminSignIn from '../Pages/Admin/Auth/Login';
 import CreateEvent from '../Pages/Admin/CreateEvent';
 import Dashboard from '../Pages/Admin/Dashboard/Dashboard';
 import EventList from '../Pages/Admin/EventList';
+import EventDetails from '../Pages/Admin/Events/EventDetails';
 import CreateNFTs from '../Pages/Admin/NFTs/CreateNFTs';
 import NftsList from '../Pages/Admin/NFTs/NftsList';
 import isEmpty from '../utils/isEmpty';
@@ -29,6 +30,7 @@ const ClientRoutes = () => {
         <ClientPrivateRoute path="/admin/create-event" component={CreateEvent} />
         <ClientPrivateRoute path="/admin/edit-event" component={CreateEvent} />
         <ClientPrivateRoute path="/admin/events" component={EventList} />
+        <ClientPrivateRoute path="/admin/event/:id" component={EventDetails} />
         <ClientPrivateRoute path="/admin/create-nft" component={CreateNFTs} />
         <ClientPrivateRoute path="/admin/edit-nft" component={CreateNFTs} />
         <ClientPrivateRoute path="/admin/nfts" component={NftsList} />

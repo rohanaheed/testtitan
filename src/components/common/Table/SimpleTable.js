@@ -321,6 +321,13 @@ export default function EnhancedTable({ rows, loader, handelMint }) {
                                                         Mint
                                                     </button>
                                                 }
+                                                {searchURL?.includes('events') &&
+                                                    <button
+                                                        onClick={() => history?.push(`/admin/event/${row?._id}`)}
+                                                        className="bg-black text-white px-22 py-6 rounded-5 transition-all flex items-center justify-center gap-3 hover:bg-black relative top-0 hover:top-px" >
+                                                        Manage
+                                                    </button>
+                                                }
                                             </TableCell>
                                         </TableRow>
                                     );

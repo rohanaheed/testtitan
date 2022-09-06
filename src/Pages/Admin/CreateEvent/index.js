@@ -41,7 +41,6 @@ const CreateEvent = () => {
         }
     }, [history, editNFT])
 
-    console.log(userData)
     useEffect(() => {
         _getNFTsList();
     }, [])
@@ -169,7 +168,7 @@ const CreateEvent = () => {
             formData.append("endDate", endDate?.split(' ')[0] + " " + endDate?.split(' ')[1]);
             // formData.append("minimumBid", price);
             for (let i = 0; i < selected?.length; i++) {
-                formData.append(`NFTIds${i}`, selected[i]?._id)
+                formData.append(`NFTIds[${i}]`, selected[i]?._id)
             }
             const headers = {
                 Authorization: `Bearer ${adminToken}`,

@@ -45,7 +45,7 @@ const NftsList = () => {
             nftAbi,
             nftAddress
         )
-        contract.methods.safeMint().send({ to: account, tokenId: row.nftId })
+        contract.methods.safeMint(account,row.nftId).send({ from: account, })
             .then((res) => {
                 axios.patch(API_URL_ADMIN + `admin/nft/edit/${row?._id}`, formData, { headers: headers })
                     .then(res => {
