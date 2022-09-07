@@ -27,7 +27,7 @@ const CreateMission = () => {
         } else {
             setUserData({ ...userData, [name]: value });
         }
-        setErrors({...errors, [event.target.name]: ''})
+        setErrors({ ...errors, [event.target.name]: '' })
     }
 
     const validate = () => {
@@ -99,7 +99,7 @@ const CreateMission = () => {
                         <p className="caption-text mb-16 flex items-start gap-1"><BsAsterisk className="text-8 text-red-600 relative top-1" /> Required fields</p>
                         <div className='mb-18 w-4/4'>
                             <label className="text-gray-800 font-medium" htmlFor="#">Select Event</label> <br />
-                            <select disabled name="category" className='w-full py-18 pl-18 text-14 pr-16 mt-8'>
+                            <select disabled name="category" className='w-full py-4 pl-16 text-14 pr-16 mt-8 select-border'>
                                 <option value={history?.location?.state?.row?.name}>{history?.location?.state?.row?.name}</option>
                             </select>
                         </div>

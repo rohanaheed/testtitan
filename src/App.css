@@ -36,6 +36,25 @@
     transform: rotate(360deg);
   }
 } */
+table thead tr th,
+table tbody tr td {
+  white-space: nowrap;
+}
+
+.select-border {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  height: 39px;
+}
+
+.select-border:focus-visible {
+  outline: 0;
+}
+
+.searchBox {
+  width: 100%;
+}
+
 .filter-section::-webkit-scrollbar-track {
   border-radius: 0;
   background-color: #4d4d4d;
@@ -111,7 +130,7 @@
 }
 
 .wallet-modal .top_row .left {
-  padding: 25px;
+  padding: 55px;
   text-align: center;
   border-right: 2px solid #000;
 }
@@ -136,7 +155,7 @@
 }
 
 .wallet-modal .top_row .right {
-  padding: 25px;
+  padding: 55px;
   text-align: center;
   cursor: pointer;
 }
@@ -262,8 +281,8 @@ textarea:focus-visible {
 }
 
 .description-section .card-img img {
-  width: 50%;
-  border-radius: 12px;
+  width: 100%;
+  border-radius: 12px 0 0 12px;
   min-height: 300px;
   object-fit: cover;
 }
@@ -299,7 +318,7 @@ textarea:focus-visible {
 /* Media Queries (min-width: 1500px) Ends Here */
 
 
-/* Media Queries (998px) Starts Here */
+/* Media Queries (991px) Starts Here */
 @media (max-width:991px) {
   .connect-btn {
     display: none;
@@ -320,7 +339,7 @@ textarea:focus-visible {
   }
 }
 
-/* Media Queries (998px) Ends Here */
+/* Media Queries (991px) Ends Here */
 
 /* Media Queries (640px) Starts Here */
 @media (max-width:640px) {
@@ -366,6 +385,10 @@ textarea:focus-visible {
     grid-template-columns: 100%;
     grid-gap: 32px;
     margin-top: 30px;
+  }
+
+  .description-section .card-img img {
+    border-radius: 12px 12px 0 0;
   }
 }
 

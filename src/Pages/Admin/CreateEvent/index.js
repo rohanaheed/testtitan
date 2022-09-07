@@ -233,7 +233,7 @@ const CreateEvent = () => {
                                 // onRemove={this.onRemove} // Function will trigger on remove event
                                 displayValue="name" // Property name to display in the dropdown options
                             /> */}
-                            <select name="artist" id="artist" onChange={(e) => handleChange(e)} className='w-full py-18 pl-18 text-14 pr-16 mt-8'>
+                            <select name="artist" id="artist" onChange={(e) => handleChange(e)} className='w-full py-4 pl-16 text-14 pr-16 mt-8 select-border'>
                                 {art?.length > 0 && art?.map(item => (
                                     <>
                                         <option name="artist" value={item?.name}>{item?.name}</option>
@@ -301,10 +301,10 @@ const CreateEvent = () => {
                         </div>
                         <div className='flex items-center gap-3 mb-18'>
                             <label className="text-gray-800 font-medium mb-6 flex items-start gap-1" htmlFor="#">Start Date and Time</label>
-                            <Datetime 
+                            <Datetime
                                 timeFormat={'HH:mm:ss'}
                                 // className={` ${errors?.startDate && 'input-error'}`}
-                                onChange={(e) => setUserData({...userData, 'startDate': moment.utc(e?._d).format('DD/MM/YYYY hh:mm:ss')})}
+                                onChange={(e) => setUserData({ ...userData, 'startDate': moment.utc(e?._d).format('DD/MM/YYYY hh:mm:ss') })}
                             />
 
                             {/* <Input
