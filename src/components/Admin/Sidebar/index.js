@@ -25,9 +25,7 @@ const Sidebar = () => {
                     ))
                 }
             </ul>
-            <section className='gGngoX'
-                style={{ height: '100px' }}
-            >
+            <section className='gGngoX signout-actions'>
                 <button onClick={() => setOpen(true)} className="side-connect-btn bg-black text-white px-32 py-10 mb-4 w-full rounded-5 transition-all hover:bg-black relative top-0 hover:top-px" >Connect</button>
                 <button
                     className="bg-black text-white px-32 mb-22 w-full py-10 rounded-5 transition-all flex items-center justify-center gap-3 hover:bg-black-600 relative top-0 hover:top-px"

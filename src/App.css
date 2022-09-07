@@ -124,6 +124,11 @@ table tbody tr td {
   white-space: nowrap;
 }
 
+.signout-actions {
+  height: 100%;
+  margin: 15px 10px 0 10px;
+}
+
 /* Wallet Modal Starts Here */
 .wallet-modal {
   border-radius: 5px;
