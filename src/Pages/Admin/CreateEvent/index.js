@@ -357,10 +357,10 @@ const CreateEvent = () => {
 
                         <hr />
                         {loader ?
-                            <button className="bg-black text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-black-600 relative top-0 hover:top-px">
+                            <button className="bg-black text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-black-600 relative top-0 hover:top-px h-11 loader-width">
                                 <div className='loader'></div>
                             </button> :
-                            <button onClick={() => _createEvent()} className="bg-black text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-black-600 relative top-0 hover:top-px">{editNFT ? "Edit Event" : "Create Event"}</button>
+                            <button onClick={() => _createEvent()} className="bg-black text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-black-600 relative top-0 hover:top-px loader-width">{editNFT ? "Edit Event" : "Create Event"}</button>
                         }
                     </section>
                 </section>

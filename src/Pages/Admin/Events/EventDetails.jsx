@@ -90,13 +90,13 @@ function EventDetails() {
                         <img src={data?.coverImage ? data?.coverImage : 'https://www.harpersbazaararabia.com/cloud/2021/09/10/IMGWORLD-1.png'} alt='Card pic' />
                     </div>
                     <div className='event-card-details'>
-                        <p className='text-lg leading-relaxed text-gray-500 mb-6 font-bold'>
+                        <p className='text-lg leading-relaxed text-gray-500 mb-6 font-bold nft-desc'>
                             Name: {data?.name}
                         </p>
-                        <p className='text-lg leading-relaxed text-gray-500 mb-6 font-bold'>
+                        <p className='text-lg leading-relaxed text-gray-500 mb-6 font-bold nft-desc'>
                             Description: {data?.description}
                         </p>
-                        <p className='text-lg leading-relaxed text-gray-500 mb-6 font-bold'>
+                        <p className='text-lg leading-relaxed text-gray-500 mb-6 font-bold nft-desc'>
                             Artists: {data?.NFTArtist}
                         </p>
                         <div className='mb-18 w-4/4'>
@@ -114,10 +114,10 @@ function EventDetails() {
                             />
                         </div>
                         {loader ?
-                            <button className="bg-black text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-black-600 relative top-0 hover:top-px">
+                            <button className="bg-black text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-black-600 relative top-0 hover:top-px h-11 loader-width">
                                 <div className='loader'></div>
                             </button> :
-                            <button onClick={() => saveEvent()} className="bg-black text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-black-600 relative top-0 hover:top-px">Update Event</button>
+                            <button onClick={() => saveEvent()} className="bg-black text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-black-600 relative top-0 hover:top-px h-11 loader-width">Update Event</button>
                         }
                     </div>
                 </div>
@@ -125,8 +125,8 @@ function EventDetails() {
                 <h6 className='mt-32 text-xl text-center leading-relaxed text-gray-700 cursor-pointer font-medium transition-all hover:text-gray-900'>
                     List NFT
                 </h6>
-                {selected?.map(item => (
-                    <div className='event-section list-nft mt-0'>
+                <div className='event-section list-nft mt-0'>
+                    {selected?.map(item => (
                         <div className='event-card'>
                             <a href='/event-details'>
                                 <img src={item?.image ? item?.image : 'https://archive.org/download/img-world-ticket-offers/yvA5SpUH-IMG-Worlds-1200x800.jpg'} alt='Card Img' />
@@ -137,15 +137,15 @@ function EventDetails() {
                                     <p className='text-lg leading-relaxed text-gray-700'>
                                         {item?.artistName}
                                     </p>
-                                    <p className='text-lg leading-relaxed text-gray-500 mb-6 font-bold'>
+                                    <p className='text-lg leading-relaxed text-gray-500 mb-6 font-bold nft-desc'>
                                         {item?.description}
                                     </p>
                                 </div>
                             </a>
                         </div>
-                    </div>
-                ))
-                }
+                    ))
+                    }
+                </div>
             </section>
 
         </>
