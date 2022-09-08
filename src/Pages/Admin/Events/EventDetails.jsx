@@ -86,9 +86,9 @@ function EventDetails() {
                     Event Details
                 </h6>
                 <div className='description-section'>
-                    <div className='card-img'>
-                        <img src={data?.coverImage ? data?.coverImage : 'https://www.harpersbazaararabia.com/cloud/2021/09/10/IMGWORLD-1.png'} alt='Card pic' />
-                    </div>
+                    {/* <div className='card-img'> */}
+                    <img src={data?.coverImage ? data?.coverImage : 'https://www.harpersbazaararabia.com/cloud/2021/09/10/IMGWORLD-1.png'} alt='Card pic' />
+                    {/* </div> */}
                     <div className='event-card-details'>
                         <p className='text-lg leading-relaxed text-gray-500 mb-6 font-bold nft-desc'>
                             Name: {data?.name}
@@ -101,7 +101,6 @@ function EventDetails() {
                         </p>
                         <div className='mb-18 w-4/4'>
                             <label className="text-gray-800 font-medium" htmlFor="#">Select NFTs</label> <br />
-                            {console.log(options)}
                             <Multiselect
                                 onSelect={onSelect}
                                 selectedValues={selected}

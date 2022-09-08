@@ -23,7 +23,7 @@ const Navbar = () => {
     return (
         <>
             <WalletModel open={open} handleClose={handleClose} admin="admin" />
-            <nav className="sticky top-0 bg-white shadow-xl z-50 py-18">
+            <nav className="sticky top-0 bg-white shadow-xl  py-18">
                 <section className='w-full px-24 flex items-center justify-between'>
                     <Link to="/admin/dashboard">
                         <span className="logo text-xl text-black-500 font-semibold whitespace-nowrap flex items-center gap-2">

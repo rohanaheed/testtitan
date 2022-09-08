@@ -146,8 +146,8 @@ function SimpleTable(props) {
                 {(searchURL?.includes('missions') ? headCellsMission : searchURL?.includes('nfts') ? headCellsNFTs : headCells).map((headCell) => (
                     <TableCell
                         key={headCell.id}
-                        align={'center'}
-                        padding={headCell.disablePadding ? 'none' : 'normal'}
+                        align={'left'}
+                        padding={headCell.disablePadding ? '2px' : 'normal'}
                         sortDirection={orderBy === headCell.id ? order : false}
                     >
                         <TableSortLabel
@@ -275,9 +275,9 @@ export default function EnhancedTable({ rows, loader, handelMint }) {
                                                 scope="row"
                                                 padding="2px"
                                             >
-                                                {row.name}
+                                                {row.name.slice(0, 20)}
                                             </TableCell>
-                                            <TableCell padding="2px">{row.description ? row.description : row?.caption}</TableCell>
+                                            <TableCell padding="2px">{row.description ? row.description.slice(0, 20) + "..." : row?.captionslice(0, 20) + "..."}</TableCell>
                                             {searchURL?.includes('nfts') ?
                                                 <TableCell padding="2px">{row?.artistName}</TableCell>
                                                 :

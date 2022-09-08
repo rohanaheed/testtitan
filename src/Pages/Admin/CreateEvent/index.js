@@ -203,6 +203,10 @@ const CreateEvent = () => {
         setErrors(errors || {});
     }
 
+    let inputProps = {
+        min: 'today'
+    };
+    
     return (
         <>
             <Navbar />
@@ -302,6 +306,7 @@ const CreateEvent = () => {
                         <div className='flex items-center gap-3 mb-18'>
                             <label className="text-gray-800 font-medium mb-6 flex items-start gap-1" htmlFor="#">Start Date and Time</label>
                             <Datetime
+                                inputProps={ inputProps }
                                 timeFormat={'HH:mm:ss'}
                                 // className={` ${errors?.startDate && 'input-error'}`}
                                 onChange={(e) => setUserData({ ...userData, 'startDate': moment.utc(e?._d).format('DD/MM/YYYY hh:mm:ss') })}
