@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 const GalleryItem = ({ item }) => {
     return (
         <div className="cursor-pointer my-18 w-full md:w-1/2 lg:my-12 px-8 lg:w-1/3 nft-container">
-            <Link to="/art">
+            <Link to={`/nft-details/${item?._id}`}>
                 <article className="card overflow-hidden rounded-lg shadow-lg">
                     <div className="img-container">
                         <a href="#">

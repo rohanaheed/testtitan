@@ -13,7 +13,7 @@ import ConnectionModel from '../ConnectionModel';
 import isEmpty from '../../../utils/isEmpty';
 
 const Navbar = () => {
-
+    const isAth = JSON?.parse(localStorage.getItem('user_data'));
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
     const history = useHistory();
     const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -177,7 +177,7 @@ const Navbar = () => {
                         </ul>
                     </section>
                     <div className="items-center gap-5 hidden lg:flex">
-                        <FaUserCircle onClick={() => setIsAuthModalOpen(!isAuthModalOpen)} className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
+                        <FaUserCircle onClick={() => !isAth?.token && setIsAuthModalOpen(!isAuthModalOpen)} className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
                         <AuthModal isOpen={isAuthModalOpen} setIsOpen={setIsAuthModalOpen} />
                         <BsCartFill className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
                         {account && localStorage?.getItem('user') ?

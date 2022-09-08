@@ -13,7 +13,7 @@ const UserRoutes = () => {
   return (
     <Switch>
       <Layout>
-        <Route path="/art" component={Art} />
+        <Route path="/nft-details/:id" component={Art} />
         <Route path="/explore" component={Explore} />
         <Route path="/artist" component={Artist} />
         <Route exact path="/" component={Home} />

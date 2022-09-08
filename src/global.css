@@ -367,3 +367,26 @@ nav .links-container>li span:hover::before,
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+.loader1 {
+  border: 2px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 2px solid black;
+  width: 20px;
+  left: calc(50% - 13px);
+  top: calc(50% - 13px);
+  margin-left: 45%;
+  height: 20px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

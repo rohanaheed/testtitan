@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import { FaUserCircle } from "react-icons/fa";
+import axios from 'axios';  
 import Modal from '../common/Modal'
 import Input from '../common/Input'
 import isEmpty from '../../utils/isEmpty';
 import validateEmail from '../../utils/validate';
+import { API_URL } from '../../utils/contant';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const AuthModal = ({ isOpen, setIsOpen }) => {
     const [visibleComponent, setVisibleComponent] = useState('SignIn')
@@ -30,6 +33,7 @@ const AuthModal = ({ isOpen, setIsOpen }) => {
 
 const SignIn = ({ setVisibleComponent }) => {
     const [errors, setErrors] = useState('');
+    const history = useHistory()
     const [loader, setloader] = useState(false);
     const [formData, setFormData] = useState({
         email: '',
@@ -61,19 +65,19 @@ const SignIn = ({ setVisibleComponent }) => {
         const errors = validate();
         if (isEmpty(errors)) {
             setloader(true);
-            // axios.post(`${API_URL}/signin`, formData)
-            //     .then(res => {
-            //         setloader(false);
-            //         localStorage.setItem('user_data', JSON.stringify(res?.data));
-            //         navigate('/explore');
-            //         window.location.reload();
-            //         console.log(res)
-            //     })
-            //     .catch(err => {
-            //         console.log(err);
-            //         setErrors(err?.response?.data);
-            //         setloader(false);
-            //     })
+            axios.post(`${API_URL}signin`, formData)
+                .then(res => {
+                    setloader(false);
+                    localStorage.setItem('user_data', JSON.stringify(res?.data));
+                    history?.push('/explore');
+                    window.location.reload();
+                    // console.log(res)
+                })
+                .catch(err => {
+                    console.log(err);
+                    setErrors(err?.response?.data);
+                    setloader(false);
+                })
         }
         setErrors(errors || {});
     }
@@ -100,7 +104,10 @@ const SignIn = ({ setVisibleComponent }) => {
                     handleChange={handleChange}
                     errorMessage={errors.password}
                 />
-                <button className="bg-gray-800 text-white w-full h-38 rounded-8 mb-9" onClick={() => _login()}>SignIn</button>
+                {loader ?
+                    <button className="bg-gray-800 text-white w-full h-38 rounded-8 mb-9"><div className='loader1'></div></button> :
+                    <button className="bg-gray-800 text-white w-full h-38 rounded-8 mb-9" onClick={() => _login()}>SignIn</button>
+                }
                 <p onClick={() => setVisibleComponent('Forgot')} className="text-gray-600 text-14 text-center cursor-pointer"> forgot password? </p>
             </div>
 
@@ -117,11 +124,11 @@ const SignUp = ({ setVisibleComponent }) => {
     const [loader, setloader] = useState(false);
     const [formData, setFormData] = useState({
         fullName: '',
-        useName: '',
+        username: '',
         email: '',
         password: '',
     });
-    const { email, password, fullName, userName } = formData;
+    const { email, password, fullName, username } = formData;
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -134,8 +141,8 @@ const SignUp = ({ setVisibleComponent }) => {
         if (isEmpty(fullName)) {
             _errors.fullName = 'Please enter full name.';
         }
-        if (isEmpty(userName)) {
-            _errors.userName = 'Please enter user name address.';
+        if (isEmpty(username)) {
+            _errors.username = 'Please enter user name.';
         }
         if (isEmpty(email)) {
             _errors.email = 'Please enter email address.';
@@ -153,19 +160,19 @@ const SignUp = ({ setVisibleComponent }) => {
         const errors = validate();
         if (isEmpty(errors)) {
             setloader(true);
-            // axios.post(`${API_URL}/signin`, formData)
-            //     .then(res => {
-            //         setloader(false);
-            //         localStorage.setItem('user_data', JSON.stringify(res?.data));
-            //         navigate('/explore');
-            //         window.location.reload();
-            //         console.log(res)
-            //     })
-            //     .catch(err => {
-            //         console.log(err);
-            //         setErrors(err?.response?.data);
-            //         setloader(false);
-            //     })
+            axios.post(`${API_URL}signup`, formData)
+                .then(res => {
+                    setloader(false);
+                    // localStorage.setItem('user_data', JSON.stringify(res?.data));
+                    // navigate('/explore');
+                    window.location.reload();
+                    // console.log(res)
+                })
+                .catch(err => {
+                    console.log(err);
+                    setErrors(err?.response?.data);
+                    setloader(false);
+                })
         }
         setErrors(errors || {});
     }
@@ -178,25 +185,25 @@ const SignUp = ({ setVisibleComponent }) => {
                     name="fullName"
                     type={'fullName'}
                     value={fullName}
-                    className='mb-16'
+                    className='mb-16 input-border'
                     handleChange={handleChange}
                     errorMessage={errors.fullName}
                 />
                 <Input
                     placeholder='Username'
-                    name="userName"
-                    type={'userName'}
-                    value={userName}
-                    className='mb-16'
+                    name="username"
+                    type={'username'}
+                    value={username}
+                    className='mb-16 input-border'
                     handleChange={handleChange}
-                    errorMessage={errors.userName}
+                    errorMessage={errors.username}
                 />
                 <Input
                     placeholder='Email'
                     name="email"
                     type={'email'}
                     value={email}
-                    className='mb-16'
+                    className='mb-16 input-border'
                     handleChange={handleChange}
                     errorMessage={errors.email}
                 />
@@ -205,11 +212,14 @@ const SignUp = ({ setVisibleComponent }) => {
                     name="password"
                     type={'password'}
                     value={password}
-                    className='mb-16'
+                    className='mb-16 input-border'
                     handleChange={handleChange}
                     errorMessage={errors.password}
                 />
-                <button className="bg-gray-800 text-white w-full h-38 rounded-8 mb-9" onClick={() => _signUp()}>SignUp</button>
+                {loader ?
+                    <button className="bg-gray-800 text-white w-full h-38 rounded-8 mb-9"><div className='loader1'></div></button> :
+                    <button className="bg-gray-800 text-white w-full h-38 rounded-8 mb-9" onClick={() => _signUp()}>SignUp</button>
+                }
             </div>
 
             <div className="bg-gray-900 py-32 px-28 mt-28">
