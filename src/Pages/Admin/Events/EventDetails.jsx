@@ -1,6 +1,5 @@
 
 import { useEffect, useState } from 'react'
-import { useMediaQuery } from 'react-responsive'
 import axios from 'axios';
 import { API_URL_ADMIN } from '../../../utils/contant';
 import { useHistory, useParams } from 'react-router-dom';
@@ -53,6 +52,7 @@ function EventDetails() {
             })
     }
 
+    console.log(data?.nfts, selected)
     const saveEvent = () => {
         setLoader(true);
         var formData = new FormData();
@@ -116,7 +116,7 @@ function EventDetails() {
                             <button className="bg-black text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-black-600 relative top-0 hover:top-px h-11 loader-width">
                                 <div className='loader'></div>
                             </button> :
-                            <button onClick={() => saveEvent()} className="bg-black text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-black-600 relative top-0 hover:top-px h-11 loader-width">Update Event</button>
+                            <button onClick={() => saveEvent()} disabled={data?.nfts?.length === selected?.length} className="bg-black text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-black-600 relative top-0 hover:top-px h-11 loader-width">Update Event</button>
                         }
                     </div>
                 </div>
@@ -127,7 +127,14 @@ function EventDetails() {
                 <div className='event-section list-nft mt-0'>
                     {selected?.map(item => (
                         <div className='event-card'>
-                            <a href='/event-details'>
+                            <a
+                                onClick={() => history.push({
+                                    pathname: '/admin/edit-nft',
+                                    state: {
+                                        'row': item,
+                                        'time': true
+                                    }
+                                })}>
                                 <img src={item?.image ? item?.image : 'https://archive.org/download/img-world-ticket-offers/yvA5SpUH-IMG-Worlds-1200x800.jpg'} alt='Card Img' />
                                 <div className='event-card-details'>
                                     <h6 className='mt-4 text-lg leading-relaxed text-gray-700 cursor-pointer font-medium transition-all hover:text-gray-900'>

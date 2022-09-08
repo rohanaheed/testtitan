@@ -7,15 +7,22 @@ import isEmpty from "../../../utils/isEmpty";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { API_URL_ADMIN } from "../../../utils/contant";
+import DateTimePicker from 'react-datetime-picker';
+import moment from "moment";
+import Web3 from 'web3';
+import { useWeb3React } from "@web3-react/core";
+import { auctionAbi } from "../../../contract/abis/auctionsAbi";
+import { auctionAddress } from "../../../contract/addesses/auctionsAddress";
 
 const CreateNFTs = () => {
-    const [userData, setUserData] = useState({ name: '', description: '', imageUrl: '', artistName: '' });
-    const { name, description, imageUrl, artistName } = userData;
+    const [userData, setUserData] = useState({ name: '', description: '', imageUrl: '', artistName: '', startDate: '', endDate: '', price: '' });
+    const { name, description, imageUrl, artistName, startDate, endDate, price } = userData;
     const [errors, setErrors] = useState({});
     const [loader, setLoader] = useState(false);
     const [image, setImage] = useState('');
     const history = useHistory();
     const adminToken = localStorage.getItem('token');
+    const { account, library, activate, deactivate, useProvider } = useWeb3React();
     const editNFT = history?.location?.state?.row;
 
     useEffect(() => {
@@ -24,7 +31,10 @@ const CreateNFTs = () => {
                 name: editNFT?.name,
                 description: editNFT?.description,
                 imageUrl: editNFT?.image,
-                artistName: editNFT?.artistName
+                artistName: editNFT?.artistName,
+                price: editNFT?.nftPrice,
+                startDate: editNFT?.startDate ? new Date(editNFT?.startDate) : '',
+                endDate: editNFT?.endDate ? new Date(editNFT?.endDate) : '',
             })
             setImage(editNFT?.image);
         }
@@ -70,22 +80,58 @@ const CreateNFTs = () => {
             formData.append("name", name);
             formData.append("description", description);
             formData.append("image", image);
-            formData.append("artistName", artistName)
+            formData.append("artistName", artistName);
+            const _start = moment.utc(startDate).format('HH:mm:ss');
+            const _end = moment.utc(endDate).format('HH:mm:ss');
+            debugger
+            console.log(_start, _end)
+            if (history?.location?.state?.time) {
+                formData.append("startDate", _start);
+                formData.append("endDate", _end);
+                formData.append("nftPrice", price);
+                formData.append("nftStatus", 'Auction');
+            }
             const headers = {
                 Authorization: `Bearer ${adminToken}`,
             };
             if (editNFT?.name) {
-                axios.patch(API_URL_ADMIN + `admin/nft/edit/${editNFT?._id}`, formData, { headers: headers })
-                    .then(res => {
-                        setLoader(false);
-                        history.push('/admin/nfts')
-                    })
-                    .catch(err => {
-                        setErrors({
-                            'err': err?.data?.message
+                if (history?.location?.state?.time) {
+                    let web3 = new Web3(library?.provider ? library?.provider : library?.currentProvider);
+                    let contract = new web3.eth.Contract(
+                        auctionAbi,
+                        auctionAddress
+                    )
+                    // contract.methods.list(editNFT?._id, price, _start, _end).send({ from: account, })
+                        // .then((res) => {
+                            axios.patch(API_URL_ADMIN + `admin/nft/edit/${editNFT?._id}`, formData, { headers: headers })
+                                .then(res => {
+                                    setLoader(false);
+                                    history.push('/admin/events');
+                                })
+                                .catch(err => {
+                                    setErrors({
+                                        'err': err?.data?.message
+                                    })
+                                    setLoader(false);
+                                })
+
+                        // })
+                        // .catch((err) => {
+                        //     console.log("err buy", err);
+                        // })
+                } else {
+                    axios.patch(API_URL_ADMIN + `admin/nft/edit/${editNFT?._id}`, formData, { headers: headers })
+                        .then(res => {
+                            setLoader(false);
+                            history.push('/admin/nfts');
                         })
-                        setLoader(false);
-                    })
+                        .catch(err => {
+                            setErrors({
+                                'err': err?.data?.message
+                            })
+                            setLoader(false);
+                        })
+                }
             } else {
                 axios.post(API_URL_ADMIN + 'admin/nft/add', formData, { headers: headers })
                     .then(res => {
@@ -171,10 +217,33 @@ const CreateNFTs = () => {
                                 }
                             </section>
                             {errors?.imageUrl && <p className="text-red-700 text-10 mt-4 ml-2"> {errors?.imageUrl} </p>}
+                            {history?.location?.state?.time &&
+                                <>
+                                    <Input
+                                        className="mb-22"
+                                        label="Minimum Bid"
+                                        type='text'
+                                        name="price"
+                                        value={price}
+                                        handleChange={handleChange}
+                                        errorMessage={errors?.price}
+                                    />
+                                    <div className='flex items-center gap-3 mt-80 mb-18'>
+                                        <label className="text-gray-800 font-medium mb-6 flex items-start gap-1" htmlFor="#">Start Date and Time</label>
+                                        <DateTimePicker minDate={new Date()} onChange={(e) => setUserData({ ...userData, 'startDate': e })} format="y-MM-dd HH:mm:ss" value={startDate} />
+                                    </div>
+                                    {errors?.startDate && <p className="text-red-700  mb-22 text-10 ml-2"> {errors?.startDate} </p>}
+                                    <div className='flex items-center gap-3 mt-30 mb-18'>
+                                        <label className="text-gray-800 font-medium mb-6 flex items-start gap-1" htmlFor="#">End Date and Time</label>
+                                        <DateTimePicker minDate={new Date()} onChange={(e) => setUserData({ ...userData, 'endDate': e })} format="y-MM-dd HH:mm:ss" value={endDate} />
+                                    </div>
+                                </>
+                            }
+                            {errors?.endDate && <p className="text-red-700  mb-22 text-10 ml-2"> {errors?.endDate} </p>}
                         </div>
                         <hr />
                         {loader ?
-                            <button className="bg-black text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-black relative top-0 hover:top-px">
+                            <button className="bg-black text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-black-600 relative top-0 hover:top-px h-11 loader-width">
                                 <div className='loader'></div>
                             </button>
                             : <button onClick={() => _createNFT()} className="bg-black text-white px-32 py-10 mt-52 rounded-5 transition-all hover:bg-black relative top-0 hover:top-px">{editNFT ? 'Edit NFT' : 'Create NFT'} </button>

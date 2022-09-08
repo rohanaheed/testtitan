@@ -8,9 +8,7 @@ import Sidebar from '../../../components/Admin/Sidebar';
 import isEmpty from '../../../utils/isEmpty';
 import { API_URL_ADMIN } from '../../../utils/contant';
 import Multiselect from 'multiselect-react-dropdown';
-import moment from 'moment';
-import Datetime from 'react-datetime';
-import "react-datetime/css/react-datetime.css";
+import DateTimePicker from 'react-datetime-picker';
 
 const CreateEvent = () => {
     const [userData, setUserData] = useState({ name: '', description: '', imageUrl: '', startDate: null, endDate: null, startTime: '', endTime: '', artist: '', price: '' });
@@ -34,8 +32,8 @@ const CreateEvent = () => {
                 imageUrl: editNFT?.coverImage,
                 artistName: editNFT?.artistName,
                 price: editNFT?.minimumBid,
-                startDate: moment.utc(editNFT.startDate).format('DD/MM/YYYY hh:mm:ss'),
-                endDate: moment.utc(editNFT.endDate).format('DD/MM/YYYY hh:mm:ss'),
+                startDate: new Date(editNFT?.startDate),
+                endDate: new Date(editNFT?.endDate),
             })
             setImage(editNFT?.coverImage);
         }
@@ -203,10 +201,6 @@ const CreateEvent = () => {
         setErrors(errors || {});
     }
 
-    let inputProps = {
-        min: 'today'
-    };
-    
     return (
         <>
             <Navbar />
@@ -305,58 +299,13 @@ const CreateEvent = () => {
                         </div>
                         <div className='flex items-center gap-3 mb-18'>
                             <label className="text-gray-800 font-medium mb-6 flex items-start gap-1" htmlFor="#">Start Date and Time</label>
-                            <Datetime
-                                inputProps={ inputProps }
-                                timeFormat={'HH:mm:ss'}
-                                // className={` ${errors?.startDate && 'input-error'}`}
-                                onChange={(e) => setUserData({ ...userData, 'startDate': moment.utc(e?._d).format('DD/MM/YYYY hh:mm:ss') })}
-                            />
-
-                            {/* <Input
-                                className="mb-22"
-                                label="Event start date"
-                                type='date'
-                                name="startDate"
-                                value={startDate}
-                                handleChange={handleChange}
-                                errorMessage={errors?.startDate}
-                            />
-                            <Input
-                                className="mb-22"
-                                type='time'
-                                label='Event start time'
-                                name="startTime"
-                                value={startTime}
-                                handleChange={handleChange}
-                                errorMessage={errors?.startTime}
-                            /> */}
+                            <DateTimePicker minDate={new Date()} onChange={(e) => setUserData({ ...userData, 'startDate': e })} format="y-MM-dd HH:mm:ss" value={startDate} />
                         </div>
                         {errors?.startDate && <p className="text-red-700  mb-22 text-10 ml-2"> {errors?.startDate} </p>}
 
                         <div className='flex items-center gap-3 mb-18'>
                             <label className="text-gray-800 font-medium mb-6 flex items-start gap-1" htmlFor="#">End Date and Time</label>
-                            <Datetime
-                                timeFormat={'HH:mm:ss'}
-                                onChange={(e) => setUserData({ ...userData, 'endDate': moment.utc(e?._d).format('DD/MM/YYYY hh:mm:ss') })}
-                            />
-                            {/* <Input
-                                className="mb-22"
-                                label="Event end date"
-                                type='date'
-                                name="endDate"
-                                value={endDate}
-                                handleChange={handleChange}
-                                errorMessage={errors?.endDate}
-                            />
-                            <Input
-                                className="mb-22"
-                                type='time'
-                                label='Event end time'
-                                name="endTime"
-                                value={endTime}
-                                handleChange={handleChange}
-                                errorMessage={errors?.endTime}
-                            /> */}
+                            <DateTimePicker minDate={new Date()} onChange={(e) => setUserData({ ...userData, 'endDate': e })} format="y-MM-dd HH:mm:ss" value={endDate} />
                         </div>
                         {errors?.endDate && <p className="text-red-700  mb-22 text-10 ml-2"> {errors?.endDate} </p>}
 

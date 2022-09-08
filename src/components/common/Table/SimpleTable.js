@@ -106,6 +106,12 @@ const headCellsMission = [
 
 const headCellsNFTs = [
     {
+        id: 'id',
+        numeric: false,
+        disablePadding: true,
+        label: 'Id',
+    },
+    {
         id: 'name',
         numeric: false,
         disablePadding: true,
@@ -116,6 +122,18 @@ const headCellsNFTs = [
         numeric: false,
         disablePadding: false,
         label: 'Description',
+    },
+    {
+        id: 'status',
+        numeric: false,
+        disablePadding: false,
+        label: 'Status',
+    },
+    {
+        id: 'price',
+        numeric: true,
+        disablePadding: false,
+        label: 'Price',
     },
     {
         id: 'artistName',
@@ -269,6 +287,16 @@ export default function EnhancedTable({ rows, loader, handelMint }) {
                                             key={row._id}
                                             selected={isItemSelected}
                                         >
+                                            {searchURL?.includes('nfts') &&
+                                                <TableCell
+                                                    component="th"
+                                                    id={labelId}
+                                                    scope="row"
+                                                    padding="2px"
+                                                >
+                                                    {row.nftId}
+                                                </TableCell>
+                                            }
                                             <TableCell
                                                 component="th"
                                                 id={labelId}
@@ -278,6 +306,12 @@ export default function EnhancedTable({ rows, loader, handelMint }) {
                                                 {row.name.slice(0, 20)}
                                             </TableCell>
                                             <TableCell padding="2px">{row.description ? row.description.slice(0, 20) + "..." : row?.captionslice(0, 20) + "..."}</TableCell>
+                                            {searchURL?.includes('nfts') &&
+                                                <>
+                                                    <TableCell padding="2px">{row.nftStatus}</TableCell>
+                                                    <TableCell padding="2px">{row.nftPrice}</TableCell>
+                                                </>
+                                            }
                                             {searchURL?.includes('nfts') ?
                                                 <TableCell padding="2px">{row?.artistName}</TableCell>
                                                 :

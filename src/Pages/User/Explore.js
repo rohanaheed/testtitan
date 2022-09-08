@@ -20,7 +20,7 @@ function Explore() {
     axios.get(API_URL + 'user/nfts')
       .then(res => {
         setLoading(false);
-        setData(res?.data);
+        setData(res?.data?.filter(item => item?.nftStatus === "Auction"));
       })
   }
   const [toggle, setToggle] = useState(window?.innerWidth > 1000 ? true : false);
