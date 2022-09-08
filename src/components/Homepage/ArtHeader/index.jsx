@@ -51,7 +51,7 @@ const ArtHeader = () => {
                         }
                     </p>
                     <div className="flex items-center gap-3 md:gap-6">
-                        <PlaceBidModal isOpen={isPlaceBidModalOpen} setIsOpen={setIsPlaceBidModalOpen} />
+                        <PlaceBidModal data={res} isOpen={isPlaceBidModalOpen} setIsOpen={setIsPlaceBidModalOpen} />
 
                         {account ?
                             <button onClick={() => setIsPlaceBidModalOpen(!isPlaceBidModalOpen)} className="white-shadow text-12 md:text-16 bg-white transition-all hover:bg-gray-900 hover:text-white rounded-8 py-8 px-16 md:px-26 mt-24">Place Bid</button>

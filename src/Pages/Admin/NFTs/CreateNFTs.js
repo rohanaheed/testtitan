@@ -84,7 +84,7 @@ const CreateNFTs = () => {
             const _start = moment.utc(startDate).format('HH:mm:ss');
             const _end = moment.utc(endDate).format('HH:mm:ss');
             debugger
-            console.log(_start, _end)
+            console.log(editNFT?.nftId, price, _start, _end)
             if (history?.location?.state?.time) {
                 formData.append("startDate", _start);
                 formData.append("endDate", _end);
@@ -101,8 +101,8 @@ const CreateNFTs = () => {
                         auctionAbi,
                         auctionAddress
                     )
-                    // contract.methods.list(editNFT?._id, price, _start, _end).send({ from: account, })
-                        // .then((res) => {
+                    contract.methods.list(editNFT?.nftId, price, _start, _end).send({ from: account, })
+                        .then((res) => {
                             axios.patch(API_URL_ADMIN + `admin/nft/edit/${editNFT?._id}`, formData, { headers: headers })
                                 .then(res => {
                                     setLoader(false);
@@ -115,10 +115,10 @@ const CreateNFTs = () => {
                                     setLoader(false);
                                 })
 
-                        // })
-                        // .catch((err) => {
-                        //     console.log("err buy", err);
-                        // })
+                        })
+                        .catch((err) => {
+                            console.log("err buy", err);
+                        })
                 } else {
                     axios.patch(API_URL_ADMIN + `admin/nft/edit/${editNFT?._id}`, formData, { headers: headers })
                         .then(res => {
