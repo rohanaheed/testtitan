@@ -18,11 +18,11 @@ const Navbar = () => {
     const history = useHistory();
     const [isContactModalOpen, setIsContactModalOpen] = useState(false);
     const artist = [
-        { name: 'Mr. Fan Shaohua', id: '1' },
-        { name: 'Mr. Cephas Wong', id: '2' },
-        { name: 'Liang zhenkang', id: '3' },
-        { name: 'Tan Ruirong', id: '4' },
-        { name: 'Yang Changtai', id: '5' }
+        { name: 'Yang Changtai', id: '1' },
+        { name: 'Liang Zhenkang, Stephen', id: '2' },
+        { name: 'Huang Jifa, Cephas', id: '3' },
+        // { name: 'Tan Ruirong', id: '4' },
+        // { name: 'Yang Changtai', id: '5' }
     ]
 
     const [open, setOpen] = useState(false)
