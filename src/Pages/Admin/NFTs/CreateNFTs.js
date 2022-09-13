@@ -83,8 +83,6 @@ const CreateNFTs = () => {
             formData.append("artistName", artistName);
             const _start = moment.utc(startDate).format('HH:mm:ss');
             const _end = moment.utc(endDate).format('HH:mm:ss');
-            debugger
-            console.log(editNFT?.nftId, price, _start, _end)
             if (history?.location?.state?.time) {
                 formData.append("startDate", _start);
                 formData.append("endDate", _end);
