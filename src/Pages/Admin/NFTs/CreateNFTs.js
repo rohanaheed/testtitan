@@ -13,6 +13,7 @@ import Web3 from 'web3';
 import { useWeb3React } from "@web3-react/core";
 import { auctionAbi } from "../../../contract/abis/auctionsAbi";
 import { auctionAddress } from "../../../contract/addesses/auctionsAddress";
+import { nftAddress } from "../../../contract/addesses/nftAddress";
 
 const CreateNFTs = () => {
     const [userData, setUserData] = useState({ name: '', description: '', imageUrl: '', artistName: '', startDate: '', endDate: '', price: '' });
@@ -81,8 +82,8 @@ const CreateNFTs = () => {
             formData.append("description", description);
             formData.append("image", image);
             formData.append("artistName", artistName);
-            const _start = moment.utc(startDate).format('HH:mm:ss');
-            const _end = moment.utc(endDate).format('HH:mm:ss');
+            const _start = moment.utc(startDate).format('MM/DD/YYYY hh:mm:ss');
+            const _end = moment.utc(endDate).format('MM/DD/YYYY hh:mm:ss');
             if (history?.location?.state?.time) {
                 formData.append("startDate", _start);
                 formData.append("endDate", _end);
@@ -99,7 +100,7 @@ const CreateNFTs = () => {
                         auctionAbi,
                         auctionAddress
                     )
-                    contract.methods.list(editNFT?.nftId, price, _start, _end).send({ from: account, })
+                    contract.methods.sellAtAuction(nftAddress, editNFT?.nftId, price, startDate.getTime(), endDate.getTime()).send({ from: account, })
                         .then((res) => {
                             axios.patch(API_URL_ADMIN + `admin/nft/edit/${editNFT?._id}`, formData, { headers: headers })
                                 .then(res => {

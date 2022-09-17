@@ -16,6 +16,7 @@ const NftsList = () => {
     const adminToken = localStorage.getItem('token');
     const [res, setRes] = useState([]);
     const { account, library, activate, deactivate, useProvider } = useWeb3React();
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         _getList()
@@ -35,6 +36,7 @@ const NftsList = () => {
     }
 
     const handelMint = (row) => {
+        setLoading(true);
         const headers = {
             Authorization: `Bearer ${adminToken}`,
         };
@@ -49,14 +51,36 @@ const NftsList = () => {
             .then((res) => {
                 axios.patch(API_URL_ADMIN + `admin/nft/edit/${row?._id}`, formData, { headers: headers })
                     .then(res => {
+                        updateHandle(row.nftId)
+                        // setRes()
                     })
                     .catch(err => {
                     })
             })
             .catch((err) => {
+                setLoading(false);
                 console.log("err buy", err);
             })
 
+    }
+    const updateHandle = (id) => {
+        var newArr = [];
+        for (let i = 0; i < res.length; i++) {
+            console.log(res[i].nftId , id)
+            if (res[i].nftId == id) {
+                newArr.push({
+                    ...res[i],
+                    nftStatus: 'Minted'
+                })
+            } else {
+                newArr.push({
+                    ...res[i]
+                })
+            }
+        }
+        console.log(newArr);
+        setRes(newArr);
+        setLoading(false);
     }
     return (
         <>
@@ -73,7 +97,7 @@ const NftsList = () => {
                         </div>
                         <hr />
                     </section>
-                    <SimpleTable rows={res} loader={loader} handelMint={handelMint} />
+                    <SimpleTable rows={res} mint={loading} loader={loader} handelMint={handelMint} />
                 </section>
             </main>
         </>

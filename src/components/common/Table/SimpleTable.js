@@ -196,7 +196,7 @@ SimpleTable.propTypes = {
     rowCount: PropTypes.number.isRequired,
 };
 
-export default function EnhancedTable({ rows, loader, handelMint }) {
+export default function EnhancedTable({ rows, loader, handelMint, mint }) {
     const [order, setOrder] = React.useState('asc');
     const [orderBy, setOrderBy] = React.useState('name');
     const [selected, setSelected] = React.useState([]);
@@ -316,8 +316,8 @@ export default function EnhancedTable({ rows, loader, handelMint }) {
                                                 <TableCell padding="2px">{row?.artistName}</TableCell>
                                                 :
                                                 <>
-                                                    <TableCell padding="2px">{moment.utc(row.startDate).format('MM/DD/YYYY HH:mm:ss')}</TableCell>
-                                                    <TableCell padding="2px">{moment.utc(row.endDate).format('MM/DD/YYYY HH:mm:ss')}</TableCell>
+                                                    <TableCell padding="2px">{row?.startDate}</TableCell>
+                                                    <TableCell padding="2px">{row?.endDate}</TableCell>
                                                 </>
                                             }
                                             {/* {searchURL?.includes('events') &&
@@ -345,15 +345,24 @@ export default function EnhancedTable({ rows, loader, handelMint }) {
                                                             'row': row
                                                         }
                                                     })}
+                                                    disabled={mint ? true : false}
                                                     className="bg-black text-white px-22 py-6 rounded-5 transition-all mr-2 flex items-center justify-center gap-3 hover:bg-black relative top-0 hover:top-px" >
                                                     Edit
                                                 </button>
                                                 {searchURL?.includes('nfts') && row?.nftStatus === 'Newly Created' &&
-                                                    <button
-                                                        onClick={() => handelMint(row)}
-                                                        className="bg-black text-white px-22 py-6 rounded-5 transition-all flex items-center justify-center gap-3 hover:bg-black relative top-0 hover:top-px" >
-                                                        Mint
-                                                    </button>
+                                                    <>
+                                                        {mint ?
+                                                            <button
+                                                                className="bg-black text-white px-22 py-6 rounded-5 transition-all flex items-center justify-center gap-3 hover:bg-black relative top-0 hover:top-px" >
+                                                                <div className='loader'></div>
+                                                            </button> :
+                                                            <button
+                                                                onClick={() => handelMint(row)}
+                                                                className="bg-black text-white px-22 py-6 rounded-5 transition-all flex items-center justify-center gap-3 hover:bg-black relative top-0 hover:top-px" >
+                                                                Mint
+                                                            </button>
+                                                        }
+                                                    </>
                                                 }
                                                 {searchURL?.includes('events') &&
                                                     <button

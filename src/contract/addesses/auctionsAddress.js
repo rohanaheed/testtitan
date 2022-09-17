@@ -1,1 +1,1 @@
-export const auctionAddress = '0x5382BFf951423c582a721123DAB2539E7f416230';
+export const auctionAddress = '0x2D66a09B9Dc6660A3A9F567485ed145DC67F4eab';

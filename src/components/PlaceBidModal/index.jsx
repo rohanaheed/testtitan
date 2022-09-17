@@ -1,6 +1,6 @@
 import Modal from '../common/Modal'
 import Input from '../common/Input'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useWeb3React } from '@web3-react/core';
 import isEmpty from '../../utils/isEmpty';
 import Web3 from 'web3';
@@ -9,20 +9,28 @@ import { auctionAddress } from '../../contract/addesses/auctionsAddress';
 import axios from "axios";
 import { API_URL } from '../../utils/contant';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { nftAddress } from '../../contract/addesses/nftAddress';
 
-const PlaceBidModal = ({ isOpen, setIsOpen, res }) => {
+const PlaceBidModal = ({ isOpen, setIsOpen, data }) => {
     const info = JSON.parse(localStorage.getItem('user_data'));
     const { account, library, activate, deactivate, useProvider } = useWeb3React();
     const [errors, setErrors] = useState('');
     const [loader, setLoader] = useState(false);
     const history = useHistory()
     const [formData, setFormData] = useState({
-        bidPrice: res?.nftPrice ? res?.nftPrice : null,
+        bidPrice: data?.nftPrice ? data?.nftPrice : null,
         userPhone: null,
         message: null
     });
     const { bidPrice, userPhone, message } = formData;
 
+    useEffect(() => {
+        if(data?.nftPrice){
+            setFormData({...formData, bidPrice: data?.nftPrice})
+        }
+    }, [data])
+
+    console.log(data)
     const validate = () => {
         const _errors = {};
         if (isEmpty(bidPrice)) {
@@ -48,9 +56,9 @@ const PlaceBidModal = ({ isOpen, setIsOpen, res }) => {
             const headers = {
                 Authorization: `Bearer ${info?.token}`,
             };
-            contract.methods.bid(res?.nftId).send({ from: account, value: bidPrice })
+            contract.methods.placeBid(nftAddress, bidPrice, data?.nftId).send({ from: account })
                 .then((res) => {
-                    axios.patch(API_URL + `user/placebid`, formData, { headers: headers })
+                    axios.post(API_URL + `user/placebid`, formData, { headers: headers })
                         .then(res => {
                             setLoader(false);
                         })
@@ -101,7 +109,7 @@ const PlaceBidModal = ({ isOpen, setIsOpen, res }) => {
                 </textarea>
                 <div className="bg-gray-900 py-18 px-28 mt-24 cursor-pointer">
                     {loader ?
-                        <p className="text-gray-200 font-medium text-center"> <div className='.loader1'></div> </p>
+                        <p className="text-gray-200 font-medium text-center"> <div className='loader1'></div> </p>
                         : <p className="text-gray-200 font-medium text-center" onClick={() => handleSubmit()}> Submit Bid </p>
                     }
                 </div>

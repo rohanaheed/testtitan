@@ -16,7 +16,6 @@ const ArtHeader = () => {
     const Token = JSON.parse(localStorage.getItem('user_data'))?.token;
     const [res, setRes] = useState(null);
     const { account, deactivate } = useWeb3React();
-    console.log(res)
     useEffect(() => {
         _getList()
     }, [])
@@ -43,7 +42,7 @@ const ArtHeader = () => {
                     <h3 className="text-3xl font-semibold text-white pt-16">{res?.name ? res?.name : "Mona Lisa"}</h3>
                     <h5 className="text-md font-normal text-white pb-20 mb-12 border-b border-gray-500">Painting by <span className='text-primary'>{res?.artistName ? res?.artistName : "Leonardo da Vinci"}</span></h5>
                     <h5 className="text-md font-light text-white">Price</h5>
-                    <h3 className="text-3xl font-semibold text-primary pb-20 mb-12 border-b border-gray-500">{res?.price ? '$' + res?.price : "$10,000"}</h3>
+                    <h3 className="text-3xl font-semibold text-primary pb-20 mb-12 border-b border-gray-500">{res?.nftPrice ? '$' + res?.nftPrice : "$10,000"}</h3>
                     <h3 className="text-3xl font-semibold text-white">Description</h3>
                     <p className="mt-4 text-lg text-gray-300 pb-20 mb-12 border-b border-gray-500">
                         {res?.description ? res?.description :

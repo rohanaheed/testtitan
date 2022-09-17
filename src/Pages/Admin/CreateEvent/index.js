@@ -9,10 +9,11 @@ import isEmpty from '../../../utils/isEmpty';
 import { API_URL_ADMIN } from '../../../utils/contant';
 import Multiselect from 'multiselect-react-dropdown';
 import DateTimePicker from 'react-datetime-picker';
+import moment from 'moment';
 
 const CreateEvent = () => {
-    const [userData, setUserData] = useState({ name: '', description: '', imageUrl: '', startDate: null, endDate: null, startTime: '', endTime: '', artist: '', price: '' });
-    const { name, description, imageUrl, startDate, endDate, startTime, endTime, artist, price } = userData;
+    const [userData, setUserData] = useState({ name: '', description: '', imageUrl: '', startDate: null, endDate: null, artist: '', price: '' });
+    const { name, description, imageUrl, startDate, endDate, artist, price } = userData;
     const [errors, setErrors] = useState({});
     const [loader, setLoader] = useState(false);
     const [art, setArtist] = useState('');
@@ -32,12 +33,14 @@ const CreateEvent = () => {
                 imageUrl: editNFT?.coverImage,
                 artistName: editNFT?.artistName,
                 price: editNFT?.minimumBid,
-                startDate: new Date(editNFT?.startDate),
-                endDate: new Date(editNFT?.endDate),
+                startDate: editNFT?.startDate && moment(editNFT?.startDate)._d,
+                endDate: editNFT?.endDate && moment(editNFT?.endDate)._d,
             })
             setImage(editNFT?.coverImage);
         }
     }, [history, editNFT])
+
+    console.log("userData", userData)
 
     useEffect(() => {
         _getNFTsList();
@@ -127,18 +130,18 @@ const CreateEvent = () => {
         if (isEmpty(name)) {
             _errors.name = 'Please enter name.';
         }
-        if (isEmpty(startDate)) {
-            _errors.startDate = 'Please enter start date and time.';
-        }
+        // if (isEmpty(startDate)) {
+        //     _errors.startDate = 'Please enter start date and time.';
+        // }
         // if (isEmpty(startTime)) {
         //     _errors.startTime = 'Please enter start time.';
         // }
         // if (isEmpty(endTime)) {
         //     _errors.endTime = 'Please enter end time.';
         // }
-        if (isEmpty(endDate)) {
-            _errors.endDate = 'Please enter end date and time.';
-        }
+        // if (isEmpty(endDate)) {
+        //     _errors.endDate = 'Please enter end date and time.';
+        // }
         if (isEmpty(imageUrl)) {
             _errors.imageUrl = 'Please upload image.';
         }
@@ -162,8 +165,8 @@ const CreateEvent = () => {
             formData.append("name", name);
             formData.append("description", description);
             formData.append("coverImage", image);
-            formData.append("startDate", startDate?.split(' ')[0] + " " + startDate?.split(' ')[1]);
-            formData.append("endDate", endDate?.split(' ')[0] + " " + endDate?.split(' ')[1]);
+            formData.append("startDate", moment(userData?.startDate).format('MM/DD/YYYY hh:mm:ss'));
+            formData.append("endDate", moment(userData?.endDate).format('MM/DD/YYYY hh:mm:ss'));
             // formData.append("minimumBid", price);
             for (let i = 0; i < selected?.length; i++) {
                 formData.append(`NFTIds[${i}]`, selected[i]?._id)
@@ -201,6 +204,7 @@ const CreateEvent = () => {
         setErrors(errors || {});
     }
 
+    console.log(userData?.startDate && moment(userData?.startDate)?._d, userData, editNFT)
     return (
         <>
             <Navbar />
@@ -299,13 +303,13 @@ const CreateEvent = () => {
                         </div>
                         <div className='flex items-center gap-3 mb-18'>
                             <label className="text-gray-800 font-medium mb-6 flex items-start gap-1" htmlFor="#">Start Date and Time</label>
-                            <DateTimePicker minDate={new Date()} onChange={(e) => setUserData({ ...userData, 'startDate': e })} format="y-MM-dd HH:mm:ss" value={startDate} />
+                            <DateTimePicker minDate={new Date()} onChange={(e) => setUserData({ ...userData, 'startDate': e }, setErrors({}))} format="y-MM-dd HH:mm:ss" value={startDate} />
                         </div>
                         {errors?.startDate && <p className="text-red-700  mb-22 text-10 ml-2"> {errors?.startDate} </p>}
 
                         <div className='flex items-center gap-3 mb-18'>
                             <label className="text-gray-800 font-medium mb-6 flex items-start gap-1" htmlFor="#">End Date and Time</label>
-                            <DateTimePicker minDate={new Date()} onChange={(e) => setUserData({ ...userData, 'endDate': e })} format="y-MM-dd HH:mm:ss" value={endDate} />
+                            <DateTimePicker minDate={new Date()} onChange={(e) => setUserData({ ...userData, 'endDate': e }, setErrors({}))} format="y-MM-dd HH:mm:ss" value={endDate} />
                         </div>
                         {errors?.endDate && <p className="text-red-700  mb-22 text-10 ml-2"> {errors?.endDate} </p>}
 
