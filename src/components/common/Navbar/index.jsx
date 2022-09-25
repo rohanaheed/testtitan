@@ -176,8 +176,25 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </section>
+                    {console.log(isAth)}
                     <div className="items-center gap-5 hidden lg:flex">
-                        <FaUserCircle onClick={() => !isAth?.token && setIsAuthModalOpen(!isAuthModalOpen)} className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
+                        {!isAth?.token ?
+                            <>
+                                <button
+                                    onClick={() => !isAth?.token && setIsAuthModalOpen(!isAuthModalOpen)}
+                                    className="white-shadow py-8 rounded-5 bg-white transition-all hover:bg-gray-900 hover:text-white px-26 header-btn">
+                                    Login
+                                </button>
+                            </> :
+                            <>
+                                <button
+                                    onClick={() => {localStorage.removeItem('user_data'); window.location.reload()}}
+                                    className="white-shadow py-8 rounded-5 bg-white transition-all hover:bg-gray-900 hover:text-white px-26 header-btn">
+                                    Logout
+                                </button>
+                                <FaUserCircle className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
+                            </>
+                        }
                         <AuthModal isOpen={isAuthModalOpen} setIsOpen={setIsAuthModalOpen} />
                         <BsCartFill className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
                         {account && localStorage?.getItem('user') ?
