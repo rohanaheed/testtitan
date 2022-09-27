@@ -7,7 +7,7 @@ function Art() {
   return (
     <>
       <ArtHeader />
-      <AboutArt />
+      {/* <AboutArt /> */}
       <GalleryContainer>
       <div>
         {/* <h3 className="text-xl font-semibold">Explore more art from <span className="text-primary">Leonardo da Vinci</span> </h3> */}
