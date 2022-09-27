@@ -28,6 +28,8 @@ const Navbar = () => {
     const [open, setOpen] = useState(false)
 
     const { account, deactivate } = useWeb3React();
+    {console.log(account)}
+
     const type = localStorage?.getItem('type')
     const [show, setShow] = useState(isEmpty(type) ? true : false);
     const logout = () => {
@@ -176,7 +178,6 @@ const Navbar = () => {
                             </li>
                         </ul>
                     </section>
-                    {console.log(isAth)}
                     <div className="items-center gap-5 hidden lg:flex">
                         {!isAth?.token ?
                             <>
@@ -197,7 +198,8 @@ const Navbar = () => {
                         }
                         <AuthModal isOpen={isAuthModalOpen} setIsOpen={setIsAuthModalOpen} />
                         <BsCartFill className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
-                        {account && localStorage?.getItem('user') ?
+                        {console.log(account, localStorage?.getItem('user'))}
+                        {account ?
                             <>
                                 <button
                                     className="white-shadow py-8 rounded-5 bg-white transition-all hover:bg-gray-900 hover:text-white px-26 header-btn">
