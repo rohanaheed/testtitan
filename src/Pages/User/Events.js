@@ -20,6 +20,7 @@ function Events() {
         setData(res?.data);
       })
   }
+  console.log(data)
   const [toggle, setToggle] = useState(islg ? true : false);
   return (
     <>

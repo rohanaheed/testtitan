@@ -21,6 +21,7 @@ const Navbar = () => {
         { name: 'Yang Changtai', id: '1' },
         { name: 'Liang Zhenkang, Stephen', id: '2' },
         { name: 'Huang Jifa, Cephas', id: '3' },
+        { name: 'roha', id: '4' },
         // { name: 'Tan Ruirong', id: '4' },
         // { name: 'Yang Changtai', id: '5' }
     ]
@@ -75,7 +76,7 @@ const Navbar = () => {
                     <section className="flex items-center gap-16">
                         <Link to="/">
                             <h4 className="whitespace-nowrap cursor-pointer text-26 font-medium text-white mb-4 logo hidden lg:block">
-                                <img src='/assets/logo.png' width={"50px"} />
+                                <img src='/assets/logo.png' width={"80px"} />
                             </h4>
                         </Link>
                         <ul className="links-container flex flex-col lg:flex-row list-none mr-auto lg:mr-0 gap-2 lg:gap-6">
@@ -88,7 +89,7 @@ const Navbar = () => {
                                     >
                                         Discover
                                     </span>
-                                    <ul className="dropdown-menu absolute hidden pb-14 px-26 z-10">
+                                    {/* <ul className="dropdown-menu absolute hidden pb-14 px-26 z-10">
                                         <div className='bg-black h-28 hidden lg:block'></div>
                                         <ScrollLink to="masters-art" spy={true} smooth={true}>
                                             <li ><span className="py-6 inline-block px-6 whitespace-nowrap text-gray-200 hover:text-primary cursor-pointer font-light">Master arts</span></li>
@@ -101,7 +102,7 @@ const Navbar = () => {
                                             <li ><span className="py-6 inline-block px-6 whitespace-nowrap text-gray-200 hover:text-primary cursor-pointer font-light">Precious gems</span></li>
                                         </ScrollLink>
                                         <li ><span className="py-6 inline-block px-6 whitespace-nowrap text-gray-200 hover:text-primary cursor-pointer font-light">Music pieces</span></li>
-                                    </ul>
+                                    </ul> */}
                                 </div>
 
                             </li>
@@ -130,7 +131,7 @@ const Navbar = () => {
                                     </ul>
                                 </div>
                             </li>
-                            <li className="flex items-center">
+                            {/* <li className="flex items-center">
                                 <div className="dropdown inline-block relative">
                                     <span
                                         className="whitespace-nowrap lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
@@ -151,14 +152,14 @@ const Navbar = () => {
                                         </div>
                                     </ul>
                                 </div>
-                            </li>
-                            <li className="flex items-center">
+                            </li> */}
+                            {/* <li className="flex items-center">
                                 <span
                                     className="whitespace-nowrap lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
                                 >
                                     NFT Project
                                 </span>
-                            </li>
+                            </li> */}
                             <Link to="/about-us">
                                 <li className="flex items-center">
                                     <span
@@ -197,7 +198,7 @@ const Navbar = () => {
                             </>
                         }
                         <AuthModal isOpen={isAuthModalOpen} setIsOpen={setIsAuthModalOpen} />
-                        <BsCartFill className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
+                        {/* <BsCartFill className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" /> */}
                         {console.log(account, localStorage?.getItem('user'))}
                         {account ?
                             <>

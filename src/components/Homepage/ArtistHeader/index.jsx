@@ -32,6 +32,12 @@ const Header = () => {
             id: '1',
             name: 'Yang Changtai',
             des: 'Mr. Yang Changtai is a practical and contemporary calligrapher in Singapore. Yang has received various awards from Japan Oil Painting & Calligraphy Academy. He has held more than 70 exhibitions around the world among many cities while portraying his calligraphy in many solo and joint exhibitions'
+        },
+        {
+            image: '/assets/1.jpeg',
+            id: '4',
+            name: 'roha',
+            des: 'Mr. Yang Changtai is a practical and contemporary calligrapher in Singapore. Yang has received various awards from Japan Oil Painting & Calligraphy Academy. He has held more than 70 exhibitions around the world among many cities while portraying his calligraphy in many solo and joint exhibitions'
         }
     ]
     const artist = arr.filter(item => item?.id == history?.location?.search?.split('=')[1]);

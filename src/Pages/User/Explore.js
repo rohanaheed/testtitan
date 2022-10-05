@@ -28,13 +28,13 @@ function Explore() {
     <>
       <main className="flex">
         {/* <section className="absolute lg:static w-full md:w-384"> */}
-        {toggle &&
+        {/* {toggle &&
           <section className="admin-sidebar">
             <Filter />
           </section>
-        }
+        } */}
         {/* <section className="w-full"> */}
-        <section className="page-content">
+        {/* <section className="page-content"> */}
           <section className="filter-btn lg:hidden flex items-center container mx-auto px-24 md:px-12 h-76">
             <AiOutlineFilter onClick={() => setToggle(!toggle)} className="text-27 cursor-pointer text-white ml-auto" />
           </section>
@@ -42,7 +42,7 @@ function Explore() {
           <GalleryContainer data={data} loading={loading}>
           </GalleryContainer>
           {/* <Pagination /> */}
-        </section>
+        {/* </section> */}
       </main>
     </>
   );
