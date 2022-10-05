@@ -55,7 +55,7 @@ const Navbar = () => {
                 <div
                     className="flex lg:hidden w-full justify-between lg:w-auto lg:static lg:justify-start"
                 >
-                    <Link to="/"> <h4 className="cursor-pointer text-26 font-medium text-white mb-4 logo block lg:hidden">  <img src='/assets/logo.png' width={"50px"} /></h4>  </Link>
+                    <Link to="/"> <h4 className="cursor-pointer text-26 font-medium text-white mb-4 logo block lg:hidden">  <img src='/assets/image/beglobal.svg' width={"50px"} /></h4>  </Link>
 
                     <section className='flex items-center gap-2'>
                         <BiUserCircle onClick={() => setIsAuthModalOpen(!isAuthModalOpen)} className="cursor-pointer ml-2 transition-all text-white hover:text-gray-300 text-28" />
