@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../sass/sub-stylesheet/components/connection-model.scss"
+    ],
+    "names": [],
+    "file": "connection-model.min.css"
+}

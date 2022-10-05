@@ -7,6 +7,7 @@ import Pagination from "../../components/common/Pagination";
 import GalleryContainer from "../../components/common/GalleryContainer";
 import axios from 'axios';
 import { API_URL } from '../../utils/contant';
+import Newsletter from '../../components/common/Navbar/Newsletter';
 
 function Explore() {
   const islg = useMediaQuery({ query: '(min-width: 1024px)' })
@@ -44,6 +45,7 @@ function Explore() {
           {/* <Pagination /> */}
         {/* </section> */}
       </main>
+      <Newsletter />
     </>
   );
 }

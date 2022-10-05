@@ -10,10 +10,10 @@ const GalleryItem = ({ item }) => {
                             <img alt="Placeholder" className="block h-auto w-full" src={item?.image ? item?.image : "https://picsum.photos/600/400/?random"} />
                         </a>
                     </div>
-                    <footer className='py-18 px-6'>
-                        <h6 className="mt-4 text-lg leading-relaxed text-gray-700 cursor-pointer font-medium transition-all hover:text-gray-900"> {item?.name} </h6>
-                        <p className="text-lg leading-relaxed text-gray-700"> {item?.artistName} </p>
-                        <p className="text-lg leading-relaxed text-gray-500 mb-6 font-bold nft-desc">{item?.description} </p>
+                    <footer className='py-18 px-6 bg-black text-white'>
+                        <h6 className="mt-4 text-lg leading-relaxed text-white cursor-pointer font-medium transition-all hover:text-gray-900"> {item?.name} </h6>
+                        <p className="text-lg leading-relaxed text-white"> {item?.artistName} </p>
+                        <p className="text-lg leading-relaxed text-white mb-6 font-bold nft-desc">{item?.description} </p>
                     </footer>
                 </article>
             </Link>

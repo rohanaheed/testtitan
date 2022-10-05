@@ -29,7 +29,7 @@ const Navbar = () => {
     const [open, setOpen] = useState(false)
 
     const { account, deactivate } = useWeb3React();
-    {console.log(account)}
+    { console.log(account) }
 
     const type = localStorage?.getItem('type')
     const [show, setShow] = useState(isEmpty(type) ? true : false);
@@ -75,9 +75,11 @@ const Navbar = () => {
                 >
                     <section className="flex items-center gap-16">
                         <Link to="/">
-                            <h4 className="whitespace-nowrap cursor-pointer text-26 font-medium text-white mb-4 logo hidden lg:block">
-                                <img src='/assets/logo.png' width={"80px"} />
-                            </h4>
+                            <span className="self-center logo text-xl text-red-500 font-semibold whitespace-nowrap flex items-center gap-2">
+
+                                <img src='/assets/image/beglobal.svg' width={"50px"} />
+                                Titan
+                            </span>
                         </Link>
                         <ul className="links-container flex flex-col lg:flex-row list-none mr-auto lg:mr-0 gap-2 lg:gap-6">
                             <li className="flex items-center">
@@ -190,7 +192,7 @@ const Navbar = () => {
                             </> :
                             <>
                                 <button
-                                    onClick={() => {localStorage.removeItem('user_data'); window.location.reload()}}
+                                    onClick={() => { localStorage.removeItem('user_data'); window.location.reload() }}
                                     className="white-shadow py-8 rounded-5 bg-white transition-all hover:bg-gray-900 hover:text-white px-26 header-btn">
                                     Logout
                                 </button>
