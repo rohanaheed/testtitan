@@ -29,8 +29,8 @@ function HomePage() {
         </section>
 
         {/* <main className='bg-white'> */}
-        <section className="container mx-auto px-30 md:px-62 py-52">
-          <main className='flex flex-col items-center lg:flex-row gap-5 lg:gap-9 justify-around'>
+        <section className="mx-auto px-30 md:px-62 py-52">
+          <main className='flex flex-col mt-50 items-center lg:flex-row gap-5 lg:gap-9 justify-around'>
             <div className="w-full">
               <img className='mx-auto' style={{ height: '380px' }} src="/assets/image/leoi.jpeg" alt="" />
             </div>
