@@ -30,7 +30,7 @@ function AboutUs() {
 
       <section className="bg-black relative mx-auto px-24 py-99">
         <p className="mt-4 text-lg leading-relaxed text-white">
-          QAIA.IO showcased the most prestigious collection of fine art NFT collectibles.  Enjoy a visual feast of several precious antiques, artworks, and the magnificent flair of specifically curated NFTs.
+          Titan showcased the most prestigious collection of fine art NFT collectibles.  Enjoy a visual feast of several precious antiques, artworks, and the magnificent flair of specifically curated NFTs.
         </p>
       </section>
 
@@ -56,7 +56,7 @@ function AboutUs() {
               <div className="md:pr-12">
                 <h3 className="text-3xl text-white font-semibold">Building a prestigious digital art space.</h3>
                 <p className="mt-4 text-lg text-white leading-relaxed">
-                  At QAIA.IO, we're excited to integrate fine arts with NFTs. They are unique, and tradable within collectors.
+                  At Titan, we're excited to integrate fine arts with NFTs. They are unique, and tradable within collectors.
 
                 </p>
               </div>
@@ -67,7 +67,7 @@ function AboutUs() {
       <section className="bg-black text-white relative mx-auto px-24 pb-99 mt-100">
         <h3 className="font-semibold text-28  text-center mb-24">Security Reports</h3>
         <p className="mt-4 text-lg leading-relaxed bg-black text-white">
-          QAIA.IO strives to be the most reliable and secure NFT marketplace for fine arts. We ensure all reports are reviewed by security experts and acted upon appropriately.
+          Titan strives to be the most reliable and secure NFT marketplace for fine arts. We ensure all reports are reviewed by security experts and acted upon appropriately.
         </p>
       </section>
         {/* <img className='w-205 absolute -bottom-28 -right-20 z-10 hidden lg:block' src="/assets/arrow-graphic.png" alt="" /> */}
