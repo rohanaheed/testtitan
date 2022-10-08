@@ -104,7 +104,6 @@ const ArtHeader = () => {
                             : <button onClick={() => setIsConnectWalletModalOpen(!isConnectWalletModalOpen)} className="white-shadow  text-12 md:text-16 bg-white transition-all hover:bg-gray-900 hover:text-white rounded-8 py-8 px-16 md:px-26 mt-24">Connect Wallet</button>
                         }
                         <ConnectionModel popup={isConnectWalletModalOpen} onClose={() => setIsConnectWalletModalOpen(false)} />
-                        {/* <ConnectWalletModal isOpen={isConnectWalletModalOpen} setIsOpen={setIsConnectWalletModalOpen} /> */}
                     </div>
                     <section style={{ zIndex: '0' }} className="flex items-center justify-end gap-3 mt-28">
                         <h5 className="text-md font-light text-white">Query?</h5>
