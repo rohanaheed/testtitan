@@ -34,7 +34,7 @@ const Newsletter = () => {
         }
         return _errors;
     }
-    
+
     const _submit = () => {
         const errors = validate();
         if (isEmpty(errors)) {
@@ -51,7 +51,9 @@ const Newsletter = () => {
                         <section className="w-full text-center xl:text-left mb-44">
                             <h4 className="font-semibold text-white text-24 mb-8 mt-50">Stay in the loop</h4>
                             <p className="text-16 text-gray-300 mb-28">Join our mailing list to stay in the loop with our newest feature releases, NFT drops, and tips and tricks for navigating Titan.</p>
+                            {errors.email && <p className="text-red-700 text-10 mt-4 ml-2 mb-5"> {errors.email} </p>}
                             <div className="w-full flex items-center gap-3">
+
                                 <Input
                                     placeholder='Your email address'
                                     name="email"
@@ -59,9 +61,9 @@ const Newsletter = () => {
                                     value={email}
                                     className='input-border'
                                     handleChange={handleChange}
-                                    errorMessage={errors.email}
+                                // errorMessage={errors.email}
                                 />
-                                <button onClick={() => _submit()} disabled={email ? false : true} className="bg-red-500 flex-shrink-0 text-white px-32 py-10 font-semibold rounded-5 transition-all hover:bg-red-600 relative top-0 hover:top-px" >Sign up</button>
+                                <button onClick={() => _submit()} className="bg-red-500 flex-shrink-0 text-white px-32 py-10 font-semibold rounded-5 transition-all hover:bg-red-600 relative top-0 hover:top-px" >Sign up</button>
                             </div>
                         </section>
 
