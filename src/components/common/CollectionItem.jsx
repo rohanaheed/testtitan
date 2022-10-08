@@ -4,21 +4,22 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { BsThreeDots } from "react-icons/bs";
 import { MdModeEditOutline, MdSell, MdSend } from "react-icons/md";
 import { Link } from 'react-router-dom';
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const CollectionItem = ({ slider, item }) => {
-
+    const history = useHistory();
     const [toggle, setToggle] = useState(false)
     console.log(item)
 
     return (
         <>
             {item?.image &&
-                <div className={`my-18 px-14  lg:my-12 lg:px-14 cursor-pointer ${slider ? 'w-full' : 'w-full md:w-1/2 lg:w-1/3'}`}>
+                <div onClick={() => history.push(`/nft-details/${item?._id}`)} className={`my-18 px-14  lg:my-12 lg:px-14 cursor-pointer ${slider ? 'w-full' : 'w-full md:w-1/2 lg:w-1/3'}`}>
                     <article className="overflow-hidden rounded-lg shadow-lg custom-shadow">
                         <section className="relative0">
                             {/* <img alt="Placeholder" className="block h-auto w-full" src={item?.image ? 'assets/image/nft.jpg' : "assets/image/nft.jpg"} /> */}
                             <div className="img-container">
-                                <a href="#">
+                                <a href="#!">
                                     <img alt="Placeholder" className="block h-auto w-full" src={item?.image ? item?.image : "https://picsum.photos/600/400/?random"} />
                                 </a>
                             </div>

@@ -8,8 +8,10 @@ import validateEmail from "../../../utils/validate";
 import Input from "../Input";
 import axios from 'axios';
 import AuthModal from "../../AuthModal";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Newsletter = () => {
+    const history = useHistory()
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
     const communitylinks = [<BsTwitter />, <BsInstagram />, <FaDiscord />, <FaRedditAlien />, <BsYoutube />, <FaTiktok />, <IoMail />]
     const [formData, setFormData] = useState({
@@ -110,28 +112,6 @@ const Newsletter = () => {
                                 </li>
                                 <li>
                                     <span className="text-gray-400 font-light transition-all hover:underline cursor-pointer">Domain Names</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="mb-24">
-                            <h2 className="text-sm font-semibold text-gray-200 uppercase dark:text-white mb-8">Resources</h2>
-                            <ul className="text-gray-600 dark:text-gray-400">
-                                <li>
-                                    <span className="text-gray-400 font-light transition-all hover:underline cursor-pointer">Help Center</span>
-                                </li>
-                                <li>
-                                    <span className="text-gray-400 font-light transition-all hover:underline cursor-pointer">Platform Status</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="mb-24">
-                            <h2 className="text-sm font-semibold text-gray-200 uppercase dark:text-white mb-8">Legal</h2>
-                            <ul className="text-gray-600 dark:text-gray-400">
-                                <li>
-                                    <span className="text-gray-400 font-light transition-all hover:underline cursor-pointer">Privacy Policy</span>
-                                </li>
-                                <li>
-                                    <span className="text-gray-400 font-light transition-all hover:underline cursor-pointer">Terms &amp; Conditions</span>
                                 </li>
                             </ul>
                         </div>

@@ -213,7 +213,6 @@ const Navbar = () => {
                                 </div>
                             </>
                         }
-                        {console.log(isAth)}
                         <AuthModal isOpen={isAuthModalOpen} setIsOpen={setIsAuthModalOpen} />
                         {/* <BsCartFill className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" /> */}
                         {account ?

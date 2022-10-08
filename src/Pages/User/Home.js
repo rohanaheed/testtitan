@@ -14,9 +14,9 @@ function HomePage() {
 
         <Slider />
 
-        <section className="container mx-auto px-30 md:px-62 py-52 mb-54">
-          <main className='flex flex-col items-center lg:flex-row gap-5 lg:gap-9 justify-between'>
-            <div className="video-rounded w-full rounded-5">
+        <section style={{ zIndex: '0' }} className="container mx-auto px-30 md:px-62 py-52 mb-54">
+          <main style={{ zIndex: '0' }} className='flex flex-col items-center lg:flex-row gap-5 lg:gap-9 justify-between'>
+            <div style={{ zIndex: '0' }} className="video-rounded w-full rounded-5">
               {/* <ReactPlayer playing={true} loop={true} controls={false} muted={true} url='https://www.youtube.com/watch?v=0xL1eeoO-9U&ab_channel=WatchMk' /> */}
               <iframe width="560" height="315" src="https://www.youtube.com/embed/0xL1eeoO-9U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>

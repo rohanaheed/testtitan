@@ -106,7 +106,7 @@ const ArtHeader = () => {
                         <ConnectionModel popup={isConnectWalletModalOpen} onClose={() => setIsConnectWalletModalOpen(false)} />
                         {/* <ConnectWalletModal isOpen={isConnectWalletModalOpen} setIsOpen={setIsConnectWalletModalOpen} /> */}
                     </div>
-                    <section className="flex items-center justify-end gap-3 mt-28">
+                    <section style={{ zIndex: '0' }} className="flex items-center justify-end gap-3 mt-28">
                         <h5 className="text-md font-light text-white">Query?</h5>
                         <h5 onClick={() => setIsContactModalOpen(!isContactModalOpen)} className="text-md font-semibold text-white cursor-pointer">Contact Us</h5>
                         <ContactModal isOpen={isContactModalOpen} setIsOpen={setIsContactModalOpen} />
