@@ -10,6 +10,8 @@ import axios from "axios";
 import { API_URL } from '../../utils/contant';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { nftAddress } from '../../contract/addesses/nftAddress';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const PlaceBidModal = ({ isOpen, setIsOpen, data }) => {
     const info = JSON.parse(localStorage.getItem('user_data'));
@@ -30,7 +32,6 @@ const PlaceBidModal = ({ isOpen, setIsOpen, data }) => {
         }
     }, [data])
 
-    console.log(data)
     const validate = () => {
         const _errors = {};
         if (isEmpty(bidPrice)) {
@@ -61,6 +62,7 @@ const PlaceBidModal = ({ isOpen, setIsOpen, data }) => {
                     axios.post(API_URL + `user/placebid`, formData, { headers: headers })
                         .then(res => {
                             setLoader(false);
+                            toast("Successfully bid placed!");
                         })
                         .catch(err => {
                             setErrors({
@@ -111,8 +113,10 @@ const PlaceBidModal = ({ isOpen, setIsOpen, data }) => {
                     {loader ?
                         <p className="text-gray-200 font-medium text-center"> <div className='loader1'></div> </p>
                         : <p className="text-gray-200 font-medium text-center" onClick={() => handleSubmit()}> Submit Bid </p>
+
                     }
                 </div>
+                <ToastContainer />
             </div>
         </Modal>
     )

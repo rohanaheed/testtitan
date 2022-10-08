@@ -9,7 +9,6 @@ import Input from '../common/Input'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 const ContactModal = ({ isOpen, setIsOpen }) => {
     const [userData, setUserData] = useState({ email: '', message: '', phone: '' });
     const { email, message, phone } = userData;
