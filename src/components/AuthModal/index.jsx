@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { FaUserCircle } from "react-icons/fa";
-import axios from 'axios';  
+import axios from 'axios';
 import Modal from '../common/Modal'
 import Input from '../common/Input'
 import isEmpty from '../../utils/isEmpty';
@@ -8,15 +8,15 @@ import validateEmail from '../../utils/validate';
 import { API_URL } from '../../utils/contant';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
-const AuthModal = ({ isOpen, setIsOpen }) => {
-    const [visibleComponent, setVisibleComponent] = useState('SignIn')
+const AuthModal = ({ isOpen, setIsOpen, name, email }) => {
+    const [visibleComponent, setVisibleComponent] = useState(name ? name : 'SignIn')
 
     const showAuthModal = () => {
         switch (visibleComponent) {
             case 'SignIn':
                 return <SignIn setVisibleComponent={setVisibleComponent} />
             case 'SignUp':
-                return <SignUp setVisibleComponent={setVisibleComponent} />
+                return <SignUp emailAddress={email} setVisibleComponent={setVisibleComponent} />
             case 'Forgot':
                 return <ForgotPassword setVisibleComponent={setVisibleComponent} />
             default:
@@ -119,13 +119,13 @@ const SignIn = ({ setVisibleComponent }) => {
     )
 }
 
-const SignUp = ({ setVisibleComponent }) => {
+const SignUp = ({ setVisibleComponent, emailAddress }) => {
     const [errors, setErrors] = useState('');
     const [loader, setloader] = useState(false);
     const [formData, setFormData] = useState({
         fullName: '',
         username: '',
-        email: '',
+        email: emailAddress ? emailAddress : '',
         password: '',
     });
     const { email, password, fullName, username } = formData;

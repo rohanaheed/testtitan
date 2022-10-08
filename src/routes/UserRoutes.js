@@ -8,6 +8,8 @@ import AboutUs from '../Pages/User/AboutUs';
 import Events from '../Pages/User/Events';
 import EventDeatils from '../Pages/User/EventDetails';
 import Layout from '../components/layout/Layout';
+import PrivacyPolicy from '../Pages/Policy/PrivacyPolicy';
+import Term from '../Pages/Policy/Term';
 
 const UserRoutes = () => {
   return (
@@ -20,6 +22,8 @@ const UserRoutes = () => {
         <Route exact path="/about-us" component={AboutUs} />
         <Route exact path="/events" component={Events} />
         <Route exact path="/event-details/:id" component={EventDeatils} />
+        <Route exact path="/privacy" component={PrivacyPolicy} />
+        <Route exact path="/term" component={Term} />
         {/* <Redirect from='/' to='/' /> */}
       </Layout>
     </Switch>

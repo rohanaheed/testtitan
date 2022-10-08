@@ -1,13 +1,47 @@
+import { useState } from "react";
 import { BsTwitter, BsInstagram, BsYoutube } from "react-icons/bs";
 import { FaDiscord, FaRedditAlien, FaTiktok } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
+import { API_URL } from "../../../utils/contant";
+import isEmpty from "../../../utils/isEmpty";
+import validateEmail from "../../../utils/validate";
 import Input from "../Input";
-
+import axios from 'axios';
+import AuthModal from "../../AuthModal";
 
 const Newsletter = () => {
-
+    const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
     const communitylinks = [<BsTwitter />, <BsInstagram />, <FaDiscord />, <FaRedditAlien />, <BsYoutube />, <FaTiktok />, <IoMail />]
+    const [formData, setFormData] = useState({
+        email: '',
+    });
+    const { email } = formData;
+    const [errors, setErrors] = useState('');
 
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormData({ ...formData, [name]: value });
+        setErrors('');
+    };
+
+    const validate = () => {
+        const _errors = {};
+        if (isEmpty(email)) {
+            _errors.email = 'Please enter email address.';
+        }
+        else if (!validateEmail(email)) {
+            _errors.email = 'It must be a valid email.';
+        }
+        return _errors;
+    }
+    
+    const _submit = () => {
+        const errors = validate();
+        if (isEmpty(errors)) {
+            setIsAuthModalOpen(true)
+        }
+        setErrors(errors || {});
+    }
     return (
 
         <footer className="bg-black w-full mb-90">
@@ -18,8 +52,16 @@ const Newsletter = () => {
                             <h4 className="font-semibold text-white text-24 mb-8 mt-50">Stay in the loop</h4>
                             <p className="text-16 text-gray-300 mb-28">Join our mailing list to stay in the loop with our newest feature releases, NFT drops, and tips and tricks for navigating Titan.</p>
                             <div className="w-full flex items-center gap-3">
-                                <Input className="w-full" placeholder="Your email address" />
-                                <button className="bg-red-500 flex-shrink-0 text-white px-32 py-10 font-semibold rounded-5 transition-all hover:bg-red-600 relative top-0 hover:top-px" >Sign up</button>
+                                <Input
+                                    placeholder='Your email address'
+                                    name="email"
+                                    type={'email'}
+                                    value={email}
+                                    className='input-border'
+                                    handleChange={handleChange}
+                                    errorMessage={errors.email}
+                                />
+                                <button onClick={() => _submit()} disabled={email ? false : true} className="bg-red-500 flex-shrink-0 text-white px-32 py-10 font-semibold rounded-5 transition-all hover:bg-red-600 relative top-0 hover:top-px" >Sign up</button>
                             </div>
                         </section>
 
@@ -94,6 +136,7 @@ const Newsletter = () => {
                     </div>
                 </div>
             </section>
+            <AuthModal email={email} name={'SignUp'} isOpen={isAuthModalOpen} setIsOpen={setIsAuthModalOpen} />
         </footer>
     )
 }

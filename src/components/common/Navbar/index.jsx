@@ -29,8 +29,6 @@ const Navbar = () => {
     const [open, setOpen] = useState(false)
 
     const { account, deactivate } = useWeb3React();
-    { console.log(account) }
-
     const type = localStorage?.getItem('type')
     const [show, setShow] = useState(isEmpty(type) ? true : false);
     const logout = () => {
@@ -191,17 +189,33 @@ const Navbar = () => {
                                 </button>
                             </> :
                             <>
-                                <button
+                                <div className="dropdown inline-block relative">
+                                    <span
+                                        className="whitespace-nowrap lg:text-white cursor-pointer hover:text-primary text-gray-800 px-3 py-4 lg:py-2 flex items-center text-md"
+                                    >
+                                    <FaUserCircle className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
+                                        {/* Discover */}
+                                    </span>
+                                    <ul className="dropdown-menu absolute hidden pb-14 px-26 z-10">
+                                        <div className='bg-black h-28 hidden lg:block'></div>
+                                        <ScrollLink to="masterss-art" spy={true} smooth={true}>
+                                            <li ><span className="py-6 inline-block px-6 whitespace-nowrap text-gray-200 hover:text-primary cursor-pointer font-light">User Name: {isAth?.payload?.username}</span></li>
+                                            <li ><span className="py-6 inline-block px-6 whitespace-nowrap text-gray-200 hover:text-primary cursor-pointer font-light">Email: {isAth?.payload?.email}</span></li>
+                                            <li ><span className="mt-15">
+                                            <button
                                     onClick={() => { localStorage.removeItem('user_data'); window.location.reload() }}
-                                    className="white-shadow py-8 rounded-5 bg-white transition-all hover:bg-gray-900 hover:text-white px-26 header-btn">
+                                    className="white-shadow py-8 mt-15 rounded-5 bg-white transition-all hover:bg-gray-900 hover:text-white px-26 header-btn">
                                     Logout
                                 </button>
-                                <FaUserCircle className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" />
+                                </span></li>
+                                        </ScrollLink>
+                                    </ul>
+                                </div>
                             </>
                         }
+                        {console.log(isAth)}
                         <AuthModal isOpen={isAuthModalOpen} setIsOpen={setIsAuthModalOpen} />
                         {/* <BsCartFill className="cursor-pointer transition-all text-white hover:text-gray-300 text-28" /> */}
-                        {console.log(account, localStorage?.getItem('user'))}
                         {account ?
                             <>
                                 <button
