@@ -45,7 +45,7 @@ const ConnectionModel = ({ popup, onClose }) => {
       <p className="text-white mb-34 text-center px-24 lg:px-72"> Connect with one of our wallet providers or create new one</p>
       <div class="text-sm text-white px-28 border-gray-200 mb-79">
         <ul class="rounded-8 card-shadow bg-black w-full mx-auto my-60 border">
-          <li onClick={() => connect('meta')} class="wallet-item flex items-center justify-between px-26 py-20 border-b cursor-pointer">
+          <li onClick={() => connect('meta')} class="flex items-center justify-between px-26 py-20 border-b cursor-pointer">
             <div class=" flex justify-between text-white bg-black items-center gap-5 font-normal text-16 cursor-pointer transition-all">
               <img class="w-24" src="/assets/metamask.webp" alt="" />
               MetaMask</div>
@@ -53,7 +53,7 @@ const ConnectionModel = ({ popup, onClose }) => {
               Popular
             </div>
           </li>
-          <li onClick={() => connect('')} class="wallet-item flex items-center justify-between px-26 py-20 border-b cursor-pointer">
+          <li onClick={() => connect('')} class="flex items-center justify-between px-26 py-20 border-b cursor-pointer">
             <div class=" flex justify-between text-white bg-black items-center gap-5 font-normal text-16 cursor-pointer transition-all">
               <img class="w-24" src="https://ik.imagekit.io/xanalia/Images/WalletConnect.svg" alt="" />
               MetaMask
