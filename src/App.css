@@ -91,7 +91,7 @@ table tbody tr td {
 }
 
 .page-content {
-  width: calc(100% - 272px);
+  /* width: calc(100% - 272px); */
   margin-left: auto;
   padding: 18px 20px;
 }

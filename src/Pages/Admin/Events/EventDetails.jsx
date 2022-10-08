@@ -78,7 +78,7 @@ function EventDetails() {
     return (
         <>
             <Navbar />
-            <section class="event-container">
+            <section class="event-container bg-white">
                 <h6 onClick={() => history.push('/admin/events')} className='mt-4 text-xl mt-5 leading-relaxed text-gray-700 cursor-pointer font-medium transition-all hover:text-gray-900'>
                     {"< Back"} &nbsp;&nbsp;&nbsp;&nbsp;
                 </h6>

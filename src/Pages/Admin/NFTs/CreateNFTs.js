@@ -151,10 +151,7 @@ const CreateNFTs = () => {
     return (
         <>
             <Navbar />
-            <main>
-                <section className="admin-sidebar">
-                    <Sidebar />
-                </section>
+            <main className="bg-white">
                 <section className="page-content">
                     <section className="createItemContainer container mx-auto mb-100 my-16 w-full">
                         <h3 className="text-40 font-semibold text-left">{editNFT?.name ? "Edit" : "Add"} New NFT</h3>

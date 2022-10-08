@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 
 const GalleryItem = ({ item }) => {
+    const history = useHistory()
     return (
-        <div className="cursor-pointer my-18 w-full md:w-1/2 lg:my-12 px-8 lg:w-1/3 nft-container">
-            <Link to={`/nft-details/${item?._id}`}>
+        <div style={{ zIndex: '0' }} className="cursor-pointer my-18 w-full md:w-1/2 lg:my-12 px-8 lg:w-1/3 nft-container" onClick={() => history.push(`/nft-details/${item?._id}`)}>
+            {/* <Link to={`/nft-details/${item?._id}`}> */}
                 <article className="card overflow-hidden rounded-lg shadow-lg">
                     <div className="img-container">
                         <a href="#">
@@ -16,7 +18,7 @@ const GalleryItem = ({ item }) => {
                         <p className="text-lg leading-relaxed text-white mb-6 font-bold nft-desc">{item?.description} </p>
                     </footer>
                 </article>
-            </Link>
+            {/* </Link> */}
         </div>
     )
 }

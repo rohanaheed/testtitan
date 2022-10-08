@@ -85,10 +85,10 @@ const NftsList = () => {
     return (
         <>
             <Navbar />
-            <main>
-                <section className="admin-sidebar">
+            <main className='bg-white'>
+                {/* <section className="admin-sidebar">
                     <Sidebar />
-                </section>
+                </section> */}
                 <section className="page-content">
                     <section className="w-full createItemContainer mx-auto">
                         <div className="flex items-center justify-between my-16">

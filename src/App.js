@@ -12,6 +12,14 @@ function App() {
   const url = history?.location?.pathname?.split('/')?.includes('admin');
   const { account, activate } = useWeb3React();
 
+  useEffect(() => {
+    if(history?.location?.pathname.includes('admin')){
+      document.body.style.background = 'white'
+    } else {
+      document.body.style.background = 'black'
+    }
+  }, [])
+
   const connect = async (name) => {
     try {
       if (name === 'meta') {

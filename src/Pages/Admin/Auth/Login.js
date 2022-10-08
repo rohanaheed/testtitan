@@ -40,7 +40,7 @@ const AdminSignIn = () => {
                 .then(res => {
                     localStorage.setItem('token', res?.data?.token);
                     setLoader(false);
-                    history.push('/admin/dashboard')
+                    history.push('/admin/nfts')
                 })
                 .catch(err => {
                     setErrors({ "err": err?.response?.data?.message })
@@ -52,7 +52,7 @@ const AdminSignIn = () => {
 
     return (
         <>
-            <main className='grid place-content-center' style={{ height: '100vh' }}>
+            <main className='grid place-content-center bg-white' style={{ height: '100vh' }}>
                 <main className='auth-container w-full sm:w-384 mx-auto'>
                     <span className="self-center logo text-xl text-black-500 mb-26 w-full font-semibold whitespace-nowrap flex items-center justify-center gap-2">
                         Admin Art Marketplace
@@ -80,7 +80,7 @@ const AdminSignIn = () => {
                     </div>
                     {loader ?
                         <button type='button' className="bg-black text-white w-full mb-18 px-32 h-38 rounded-5 transition-all hover:bg-black	 relative top-0 hover:top-px" >
-                            <div className="loader"></div>
+                            <div className="loader1"></div>
                         </button>
                         : <button type='button' onClick={() => _login()} className="bg-black text-white w-full mb-18 px-32 h-38 rounded-5 transition-all hover:bg-black	 relative top-0 hover:top-px" >Sign In</button>
                     }

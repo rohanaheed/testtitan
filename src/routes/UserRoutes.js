@@ -19,7 +19,7 @@ const UserRoutes = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/about-us" component={AboutUs} />
         <Route exact path="/events" component={Events} />
-        <Route exact path="/event-details" component={EventDeatils} />
+        <Route exact path="/event-details/:id" component={EventDeatils} />
         {/* <Redirect from='/' to='/' /> */}
       </Layout>
     </Switch>

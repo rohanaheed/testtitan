@@ -209,9 +209,9 @@ const CreateEvent = () => {
         <>
             <Navbar />
             <main>
-                <section className="admin-sidebar">
+                {/* <section className="admin-sidebar">
                     <Sidebar />
-                </section>
+                </section> */}
                 <section className="page-content">
                     <section className="w-full createItemContainer container mb-100 my-16">
                         <h3 className="text-40 font-semibold text-left">{editNFT?.name ? "Edit" : "Add"} New Event</h3>

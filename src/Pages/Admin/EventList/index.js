@@ -32,10 +32,10 @@ const EventList = () => {
         <>
             <Navbar />
             <main>
-                <section className="admin-sidebar">
+                {/* <section className="admin-sidebar">
                     <Sidebar />
-                </section>
-                <section className="page-content">
+                </section> */}
+                <section className="page-content bg-white">
                     <section className="w-full createItemContainer mx-auto">
                         <div className="flex items-center justify-between my-16">
                             <h3 className="text-40 font-semibold text-left">Events</h3>
