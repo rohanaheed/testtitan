@@ -121,9 +121,9 @@ function EventDetails() {
                     </div>
                 </div>
 
-                <h6 className='mt-32 text-xl text-center leading-relaxed text-gray-700 cursor-pointer font-medium transition-all hover:text-gray-900'>
-                    List NFT
-                </h6>
+                <h3 style={{ fontSize: '32px' }} className='mt-32 text-center leading-relaxed text-gray-700 cursor-pointer font-medium transition-all hover:text-gray-900'>
+                    List of NFT
+                </h3>
                 <div className='event-section list-nft mt-0'>
                     {selected?.map(item => (
                         <div className='event-card'>

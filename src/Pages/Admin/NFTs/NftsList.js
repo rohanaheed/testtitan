@@ -36,31 +36,35 @@ const NftsList = () => {
     }
 
     const handelMint = (row) => {
-        setLoading(true);
-        const headers = {
-            Authorization: `Bearer ${adminToken}`,
-        };
-        var formData = new FormData();
-        formData.append("nftStatus", 'Minted');
-        let web3 = new Web3(library?.provider ? library?.provider : library?.currentProvider);
-        let contract = new web3.eth.Contract(
-            nftAbi,
-            nftAddress
-        )
-        contract.methods.safeMint(account,row.nftId).send({ from: account, })
-            .then((res) => {
-                axios.patch(API_URL_ADMIN + `admin/nft/edit/${row?._id}`, formData, { headers: headers })
-                    .then(res => {
-                        updateHandle(row.nftId)
-                        // setRes()
-                    })
-                    .catch(err => {
-                    })
-            })
-            .catch((err) => {
-                setLoading(false);
-                console.log("err buy", err);
-            })
+        if(account){
+            setLoading(true);
+            const headers = {
+                Authorization: `Bearer ${adminToken}`,
+            };
+            var formData = new FormData();
+            formData.append("nftStatus", 'Minted');
+            let web3 = new Web3(library?.provider ? library?.provider : library?.currentProvider);
+            let contract = new web3.eth.Contract(
+                nftAbi,
+                nftAddress
+            )
+            contract.methods.safeMint(account,row.nftId).send({ from: account, })
+                .then((res) => {
+                    axios.patch(API_URL_ADMIN + `admin/nft/edit/${row?._id}`, formData, { headers: headers })
+                        .then(res => {
+                            updateHandle(row.nftId)
+                            // setRes()
+                        })
+                        .catch(err => {
+                        })
+                })
+                .catch((err) => {
+                    setLoading(false);
+                    console.log("err buy", err);
+                })
+        } else {
+            alert('Please connect your wallet!')
+        }
 
     }
     const updateHandle = (id) => {

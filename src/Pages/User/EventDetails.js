@@ -74,29 +74,29 @@ function EventDetails() {
   return (
     <>
       <section class="event-container">
-        <h6 onClick={() => history.push('/events')} className='mt-4 text-xl mt-5 leading-relaxed text-gray-700 cursor-pointer font-medium transition-all hover:text-gray-900'>
+        {/* <h6 style={{ zIndex: '0' }} onClick={() => history.push('/events')} className='mt-4 text-white text-xl mt-5 leading-relaxed cursor-pointer font-medium transition-all hover:text-gray-900'>
           {"< Back"} &nbsp;&nbsp;&nbsp;&nbsp;
-        </h6>
-        <h6 className='mt-4 text-xl text-center leading-relaxed text-gray-700 cursor-pointer font-medium transition-all hover:text-gray-900'>
+        </h6> */}
+        <h3 style={{ fontSize: '32px' }} className='mt-4 text-white text-center leading-relaxed cursor-pointer font-medium transition-all hover:text-gray-900'>
           Event Details
-        </h6>
+        </h3>
         <div className='description-section'>
           {/* <div className='card-img'> */}
           <img src={data?.coverImage ? data?.coverImage : 'https://www.harpersbazaararabia.com/cloud/2021/09/10/IMGWORLD-1.png'} alt='Card pic' />
           {/* </div> */}
           <div className='event-card-details'>
-            <p className='text-lg leading-relaxed text-gray-500 mb-6 font-bold nft-desc'>
+            <p className='text-lg leading-relaxed text-white mb-6 font-bold nft-desc'>
               Name: {data?.name}
             </p>
-            <p className='text-lg leading-relaxed text-gray-500 mb-6 font-bold nft-desc'>
+            <p className='text-lg leading-relaxed text-white mb-6 font-bold nft-desc'>
               Description: {data?.description}
             </p>
           </div>
         </div>
 
-        <h6 className='mt-32 text-xl text-center leading-relaxed text-gray-700 cursor-pointer font-medium transition-all hover:text-gray-900'>
-          List NFT
-        </h6>
+        <h3 style={{ fontSize: '32px' }} className='mt-32  text-center leading-relaxed text-white cursor-pointer font-medium transition-all hover:text-gray-900'>
+          List of NFT
+        </h3>
         <div className='event-section list-nft mt-0'>
           {selected?.map(item => (
             <div className='event-card  mb-100' style={{ zIndex: '0' }}>
@@ -106,13 +106,13 @@ function EventDetails() {
                 })}>
                 <img src={item?.image ? item?.image : 'https://archive.org/download/img-world-ticket-offers/yvA5SpUH-IMG-Worlds-1200x800.jpg'} alt='Card Img' />
                 <div className='event-card-details'>
-                  <h6 className='mt-4 text-lg leading-relaxed text-gray-700 cursor-pointer font-medium transition-all hover:text-gray-900'>
+                  <h6 className='mt-4 text-lg leading-relaxed text-white cursor-pointer font-medium transition-all hover:text-gray-900'>
                     {item?.name}
                   </h6>
-                  <p className='text-lg leading-relaxed text-gray-700'>
+                  <p className='text-lg leading-relaxed text-white'>
                     {item?.artistName}
                   </p>
-                  <p className='text-lg leading-relaxed text-gray-500 mb-6 font-bold nft-desc'>
+                  <p className='text-lg leading-relaxed text-white mb-6 font-bold nft-desc'>
                     {item?.description}
                   </p>
                 </div>

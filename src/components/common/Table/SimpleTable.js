@@ -354,7 +354,7 @@ export default function EnhancedTable({ rows, loader, handelMint, mint }) {
                                                         {mint ?
                                                             <button
                                                                 className="bg-black text-white px-22 py-6 rounded-5 transition-all flex items-center justify-center gap-3 hover:bg-black relative top-0 hover:top-px" >
-                                                                <div className='loader'></div>
+                                                                <div className='loader2'></div>
                                                             </button> :
                                                             <button
                                                                 onClick={() => handelMint(row)}

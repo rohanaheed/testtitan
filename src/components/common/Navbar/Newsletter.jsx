@@ -13,7 +13,34 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 const Newsletter = () => {
     const history = useHistory()
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
-    const communitylinks = [<BsTwitter />, <BsInstagram />, <FaDiscord />, <FaRedditAlien />, <BsYoutube />, <FaTiktok />, <IoMail />]
+    const communitylinks = [{
+        'link': 'https://twitter.com/',
+        'icon': <BsTwitter />
+    },
+    {
+        'link': 'https://www.instagram.com/',
+        'icon': <BsInstagram />
+    },
+    {
+        'link': 'https://medium.com/',
+        'icon': <FaDiscord />
+    },
+    // {
+    //     'link': 'https://twitter.com/',
+    //     'icon': <FaRedditAlien />
+    // },
+    {
+        'link': 'https://www.youtube.com/',
+        'icon': <BsYoutube />
+    },
+    {
+        'link': 'https://www.tiktok.com/login',
+        'icon': <FaTiktok />
+    },
+    {
+        'link': 'https://mail.google.com/',
+        'icon': <IoMail />
+    }]
     const [formData, setFormData] = useState({
         email: '',
     });
@@ -72,11 +99,11 @@ const Newsletter = () => {
                         <section className="w-full text-center xl:text-left">
                             <h4 className="font-semibold text-white text-24 mb-8 mt-50">Join the community</h4>
                             <p className="text-16 text-gray-300 mb-28">Join our social media handles to stay in the loop with our newest feature releases, NFT drops, and tips and tricks for navigating Titan.</p>
-                            <section className="flex items-start justify-center xl:justify-start gap-3 flex-wrap">
+                            <section style={{ zIndex: '999' }} className="flex items-start justify-center xl:justify-start gap-3 flex-wrap">
                                 {
                                     communitylinks?.map(link => (
-                                        <div className="grid place-content-center cursor-pointer bg-gray-600 transition-all hover:bg-gray-900 hover:text-red-500 text-24 w-48 h-48 rounded-5">
-                                            {link}
+                                        <div style={{ zIndex: '0' }} onClick={() => window.open(link?.link)} className="grid place-content-center cursor-pointer bg-gray-600 transition-all hover:bg-gray-900 hover:text-red-500 text-24 w-48 h-48 rounded-5">
+                                            {link?.icon}
                                         </div>
                                     ))
                                 }

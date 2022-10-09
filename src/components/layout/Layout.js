@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
     <ScrollToTop>
       <Navbar />
       <section className="relative bg-layout overflow-hidden">
-        <div className="showcase w-full absolute inset-0" style={{ backgroundImage: 'url(/assets/bg-2.gif)', Zindex: 0 }}></div>
+        <div className="showcase w-full absolute inset-0" ></div>
         <div>{children && children}</div>
       </section>
       <Footer />

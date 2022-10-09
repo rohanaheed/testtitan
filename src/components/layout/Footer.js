@@ -94,7 +94,7 @@ const Footer = ({ imageUrl }) => {
         <div className="d-flex justify-content-between copyright-section">
           <p className="copyright-text" style={{ fontSize: '12px'}}>&copy; {new Date().getFullYear()} FirstEleven Inc</p>
           <div className="d-flex justify-content-between footer-links">
-            <div style={{ fontSize: '12px'}} >
+            <div style={{ fontSize: '12px', zIndex: '0' }} >
               <a
                 href="#"
                 className="ms-3 mb-3 text-white no-underline"

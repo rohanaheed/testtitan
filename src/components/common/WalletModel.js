@@ -55,7 +55,7 @@ const WalletModel = ({ open, handleClose, admin }) => {
   return (
     <>
       <Dialog open={open} onClose={handleClose}>
-        <div className="wallet-modal">
+        <div className="wallet-modal bg-white">
           <div className="top_row">
             <div className="left"
               onClick={() => connect('meta')}

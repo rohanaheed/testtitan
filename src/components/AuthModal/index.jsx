@@ -259,28 +259,25 @@ const ForgotPassword = ({ setVisibleComponent }) => {
         const errors = validate();
         if (isEmpty(errors)) {
             setloader(true);
-            // axios.post(`${API_URL}/signin`, formData)
-            //     .then(res => {
-            //         setloader(false);
-            //         localStorage.setItem('user_data', JSON.stringify(res?.data));
-            //         navigate('/explore');
-            //         window.location.reload();
-            //         console.log(res)
-            //     })
-            //     .catch(err => {
-            //         console.log(err);
-            //         setErrors(err?.response?.data);
-            //         setloader(false);
-            //     })
+            axios.post(`${API_URL}user/forgotpassword`, formData)
+                .then(res => {
+                    setloader(false);
+                })
+                .catch(err => {
+                    setErrors(err?.response?.data);
+                    setloader(false);
+                })
         }
         setErrors(errors || {});
     }
+    console.log(errors)
     return (
         <section>
             <FaUserCircle className="text-gray-800 text-100 mx-auto mt-32" />
             <h2 className="text-center font-semibold text-24 text-gray-800 mt-22 mb-4"> Forgot Password? </h2>
             <p className="text-gray-600 font-light text-center px-52 mb-62"> Enter your email address and we will send you instructions to reset your password</p>
             <div className="w-full lg:w-2/3 px-20 lg:px-0 mx-auto mt-28 mb-76">
+            {errors?.message && <p className="text-red-700 text-10 mt-4 ml-2"> {errors?.message} </p>}
                 <Input
                     placeholder='Email'
                     name="email"
@@ -290,7 +287,10 @@ const ForgotPassword = ({ setVisibleComponent }) => {
                     handleChange={handleChange}
                     errorMessage={errors.email}
                 />
-                <button className="bg-gray-800 text-white w-full h-38 rounded-8 mb-9" onClick={() => _forgot()}>Continue</button>
+                {loader ?
+                    <button className="bg-gray-800 text-white w-full h-38 rounded-8 mb-9"><div className='loader1'></div></button> :
+                    <button className="bg-gray-800 text-white w-full h-38 rounded-8 mb-9" onClick={() => _forgot()}>Continue</button>
+                }
             </div>
 
             <div className="bg-gray-900 py-18 px-28 mt-8">

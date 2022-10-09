@@ -71,7 +71,6 @@ const ArtHeader = () => {
     function myCallback(a, b) {
         checkTime(moment(res?.startDate).format('hh:mm:ss'), moment(res?.endDate).format('hh:mm:ss'));
         const rem = getRemaining(moment(res?.endDate).format('YYYY-MM-DD hh:mm:ss'));
-        console.log(rem)
         const d = new Date(res?.endDate)
         setValue(`${rem[1] + ":" + rem[2] + ":" + rem[3]}`)
     }
@@ -97,11 +96,11 @@ const ArtHeader = () => {
                         {account ?
                             <>
                                 {/* {show ? */}
-                                    <button onClick={() => setIsPlaceBidModalOpen(!isPlaceBidModalOpen)} className="white-shadow text-12 md:text-16 bg-white transition-all hover:bg-gray-900 hover:text-white rounded-8 py-8 px-16 md:px-26 mt-24">Place Bid</button> :
+                                    <button style={{ zIndex: '0' }} onClick={() => Token ? setIsPlaceBidModalOpen(!isPlaceBidModalOpen) : alert('First need to login!')} className="white-shadow text-12 md:text-16 bg-white transition-all hover:bg-gray-900 hover:text-white rounded-8 py-8 px-16 md:px-26 mt-24">Place Bid</button> :
                                     {/* // <button className="white-shadow text-12 md:text-16 bg-white transition-all hover:bg-gray-900 hover:text-white rounded-8 py-8 px-16 md:px-26 mt-24">{value}</button>
                                 // } */}
                             </>
-                            : <button onClick={() => setIsConnectWalletModalOpen(!isConnectWalletModalOpen)} className="white-shadow  text-12 md:text-16 bg-white transition-all hover:bg-gray-900 hover:text-white rounded-8 py-8 px-16 md:px-26 mt-24">Connect Wallet</button>
+                            : <button style={{ zIndex: '0' }} onClick={() => setIsConnectWalletModalOpen(!isConnectWalletModalOpen)} className="white-shadow  text-12 md:text-16 bg-white transition-all hover:bg-gray-900 hover:text-white rounded-8 py-8 px-16 md:px-26 mt-24">Connect Wallet</button>
                         }
                         <ConnectionModel popup={isConnectWalletModalOpen} onClose={() => setIsConnectWalletModalOpen(false)} />
                     </div>
